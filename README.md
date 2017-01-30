@@ -44,7 +44,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
 ---<br>
 新機能追加テスト版:<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
-<br>特に理由がなければ正式版をお使い下さい。
+<br>特に理由がなければ正式版をお使い下さい。<br>
 ver0.1 : コマンドによる184の除外処理の実装(切り替え未対応)
 <br>
 <br>
