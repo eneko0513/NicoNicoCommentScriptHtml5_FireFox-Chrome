@@ -1,10 +1,10 @@
-# NicoNicoCommentScriptHtml5_FireFox<br>
+# NicoNicoCommentScriptHtml5_FireFox&Chrome<br>
 <br>
 導入:<br>
 正式版：<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 
-<br>上の文字列をコピーして、FireFoxのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
+<br>上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
 使い方:<br>スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
 プレイヤー下にテキストエリアとボタンが4種類表示される<br>
 <br>
@@ -39,7 +39,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  example)small ue mincho full #ff00ff -> small , #ff00ffでサイズと色が最初と最後についている形式<br>
  ue mincho #ff00ff -> 最初がueなので正常に変換されないので注意<br>
  <br>
- ver0.1 : FireFox版とりあえず公開<br>
+ ver0.1 : FireFox&Chrome版とりあえず公開<br>
  ver0.2 : 184投下切り替え機能追加<br>
  ver0.3 : 逆から投下機能追加<br>
 <br>
@@ -47,6 +47,6 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
 新機能追加テスト版:<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 <br>特に理由がなければ正式版をお使い下さい。<br>
-ver0.1 : コマンドによる184の除外処理の実装(切り替え未対応)
+ver0.3 : コマンドによる184の切り替え処理、逆からコメント投下の機能実装
 <br>
 <br>
