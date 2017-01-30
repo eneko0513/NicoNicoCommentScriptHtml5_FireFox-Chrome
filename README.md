@@ -40,6 +40,8 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ue mincho #ff00ff -> 最初がueなので正常に変換されないので注意<br>
  <br>
  ver0.1 : FireFox版とりあえず公開<br>
+ ver0.2 : 184投下切り替え機能追加<br>
+ ver0.3 : 逆から投下機能追加<br>
 <br>
 ---<br>
 新機能追加テスト版:<br>
