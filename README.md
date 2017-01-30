@@ -1,7 +1,7 @@
 # NicoNicoCommentScriptHtml5_FireFox<br>
 <br>
-導入:
-
+導入:<br>
+正式版：<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 
 <br>上の文字列をコピーして、FireFoxのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
@@ -37,6 +37,14 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ※注意:<br>
  コマンドの最初が サイズ、最後が #カラーコード でないと正常に変換されない<br>
  example)small ue mincho full #ff00ff -> small , #ff00ffでサイズと色が最初と最後についている形式<br>
- ue mincho #ff00ff -> 最初がueなので正常に変換されないので注意
- 
- ver0.1 : FireFox版とりあえず公開
+ ue mincho #ff00ff -> 最初がueなので正常に変換されないので注意<br>
+ <br>
+ ver0.1 : FireFox版とりあえず公開<br>
+<br>
+---<br>
+新機能追加テスト版:<br>
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
+<br>特に理由がなければ正式版をお使い下さい。
+ver0.1 : コマンドによる184の除外処理の実装(切り替え未対応)
+<br>
+<br>
