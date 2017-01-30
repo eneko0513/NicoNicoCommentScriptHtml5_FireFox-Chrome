@@ -1,4 +1,4 @@
-/*
+
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
@@ -11,7 +11,7 @@ javascript: (function(f, dd) {
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
-		if (text.match(/^\[[a-zA-z 0-9\#\.\(\)\+\-]+?\](.*)/) != null) {
+		if (text.match(/^\[(.+?)\](.*)/) != null) {
 			var posetSet = setInterval(function() {
 				if ($("#script_text_area").val() == "") clearInterval(posetSet);
 				button_disabled_change(false);
@@ -25,7 +25,9 @@ javascript: (function(f, dd) {
 			alert("not [COMMAND]COMMENT");
 		}
 	});
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 15em;'></span><label for='id_aaa'>ver0.4</label><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver0.4(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+
+
 
 	function button_disabled_change(flag) {
 		
@@ -37,6 +39,7 @@ javascript: (function(f, dd) {
 			$("#convert").prop("disabled", true);
 			$("#check_184").prop("disabled", true);
 			$("#check_return").prop("disabled", true);
+			$("#version").prop("disabled", true);
 		} else if (flag === false) {
 			if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
@@ -45,6 +48,7 @@ javascript: (function(f, dd) {
 			if ($("#script_text_area").val() == "") $("#convert").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#check_184").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#check_return").prop("disabled", false);
+			if ($("#script_text_area").val() == "") $("#version").prop("disabled", false);
 		} else {
 			$("#auto_insert").prop("disabled", false);
 			$("#single_insert").prop("disabled", false);
@@ -53,11 +57,18 @@ javascript: (function(f, dd) {
 			$("#convert").prop("disabled", false);
 			$("#check_184").prop("disabled", false);
 			$("#check_return").prop("disabled", false);
+			$("#version").prop("disabled", false);
 		}
 	}
+	
 	$("#clear").click(function() {
 		$("#script_text_area").val("");
 	});
+	
+	$("#version").click(function() {
+		alert('ver0.4:\n投下時のコマンドの中に全角文字が含まれている場合にエラーが出る問題を修正');
+	});
+	
 	$("#convert").click(function() {
 		var conText = $("#script_text_area").val();
 		var before = '\t';
@@ -99,9 +110,7 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val();
 		$("#script_text_area").val(conText);
 	});
-
 	function setCommandMment() {
-
 		if ($("#script_text_area").val() == "") {
 			clearInterval(posetSet);
 		}
@@ -119,12 +128,9 @@ javascript: (function(f, dd) {
 			retext = retext.replace("\n", "");
 		}
 
-		//comand = text.match(/^\[(.*)+?\](.*)/) + "";
-		//comand[1] = comand[1].replace("[", "");
-		//comand[1] = comand[1].replace("]", "");
 		$("#script_text_area").val(retext);
-		if (text.match(/^\[(.*)+?\](.*)/) != null) {
-			ext = text.match(/^\[(.*)+?\](.*)/);
+		if (text.match(/^\[(.+?)\](.*)/) != null) {
+			ext = text.match(/^\[(.+?)\](.*)/);
 			ext[2] = ext[2].replace(/<br>/gi, '\n');
 			ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 			ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
@@ -139,7 +145,6 @@ javascript: (function(f, dd) {
 			window.setTimeout(function() {
 				timers(elements_post);
 			}, 1000);
-
 			function j(elements_command, command) {
 				if($('#check_184').prop('checked')) {
 					elements_command.value = command;
@@ -151,7 +156,6 @@ javascript: (function(f, dd) {
 					"bubbles": !0
 				}));
 			};
-
 			function timers(a) {
 				a.dispatchEvent(new MouseEvent("click", {
 					"view": window,
@@ -159,7 +163,6 @@ javascript: (function(f, dd) {
 					"cancelable": !0
 				}));
 			};
-
 			function come(elements_text, text) {
 				elements_text.value = text;
 				elements_text.dispatchEvent(new Event("input", {
@@ -174,7 +177,7 @@ javascript: (function(f, dd) {
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
-		if (text.match(/^\[(.*)](.*)/) != null) {
+		if (text.match(/^\[(.+?)\](.*)/) != null) {
 			var posetSet = setInterval(function() {
 				if ($("#script_text_area").val() == "") {
 					clearInterval(posetSet);
@@ -194,7 +197,7 @@ javascript: (function(f, dd) {
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
-		if (text.match(/^\[(.*)](.*)/) != null) {
+		if (text.match(/^\[(.+?)\](.*)/) != null) {
 			button_disabled_change(true);
 			setCommandMment();
 			button_disabled_change("ok");
@@ -204,7 +207,8 @@ javascript: (function(f, dd) {
 		}
 	});
 })
-*/
+
+/*
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
