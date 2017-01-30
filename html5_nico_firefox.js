@@ -118,6 +118,16 @@ javascript: (function(f, dd) {
 		var lines = text.split('\n');
 		if($('#check_return').prop('checked')) {
 			text = lines[lines.length - 1];
+			
+			if(text == ""){
+				text = $("#script_text_area").val()
+				text = text.replace(/\n+$/g,'');
+				$("#script_text_area").val(text);
+				text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+				lines = text.split('\n');
+				text = lines[lines.length - 1];
+			}
+			
 			var text_length = text.length;
 			var retext = $("#script_text_area").val();
 			retext = retext.substr( 0, retext.length - text_length);
@@ -207,7 +217,6 @@ javascript: (function(f, dd) {
 		}
 	});
 })
-
 /*
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
