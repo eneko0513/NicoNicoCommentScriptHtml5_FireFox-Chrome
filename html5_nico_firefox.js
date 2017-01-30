@@ -187,6 +187,16 @@ javascript: (function(f, dd) {
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
+		
+		if(text == ""){
+			text = $("#script_text_area").val()
+			text = text.replace(/\n\[+?/,'[');
+			$("#script_text_area").val(text);
+			text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+			lines = text.split('\n');
+			text = lines[0];
+		}
+		
 		if (text.match(/^\[(.+?)\](.*)/) != null) {
 			var posetSet = setInterval(function() {
 				if ($("#script_text_area").val() == "") {
@@ -207,6 +217,16 @@ javascript: (function(f, dd) {
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
+		
+		if(text == ""){
+			text = $("#script_text_area").val()
+			text = text.replace(/\n\[+?/,'[');
+			$("#script_text_area").val(text);
+			text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+			lines = text.split('\n');
+			text = lines[0];
+		}
+		
 		if (text.match(/^\[(.+?)\](.*)/) != null) {
 			button_disabled_change(true);
 			setCommandMment();
