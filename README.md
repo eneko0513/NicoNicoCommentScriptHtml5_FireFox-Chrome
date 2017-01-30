@@ -42,6 +42,8 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.1 : FireFox&Chrome版とりあえず公開<br>
  ver0.2 : 184投下切り替え機能追加<br>
  ver0.3 : 逆から投下機能追加<br>
+ ver0.4 : コマンドに全角文字が含まれていた場合にエラーになる不具合の修正<br>
+ ver0.5 : 逆から投下の末尾に改行が存在していた場合にエラーになる不具合の修正
 <br>
 ---<br>
 新機能追加テスト版:<br>
