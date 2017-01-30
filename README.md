@@ -2,7 +2,7 @@
 <br>
 導入:<br>
 正式版：<br>
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 
 <br>上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
 使い方:<br>スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
@@ -45,7 +45,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
 <br>
 ---<br>
 新機能追加テスト版:<br>
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 <br>特に理由がなければ正式版をお使い下さい。<br>
 ver0.3 : コマンドによる184の切り替え処理、逆からコメント投下の機能実装
 <br>
