@@ -66,7 +66,7 @@ javascript: (function(f, dd) {
 	});
 	
 	$("#version").click(function() {
-		alert('ver0.4:\n投下時のコマンドの中に全角文字が含まれている場合にエラーが出る問題を修正');
+		alert('ver0.4:\n投下時のコマンドの中に全角文字が含まれている場合にエラーが出る問題を修正\n逆から投下時に末尾に改行が入っている場合にエラーが出る不具合の修正');
 	});
 	
 	$("#convert").click(function() {
