@@ -6,7 +6,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
 
 <br>上の文字列をコピーして、FireFoxのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
 使い方:<br>スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
-プレイヤー下にテキストエリアとボタンが3種類表示される<br>
+プレイヤー下にテキストエリアとボタンが4種類表示される<br>
 <br>
 説明:<br>
 <br>
