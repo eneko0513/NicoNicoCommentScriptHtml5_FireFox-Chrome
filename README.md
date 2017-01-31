@@ -46,9 +46,6 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.5 : 逆から投下の末尾に改行が存在していた場合にエラーになる不具合の修正
 <br>
 ---<br>
-新機能追加テスト版:<br>
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();
-<br>特に理由がなければ正式版をお使い下さい。<br>
-ver0.3 : コマンドによる184の切り替え処理、逆からコメント投下の機能実装
+
 <br>
 <br>
