@@ -13,7 +13,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  投下形式:<br>
  1.1行コメントモードのみ対応 <br>
  example1) <br>
- [コマンド]コメント<br>コメント[tab]コメント<br>
+ [コマンド]コメント\<br>コメント[tab]コメント<br>
 <br>
  example2) <br>
  [コマンド]コメントコメントコメントコメントコメントコメントコメントコメント <br>
