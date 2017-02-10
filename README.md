@@ -44,10 +44,11 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.3 : 逆から投下機能追加<br>
  ver0.4 : コマンドに全角文字が含まれていた場合にエラーになる不具合の修正<br>
  ver0.5 : 逆から投下の末尾に改行が存在していた場合にエラーになる不具合の修正<br>
- ver0.6 : 75文字をオーバーしたコメントがある場合はアラートを表示し、コメント投下しない形式に変更
+ ver0.6 : 75文字をオーバーしたコメントがある場合はアラートを表示し、コメント投下しない形式に変更<br>
+ ver0.7 : 75文字以内に関わらず75文字オーバーのエラーが出る不具合の修正<br>
 <br>
 ---<br>
-テスト版（非推奨）：<br>
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();<br>
+~~テスト版（非推奨）：<br>
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();~~<br>
 <br>
 <br>
