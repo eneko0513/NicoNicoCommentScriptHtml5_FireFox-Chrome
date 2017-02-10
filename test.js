@@ -125,15 +125,17 @@ javascript: (function(f, dd) {
 			//textArray.push( lines[c] );
 			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
 				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
+				
+				//alert(ext_check[2].substr(ext_check[2].length-4,4));
+				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+				}
+				
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				
-				var n = 4;
-				if('<br>' == ext_check[2].substr(ext_check[2].length-n,n)){
-					alert("BR");
-				}
-				
+				//alert(ext_check[2].length);
 				if (ext_check[2].length > 75) {
 					checkFlag = true;
 					overText += (c+1) + "行目のコメントが75文字をオーバーしています\n";
@@ -183,6 +185,7 @@ javascript: (function(f, dd) {
 			$("#script_text_area").val(retext);
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
+				
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
