@@ -130,7 +130,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				
 				var n = 4;
-				if('<br>' == ext_check[2].substr(str.length-n,n)){
+				if('<br>' == ext_check[2].substr(xt_check[2].length-n,n)){
 					alert("BR");
 				}
 				
