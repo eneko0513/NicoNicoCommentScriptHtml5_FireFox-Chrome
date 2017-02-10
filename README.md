@@ -47,6 +47,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.6 : 75文字をオーバーしたコメントがある場合はアラートを表示し、コメント投下しない形式に変更
 <br>
 ---<br>
-
+テスト版（非推奨）：<br>
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();<br>
 <br>
 <br>
