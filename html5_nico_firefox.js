@@ -29,8 +29,8 @@ javascript: (function(f, dd) {
 		
 	});
 	
-	var versions = "0.6"; 
-	var uptext = '\n75文字をオーバーしたコメントが存在する場合はアラート表示を行い、コメント投下をしない形式に変更';
+	var versions = "0.7"; 
+	var uptext = '\n末尾の改行に対してカウントが行われ75文字以内でもエラーが出る不具合の修正';
 	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
@@ -125,9 +125,17 @@ javascript: (function(f, dd) {
 			//textArray.push( lines[c] );
 			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
 				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
+				
+				//alert(ext_check[2].substr(ext_check[2].length-4,4));
+				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+				}
+				
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
+				
+				//alert(ext_check[2].length);
 				if (ext_check[2].length > 75) {
 					checkFlag = true;
 					overText += (c+1) + "行目のコメントが75文字をオーバーしています\n";
@@ -177,6 +185,7 @@ javascript: (function(f, dd) {
 			$("#script_text_area").val(retext);
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
+				
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
