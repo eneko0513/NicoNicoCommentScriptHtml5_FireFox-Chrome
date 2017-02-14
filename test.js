@@ -136,7 +136,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				
 				//alert(ext_check[2].length);
-				if (ext_check[2].length > 75) {
+				if (ext_check[2].length > 1024) {
 					checkFlag = true;
 					overText += (c+1) + "行目のコメントが75文字をオーバーしています\n";
 				}
@@ -189,8 +189,8 @@ javascript: (function(f, dd) {
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				if (ext[2].length > 75) {
-					ext[2] = ext[2].slice(0, 75);
+				if (ext[2].length > 1024) {
+					ext[2] = ext[2].slice(0, 1024);
 				}
 				var elements_command = document.getElementsByClassName("CommentCommandInput")[0];
 				j(elements_command, ext[1]);
