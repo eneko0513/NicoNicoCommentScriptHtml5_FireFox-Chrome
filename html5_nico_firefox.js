@@ -74,7 +74,7 @@
 	$("#version").click(function() {
 		alert('ver:' + versions + ':' + uptext);
 	});
-	
+	 
 	$("#convert").click(function() {
 		var conText = $("#script_text_area").val();
 		var before = '\t';
