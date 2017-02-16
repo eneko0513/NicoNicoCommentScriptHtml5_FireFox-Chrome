@@ -1,0 +1,39 @@
+while true
+
+ifb chkimg("gu-.bmp",0)
+IMG_CLICK("shita_tyoki",0,0,0,30,0)
+endif
+
+ifb chkimg("tyoki.bmp",0)
+IMG_CLICK("shita_pa-",0,0,0,30,0)
+endif
+
+ifb chkimg("pa-.bmp",0)
+IMG_CLICK("shita_gu-",0,0,0,30,0)
+endif
+
+wend
+
+
+//*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&*-+\!#$%&
+
+PROCEDURE IMG_CLICK(img_path,time,Xvalue,Yvalue,x,y)
+TEXTBLOCK practice
+	//画像クリック関数の記述省略用関数
+	img_path = 画像番号/パス
+	time = クリック後の待機時間/秒
+	Xvalue = x座標の誤差範囲/整数
+	Yvalue = y座標の誤差範囲/整数
+	x = 画像自体の座標 x
+	y = 画像自体の座標 y
+ENDTEXTBLOCK
+
+ifb CHKIMG(img_path,0)	//画像パス
+	x=G_IMG_X + x// 画像の座標をxへ代入
+	y=G_IMG_Y + y// 画像の座標をyへ代入
+	BTN(LEFT, CLICK, x, y, 1)　　 // 画像の場所を左クリック
+	MMV( 0,　130)
+	//bot_check()
+endif
+
+FEND
