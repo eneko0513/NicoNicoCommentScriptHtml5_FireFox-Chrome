@@ -1,10 +1,11 @@
-window.onload = function(){
-
-//const ncMain = document.getElementsByClassName('MainContainer')[0]
-//const myCmtSet = document.getElementsByClassName('CommentInput-textarea')[0];
-//const myCmdSet = document.getElementsByClassName('CommentCommandInput')[0];
-const myExtUrl = chrome.extension.getURL('');
-
+javascript: (function(f, dd) {
+	dd = document.createElement("script");
+	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+	dd.onload = function() {
+		f(jQuery.noConflict(true))
+	};
+	document.body.appendChild(dd)
+})(function($) {
 var $ = function (id){return (typeof id =='string')?document.getElementById(id):id;};
 var myDrg = 'F';
 var mySldVal = '0';
@@ -1869,120 +1870,4 @@ function myDelCookie(key){
 //----------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-/*************************************************
-----
-*************************************************/
-
-
-
-
-
-
-
-
-
-/*
-俺のメモ
-変数まとめて宣言
-var x,y,z;
-x=y=z=0;
-
-function numOnly() {
-  m = String.fromCharCode(event.keyCode);
-  if("0123456789\b\r".indexOf(m, 0) < 0) return false;
-  return true;
-}
-
-サイズのチェック
-body class ="is-large" is-middle
-
-
-
-
-
-
-
-
-
-名前空間NG
-
-//コンストラクタ
-function Const(){}
- 
-//変数
-var hensu;
- 
-//オブジェクト
-var obj1 = {};
-obj1.data = { a:1, b:2 };
-var obj2 = {};
- 
-//関数
-function getVal(){
-　console.log(hensu);
-}
-
-名前空間OK
-
-var APP = {}; //グローバル変数はすべて大文字にする、というルールを採用
- 
-//その配下にいろいろ定義
- 
-//コンストラクタ
-APP.Const = function(){};
- 
-//変数
-APP.hensu = 1;
- 
-//オブジェクトの入れ物
-APP.myObj = {};
- 
-//その中にオブジェクトを入れる
-APP.myObj.obj1 = {};
-APP.myObj.obj1.data = { a:1, b:2 };
-APP.myObj.obj2 = {};
-
-
-//空のコンストラクタでグローバルオブジェクトを作る
-var APP = function(){};
- 
-//その配下にいろいろ定義
- 
-//プロパティ
-APP.Const = function(a,b){
-	this.hensu = a;
-	this.myObj = b;
-}
- 
-//メソッド
-APP.Const.prototype.getVal = function(){
-	return this.hensu + this.myObj;
-};
- 
-//実行してみる
-window.onload = function(){
-　var a = new APP.Const( 'hello' , 'たろうさん' );
-　alert(a.getVal()); //helloたろうさん
-}
-
-
-
-
-
-
-var c = a && b;				// 変数 a が真ならば変数 b を、偽ならば変数 a を変数 c に代入
-var d = a || b;				// 変数 a が偽ならば変数 b を、真ならば変数 a を変数 d に代入
-
-
-
-
-*/
-
-
-
-};
+})
