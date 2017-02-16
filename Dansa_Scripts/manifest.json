@@ -1,0 +1,25 @@
+{
+  "name": "TEST",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "スク水。",
+  "content_scripts": [
+    {
+      "matches": ["http://www.nicovideo.jp/watch/*"],
+      "js": ["NICONICOScript3.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    "img/gage.png",
+    "plt.txt",
+    "img/Big_Shita_Ender_Full_Mincho_W17_L9.png",
+    "img/Big_Ue_Ender_Full_Mincho_W17_L9.png",
+    "img/Big_Ue_Full_Mincho_W34_L16.png",
+    "img/Medium_Shita_Ender_Full_Mincho_W24_L14.png",
+    "img/Medium_Ue_Ender_Full_Mincho_W24_L14.png",
+    "img/Medium_Ue_Full_Mincho_W40_L26.png",
+    "img/Small_Shita_Full_Mincho_W37_L2_C9.png",
+    "img/Small_Ue_Ender_Full_Mincho_W37_L21.png"
+  ]
+}
