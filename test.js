@@ -34,7 +34,7 @@ javascript: (function(f, dd) {
 	var comment_limit = 75;
 	var versions = "0.8"; 
 	var uptext = '\n75文字突破機能の実装\n(※悪用対策として184コメント時は不可,各自使い方は自己責任)';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><button id='auto_insert'>AUTO-ALL</button></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
 		
@@ -50,7 +50,8 @@ javascript: (function(f, dd) {
 			$("#version").prop("disabled", true);
 			$("#check_over75").prop("disabled", true);
 		} else if (flag === false) {
-			if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
+			//if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
+			$("#auto_insert").text("AUTO-INSERT");
 			if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#clear").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#script_text_area").prop("disabled", false);
@@ -251,6 +252,11 @@ javascript: (function(f, dd) {
 	}
 	$("#auto_insert").click(function() {
 		
+		if ($("#auto_insert").val() == "投下停止") {
+			clearInterval(posetSet);
+			button_disabled_change(false);
+		}
+
 		
 		var start = false;
 		start = TextCountCheck();
