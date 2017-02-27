@@ -156,7 +156,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				
 				
 				//alert(ext_check[2].length);
