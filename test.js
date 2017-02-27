@@ -255,39 +255,39 @@ javascript: (function(f, dd) {
 		if ($("#auto_insert").text() == "投下停止") {
 			clearInterval(posetSet);
 			button_disabled_change(false);
-		}
-
+		}else{
 		
-		var start = false;
-		start = TextCountCheck();
-		if(start == false){
-			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-			var lines = text.split('\n');
-			text = lines[0];
-			
-			if(text == ""){
-				text = $("#script_text_area").val()
-				text = text.replace(/\n\[+?/,'[');
-				$("#script_text_area").val(text);
-				text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-				lines = text.split('\n');
+			var start = false;
+			start = TextCountCheck();
+			if(start == false){
+				var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+				var lines = text.split('\n');
 				text = lines[0];
-			}
-			
-			if (text.match(/^\[(.+?)\](.*)/) != null) {
-				var posetSet = setInterval(function() {
-					if ($("#script_text_area").val() == "") {
-						clearInterval(posetSet);
-					}
-					button_disabled_change(false);
-				}, 6000);
-				setCommandMment();
-				button_disabled_change(true);
-				var posetSet = setInterval(function() {
+				
+				if(text == ""){
+					text = $("#script_text_area").val()
+					text = text.replace(/\n\[+?/,'[');
+					$("#script_text_area").val(text);
+					text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+					lines = text.split('\n');
+					text = lines[0];
+				}
+				
+				if (text.match(/^\[(.+?)\](.*)/) != null) {
+					var posetSet = setInterval(function() {
+						if ($("#script_text_area").val() == "") {
+							clearInterval(posetSet);
+						}
+						button_disabled_change(false);
+					}, 6000);
 					setCommandMment();
-				}, 6000);
-			} else {
-				alert("not [COMMAND]COMMENT");
+					button_disabled_change(true);
+					var posetSet = setInterval(function() {
+						setCommandMment();
+					}, 6000);
+				} else {
+					alert("not [COMMAND]COMMENT");
+				}
 			}
 		}
 	});
