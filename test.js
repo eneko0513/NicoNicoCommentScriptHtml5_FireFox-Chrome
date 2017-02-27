@@ -252,11 +252,6 @@ javascript: (function(f, dd) {
 	}
 	$("#auto_insert").click(function() {
 
-	if ($("#auto_insert").text() == "投下停止"){
-		var temp_text = $("#script_text_area").val();
-		$("#script_text_area").val("");
-	}
-
 			var start = false;
 			start = TextCountCheck();
 			if(start == false){
@@ -278,10 +273,6 @@ javascript: (function(f, dd) {
 						if ($("#script_text_area").val() == "") {
 							clearInterval(posetSet);
 						}
-
-						if($("#auto_insert").text() == "投下停止"){
-							$("#script_text_area").val(temp_text);
-						}
 						button_disabled_change(false);
 					}, 6000);
 					setCommandMment();
@@ -290,11 +281,7 @@ javascript: (function(f, dd) {
 						setCommandMment();
 					}, 6000);
 				} else {
-					if($("#auto_insert").text() == "投下停止"){
-
-					}else{
-						alert("not [COMMAND]COMMENT");
-					}
+					alert("not [COMMAND]COMMENT");
 				}
 			}
 		
