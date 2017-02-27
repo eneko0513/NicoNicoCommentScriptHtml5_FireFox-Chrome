@@ -116,7 +116,7 @@ javascript: (function(f, dd) {
 		before = '\\[big';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "\n\[big");
-		before = ' ';
+		before = ' ';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[A0]");
 		before = '\n';
@@ -204,7 +204,7 @@ javascript: (function(f, dd) {
 					ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-					ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+					ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				}
 				try{
 					lines[c] = ext_check[2];
@@ -246,7 +246,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 			}
 			try{
 				lines[c] = ext_check[2];
@@ -295,7 +295,7 @@ javascript: (function(f, dd) {
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
+				ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
 				if (ext[2].length > comment_limit) {
 					ext[2] = ext[2].slice(0, comment_limit);
 				}
