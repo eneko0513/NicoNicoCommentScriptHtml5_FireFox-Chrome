@@ -268,9 +268,9 @@ javascript: (function(f, dd) {
 					text = lines[0];
 				}
 				
-				if (text.match(/^\[(.+?)\](.*)/) != null) {
+				if ((text.match(/^\[(.+?)\](.*)/) != null) ||  ($("#auto_insert").text() == "投下停止") ) {
 					var posetSet = setInterval(function() {
-						if (($("#script_text_area").val() == "") ||($("#auto_insert").text() == "投下停止") ) {
+						if ($("#script_text_area").val() == "") {
 							clearInterval(posetSet);
 						}
 						button_disabled_change(false);
