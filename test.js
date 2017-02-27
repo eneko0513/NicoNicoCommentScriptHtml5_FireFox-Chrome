@@ -208,7 +208,7 @@ javascript: (function(f, dd) {
 				}
 				try{
 					lines[c] = ext_check[2];
-				}catch(e)
+				}catch(e){
 				}
 			}
 			$("#first_line_length").text(lines[0].length);
