@@ -51,7 +51,7 @@ javascript: (function(f, dd) {
 			$("#check_over75").prop("disabled", true);
 		} else if (flag === false) {
 			//if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
-			$("#auto_insert").text("AUTO-INSERT");
+			$("#auto_insert").text("AUTO-ALL");
 			if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#clear").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#script_text_area").prop("disabled", false);
@@ -252,7 +252,7 @@ javascript: (function(f, dd) {
 	}
 	$("#auto_insert").click(function() {
 		
-		if ($("#auto_insert").val() == "投下停止") {
+		if ($("#auto_insert").text() == "投下停止") {
 			clearInterval(posetSet);
 			button_disabled_change(false);
 		}
