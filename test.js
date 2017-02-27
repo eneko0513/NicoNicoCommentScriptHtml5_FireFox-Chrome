@@ -251,7 +251,12 @@ javascript: (function(f, dd) {
 		
 	}
 	$("#auto_insert").click(function() {
-		
+
+			if (("#auto_insert").text() == "投下停止"){
+				var temp_text = $("#script_text_area").val();
+				$("#script_text_area").val("");
+			}
+
 			var start = false;
 			start = TextCountCheck();
 			if(start == false){
@@ -272,17 +277,14 @@ javascript: (function(f, dd) {
 					var posetSet = setInterval(function() {
 						if ($("#script_text_area").val() == "") {
 							clearInterval(posetSet);
-							button_disabled_change(false);
-						}else{
-							button_disabled_change(true);
-							setCommandMment();
 						}
+						button_disabled_change(false);
 					}, 6000);
-					//setCommandMment();
-					//button_disabled_change(true);
-					//var posetSet = setInterval(function() {
-					//	setCommandMment();
-					//}, 6000);
+					setCommandMment();
+					button_disabled_change(true);
+					var posetSet = setInterval(function() {
+						setCommandMment();
+					}, 6000);
 				} else {
 					alert("not [COMMAND]COMMENT");
 				}
