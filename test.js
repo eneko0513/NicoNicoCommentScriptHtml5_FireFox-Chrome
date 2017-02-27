@@ -82,9 +82,6 @@ javascript: (function(f, dd) {
 		var before = '\t';
 		var regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[tab]");
-		before = ' ';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "[A0]");
 		before = 'small';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[small");
@@ -115,6 +112,9 @@ javascript: (function(f, dd) {
 		before = '\\[big';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "\n\[big");
+		before = ' ';
+		regExp = new RegExp(before, "g");
+		conText = conText.replace(regExp, "[A0]");
 		before = '\n';
 		regExp = new RegExp(before, "");
 		conText = conText.replace(regExp, "");
