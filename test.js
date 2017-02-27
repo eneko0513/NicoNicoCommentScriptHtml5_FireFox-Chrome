@@ -148,7 +148,11 @@ javascript: (function(f, dd) {
 				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
 					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
 				}
-				
+
+				if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
+					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+				}
+
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
@@ -170,6 +174,14 @@ javascript: (function(f, dd) {
 		return checkFlag;
 	}
 	
+
+	$("#script_text_area").change(function() {
+		var text_check = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+		var lines_check = text.split('\n');
+		var textArray_check = new Array();
+	});
+
+
 	
 	function setCommandMment() {
 
