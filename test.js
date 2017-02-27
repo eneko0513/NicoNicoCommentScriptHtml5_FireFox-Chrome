@@ -174,25 +174,14 @@ javascript: (function(f, dd) {
 		return checkFlag;
 	}
 	
-$("#script_text_area").each(function(){
-	$(this).bind("keyup", hoge(this));
-});
-function hoge(elm){
-	var v, old = elm.value;
-	return function(){
-		if(old != (v=elm.value)){
-			old = v;
-			str = $(this).val();
-				var text_check = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-				var lines_check = text_check.split('\n');
-				var textArray_check = new Array();
-		}
-	}
-}
-
-	$("#script_text_area").change(function() {
-
+$(function(){
+	$("#script_text_area").bind('keydown keyup keypress change',function(){
+		var thisValueLength = $(this).val().length;
+		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+		var lines = text.split('\n');
+		var textArray = new Array();
 	});
+});
 
 
 	
