@@ -278,10 +278,11 @@ javascript: (function(f, dd) {
 						if ($("#script_text_area").val() == "") {
 							clearInterval(posetSet);
 						}
-						button_disabled_change(false);
+
 						if($("#auto_insert").text() == "投下停止"){
 							$("#script_text_area").val(temp_text);
 						}
+						button_disabled_change(false);
 					}, 6000);
 					setCommandMment();
 					button_disabled_change(true);
