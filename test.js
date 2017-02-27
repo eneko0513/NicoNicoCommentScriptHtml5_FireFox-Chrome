@@ -1,4 +1,4 @@
-更新メモ： (A0)空白を１行形式に置換する際に[A0]に置換する形式に変更
+//更新メモ： (A0)空白を１行形式に置換する際に[A0]に置換する形式に変更
 
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
