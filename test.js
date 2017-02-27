@@ -279,6 +279,9 @@ javascript: (function(f, dd) {
 							clearInterval(posetSet);
 						}
 						button_disabled_change(false);
+						if($("#auto_insert").text() == "投下停止"){
+							$("#script_text_area").val(temp_text);
+						}
 					}, 6000);
 					setCommandMment();
 					button_disabled_change(true);
@@ -287,7 +290,7 @@ javascript: (function(f, dd) {
 					}, 6000);
 				} else {
 					if($("#auto_insert").text() == "投下停止"){
-						$("#script_text_area").val(temp_text);
+
 					}else{
 						alert("not [COMMAND]COMMENT");
 					}
