@@ -208,7 +208,8 @@ javascript: (function(f, dd) {
 				}
 				lines[c] = ext_check[2];
 			}
-			//console.log(lines[0].length + "  " + lines[lines.length -1].length);
+			$("#first_lines_length").text(lines[0].length);
+			$("#first_lines_length").text(lines[lines.length -1].length);
 		});
 	});
 
