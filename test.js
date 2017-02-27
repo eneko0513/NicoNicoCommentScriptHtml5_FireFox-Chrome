@@ -82,10 +82,10 @@ javascript: (function(f, dd) {
 		var before = '\t';
 		var regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[tab]");
-		before = 'small';
+		before = ' ';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[A0]");
-		before = ' ';	//a0
+		before = 'small';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[small");
 		before = 'medium';
