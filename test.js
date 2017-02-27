@@ -183,6 +183,9 @@ function hoge(elm){
 		if(old != (v=elm.value)){
 			old = v;
 			str = $(this).val();
+				var text_check = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+				var lines_check = text_check.split('\n');
+				var textArray_check = new Array();
 		}
 	}
 }
