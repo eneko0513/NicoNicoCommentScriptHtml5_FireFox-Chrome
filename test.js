@@ -286,7 +286,11 @@ javascript: (function(f, dd) {
 						setCommandMment();
 					}, 6000);
 				} else {
-					alert("not [COMMAND]COMMENT");
+					if($("#auto_insert").text() == "投下停止"){
+						$("#script_text_area").val(temp_text);
+					}else{
+						alert("not [COMMAND]COMMENT");
+					}
 				}
 			}
 		
