@@ -206,9 +206,10 @@ $(function(){
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 			}
+			lines[c] = ext_check[2];
 		}
 
-		alert(lines[0].length + "  " + lines[lines.length -1].length);
+		console.log(lines[0].length + "  " + lines[lines.length -1].length);
 
 		if(checkFlag == true){
 			alert(overText);
