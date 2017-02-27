@@ -208,7 +208,7 @@ $(function(){
 			}
 		}
 
-		alert(lines[0] + "  " + lines.length);
+		alert(lines[0].length + "  " + lines[lines.;ength -1].length);
 
 		if(checkFlag == true){
 			alert(overText);
