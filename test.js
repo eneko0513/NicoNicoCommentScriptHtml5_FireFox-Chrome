@@ -252,10 +252,10 @@ javascript: (function(f, dd) {
 	}
 	$("#auto_insert").click(function() {
 
-			if (("#auto_insert").text() == "投下停止"){
-				var temp_text = $("#script_text_area").val();
-				$("#script_text_area").val("");
-			}
+	if ($("#auto_insert").text() == "投下停止"){
+		var temp_text = $("#script_text_area").val();
+		$("#script_text_area").val("");
+	}
 
 			var start = false;
 			start = TextCountCheck();
