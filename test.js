@@ -174,22 +174,18 @@ javascript: (function(f, dd) {
 		return checkFlag;
 	}
 	
-	$("#script_text_area").keyup(checkChange_text(this));
-	
-	function checkChange_text(e){
-		var old = v=$(e).find("#script_text_area").val();
-		return function(){
-		v=$(e).find("#script_text_area").val();
-			if(old != v){
-				old = v;
-				isChange = true;
-				var text_check = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-				var lines_check = text_check.split('\n');
-				var textArray_check = new Array();
-				delSuccessMSG();
-			}
+$("#script_text_area").each(function(){
+	$(this).bind(‘keyup’, hoge(this));
+});
+function hoge(elm){
+	var v, old = elm.value;
+	return function(){
+		if(old != (v=elm.value)){
+			old = v;
+			str = $(this).val();
 		}
 	}
+}
 
 	$("#script_text_area").change(function() {
 
