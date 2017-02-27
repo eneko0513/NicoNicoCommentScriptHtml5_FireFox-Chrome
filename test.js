@@ -175,7 +175,7 @@ javascript: (function(f, dd) {
 	}
 	
 $("#script_text_area").each(function(){
-	$(this).bind(‘keyup’, hoge(this));
+	$(this).bind("keyup", hoge(this));
 });
 function hoge(elm){
 	var v, old = elm.value;
