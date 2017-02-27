@@ -158,7 +158,7 @@ javascript: (function(f, dd) {
 				//alert(ext_check[2].length);
 				if (ext_check[2].length > comment_limit) {
 					checkFlag = true;
-					overText += (c+1) + "行目のコメントが" + comment_limit + "文字をオーバーしています\n";
+					overText += (c+1) + "行目のコメントが" + (ext_check[2].length - comment_limit) + "文字をオーバーしています\n";
 				}
 			}
 		}
