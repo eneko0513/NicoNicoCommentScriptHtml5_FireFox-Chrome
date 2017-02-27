@@ -176,10 +176,46 @@ javascript: (function(f, dd) {
 	
 $(function(){
 	$("#script_text_area").bind('keydown keyup keypress change',function(){
-		var thisValueLength = $(this).val().length;
+		if($('#check_over75').prop('checked')) {
+			comment_limit = 1024;
+		}else{
+			comment_limit = 75;
+		}
+		
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		var textArray = new Array();
+		var checkFlag = false;
+		var overText = "";
+		for( var c = 0;c < lines.length;c++){
+			//textArray.push( lines[c] );
+			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
+				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
+				
+				//alert(ext_check[2].substr(ext_check[2].length-4,4));
+				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+				}
+
+				if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
+					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+				}
+
+				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
+				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
+				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+			}
+		}
+
+		alert(lines[0] + "  " + lines.length);
+
+		if(checkFlag == true){
+			alert(overText);
+			//exit;
+		}
+
+
 	});
 });
 
