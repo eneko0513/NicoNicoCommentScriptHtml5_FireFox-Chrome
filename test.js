@@ -209,7 +209,7 @@ javascript: (function(f, dd) {
 				lines[c] = ext_check[2];
 			}
 			$("#first_lines_length").text(lines[0].length);
-			$("#first_lines_length").text(lines[lines.length -1].length);
+			$("#last_lines_length").text(lines[lines.length -1].length);
 		});
 	});
 
