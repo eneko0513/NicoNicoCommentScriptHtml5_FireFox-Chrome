@@ -206,10 +206,13 @@ javascript: (function(f, dd) {
 					ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 					ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				}
-				lines[c] = ext_check[2];
+				try{
+					lines[c] = ext_check[2];
+				}catch(e)
+				}
 			}
-			$("#first_lines_length").text(lines[0].length);
-			$("#last_lines_length").text(lines[lines.length -1].length);
+			$("#first_line_length").text(lines[0].length);
+			$("#last_line_length").text(lines[lines.length -1].length);
 		});
 	});
 
