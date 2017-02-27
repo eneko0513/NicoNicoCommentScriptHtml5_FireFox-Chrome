@@ -287,7 +287,8 @@ javascript: (function(f, dd) {
 			}
 
 			$("#script_text_area").val(retext);
-text_check_count_first_last()
+			text_check_count_first_last();
+
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
 				
