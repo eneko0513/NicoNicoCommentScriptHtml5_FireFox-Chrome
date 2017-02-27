@@ -29,9 +29,10 @@ javascript: (function(f, dd) {
 		
 	});
 	
-	var versions = "test2"; 
-	var uptext = '\n1024文字投下の追加(184解除時+1024チェック)';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'></form><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024文字</label><input id='check_over75' type='checkbox' value='over75'></form><br><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	var comment_limit = 75;
+	var versions = "0.8"; 
+	var uptext = '\n75文字突破機能の実装\n(※悪用対策として184コメント時は不可,各自使い方は自己責任)';
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
 		
@@ -44,6 +45,7 @@ javascript: (function(f, dd) {
 			$("#check_184").prop("disabled", true);
 			$("#check_return").prop("disabled", true);
 			$("#version").prop("disabled", true);
+			$("#check_over75").prop("disabled", true);
 		} else if (flag === false) {
 			if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
@@ -53,6 +55,7 @@ javascript: (function(f, dd) {
 			if ($("#script_text_area").val() == "") $("#check_184").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#check_return").prop("disabled", false);
 			if ($("#script_text_area").val() == "") $("#version").prop("disabled", false);
+			if ($("#script_text_area").val() == "") $("#check_over75").prop("disabled", false);
 		} else {
 			$("#auto_insert").prop("disabled", false);
 			$("#single_insert").prop("disabled", false);
@@ -62,6 +65,7 @@ javascript: (function(f, dd) {
 			$("#check_184").prop("disabled", false);
 			$("#check_return").prop("disabled", false);
 			$("#version").prop("disabled", false);
+			$("#check_over75").prop("disabled", false);
 		}
 	}
 	
@@ -116,6 +120,13 @@ javascript: (function(f, dd) {
 	});
 	
 	function TextCountCheck(){
+		//alert( comment_limit );
+		if($('#check_over75').prop('checked')) {
+			comment_limit = 1024;
+		}else{
+			comment_limit = 75;
+		}
+		
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		var textArray = new Array();
@@ -136,9 +147,9 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				
 				//alert(ext_check[2].length);
-				if (ext_check[2].length > 1024) {
+				if (ext_check[2].length > comment_limit) {
 					checkFlag = true;
-					overText += (c+1) + "行目のコメントが75文字をオーバーしています\n";
+					overText += (c+1) + "行目のコメントが" + comment_limit + "文字をオーバーしています\n";
 				}
 			}
 		}
@@ -189,8 +200,8 @@ javascript: (function(f, dd) {
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				if (ext[2].length > 1024) {
-					ext[2] = ext[2].slice(0, 1024);
+				if (ext[2].length > comment_limit) {
+					ext[2] = ext[2].slice(0, comment_limit);
 				}
 				var elements_command = document.getElementsByClassName("CommentCommandInput")[0];
 				j(elements_command, ext[1]);
@@ -230,6 +241,7 @@ javascript: (function(f, dd) {
 		
 	}
 	$("#auto_insert").click(function() {
+		
 		
 		var start = false;
 		start = TextCountCheck();
@@ -293,4 +305,16 @@ javascript: (function(f, dd) {
 			}
 		}
 	});
+
+	$('#check_184').change(function(){
+		if ($(this).is(':checked')) {
+			$('#check_over75').prop("checked", false);
+			$('#check_over75').prop("disabled", true);
+			//comment_limit = 75;
+		} else {
+			$('#check_over75').prop("disabled", false);
+			//comment_limit = 1024;
+		}
+	});
+
 })
