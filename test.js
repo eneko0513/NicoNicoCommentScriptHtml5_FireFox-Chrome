@@ -268,7 +268,7 @@ javascript: (function(f, dd) {
 					text = lines[0];
 				}
 				
-				if ((text.match(/^\[(.+?)\](.*)/) != null) ||  ($("#auto_insert").text() == "投下停止") ) {
+				if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 					var posetSet = setInterval(function() {
 						if ($("#script_text_area").val() == "") {
 							clearInterval(posetSet);
@@ -278,7 +278,12 @@ javascript: (function(f, dd) {
 					setCommandMment();
 					button_disabled_change(true);
 					var posetSet = setInterval(function() {
-						setCommandMment();
+						if (($("#auto_insert").text() != "投下停止")){
+							setCommandMment();
+						}else{
+							clearInterval(posetSet);
+							button_disabled_change(false);
+						}
 					}, 6000);
 				} else {
 					alert("not [COMMAND]COMMENT");
