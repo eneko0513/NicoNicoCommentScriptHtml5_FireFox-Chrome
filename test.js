@@ -275,7 +275,7 @@ javascript: (function(f, dd) {
 				
 				if (text.match(/^\[(.+?)\](.*)/) != null) {
 					var posetSet = setInterval(function() {
-						if ($("#script_text_area").val() == "") {
+						if (($("#script_text_area").val() == "") ||($("#auto_insert").text() == "投下停止") ) {
 							clearInterval(posetSet);
 						}
 						button_disabled_change(false);
