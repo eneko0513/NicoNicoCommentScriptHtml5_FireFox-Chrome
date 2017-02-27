@@ -252,11 +252,6 @@ javascript: (function(f, dd) {
 	}
 	$("#auto_insert").click(function() {
 		
-		if ($("#auto_insert").text() == "投下停止") {
-			clearInterval(posetSet);
-			button_disabled_change(false);
-		}
-		
 			var start = false;
 			start = TextCountCheck();
 			if(start == false){
