@@ -1,3 +1,5 @@
+更新メモ： (A0)空白を１行形式に置換する際に[A0]に置換する形式に変更
+
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
@@ -32,12 +34,13 @@ javascript: (function(f, dd) {
 	var comment_limit = 75;
 	var versions = "0.8"; 
 	var uptext = '\n75文字突破機能の実装\n(※悪用対策として184コメント時は不可,各自使い方は自己責任)';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><button id='stop'>投下停止</button></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 10em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><button id='auto_insert'>AUTO-ALL</button></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
 		
 		if (flag === true) {
-			$("#auto_insert").prop("disabled", true);
+			//$("#auto_insert").prop("disabled", true);
+			$("#auto_insert").text("投下停止");
 			$("#single_insert").prop("disabled", true);
 			$("#clear").prop("disabled", true);
 			$("#script_text_area").prop("disabled", true);
@@ -112,7 +115,7 @@ javascript: (function(f, dd) {
 		before = '\\[big';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "\n\[big");
-		before = ' ';
+		before = ' ';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "[A0]");
 		before = '\n';
@@ -148,7 +151,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				
 				
 				//alert(ext_check[2].length);
@@ -197,7 +200,7 @@ javascript: (function(f, dd) {
 				var retext = $("#script_text_area").val().replace(text, "");
 				retext = retext.replace("\n", "");
 			}
-        	
+
 			$("#script_text_area").val(retext);
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
@@ -205,7 +208,7 @@ javascript: (function(f, dd) {
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
+				ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
 				if (ext[2].length > comment_limit) {
 					ext[2] = ext[2].slice(0, comment_limit);
 				}
@@ -221,7 +224,7 @@ javascript: (function(f, dd) {
 					if($('#check_184').prop('checked')) {
 						elements_command.value = command;
 					}else{
-						elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　";
+						elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
 					}
 					
 					elements_command.dispatchEvent(new Event("input", {
