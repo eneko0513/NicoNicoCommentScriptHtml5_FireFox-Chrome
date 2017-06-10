@@ -1,5 +1,3 @@
-//更新メモ：
-
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
@@ -116,7 +114,7 @@ javascript: (function(f, dd) {
 		before = '\\[big';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "\n\[big");
-		//before = ' ';
+		//before = ' ';
 		//regExp = new RegExp(before, "g");
 		//conText = conText.replace(regExp, "[A0]");
 		before = '\n';
@@ -156,7 +154,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				
 				
 				//alert(ext_check[2].length);
@@ -204,7 +202,7 @@ javascript: (function(f, dd) {
 					ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-					//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+					//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				}
 				try{
 					lines[c] = ext_check[2];
@@ -246,7 +244,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 			}
 			try{
 				lines[c] = ext_check[2];
@@ -295,7 +293,7 @@ javascript: (function(f, dd) {
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				//ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
+				//ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
 				if (ext[2].length > comment_limit) {
 					ext[2] = ext[2].slice(0, comment_limit);
 				}
@@ -311,7 +309,7 @@ javascript: (function(f, dd) {
 					if($('#check_184').prop('checked')) {
 						elements_command.value = command;
 					}else{
-						elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
+						elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
 					}
 					
 					elements_command.dispatchEvent(new Event("input", {
