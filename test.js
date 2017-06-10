@@ -314,7 +314,7 @@ javascript: (function(f, dd) {
 					
 					//
 					if($('#patissier').prop('checked')) {
-						elements_command.value += "patissier " + command;
+						elements_command.value = "patissier " + elements_command.value;
 					}
 
 					elements_command.dispatchEvent(new Event("input", {
