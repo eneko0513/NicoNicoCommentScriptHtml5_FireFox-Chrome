@@ -14,6 +14,7 @@ javascript: (function(f, dd) {
 		text = lines[0];
 
 		if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
+			window.confirm( "bbb？" );
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
@@ -29,6 +30,7 @@ javascript: (function(f, dd) {
 			}
 		}else{
 			//クソ適当な投コメモード対応
+			window.confirm( "aaa？" );
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
@@ -374,6 +376,7 @@ javascript: (function(f, dd) {
 				}
 				
 				if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
+					window.confirm( "bbb？" );
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 						var posetSet = setInterval(function() {
 							if ($("#script_text_area").val() == "") {
@@ -391,6 +394,7 @@ javascript: (function(f, dd) {
 					}
 				}else{
 					//ひどい投コメ対応；；
+					window.confirm( "aaa？" );
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 						var posetSet = setInterval(function() {
 							if ($("#script_text_area").val() == "") {
