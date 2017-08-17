@@ -373,20 +373,39 @@ javascript: (function(f, dd) {
 					text = lines[0];
 				}
 				
-				if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
-					var posetSet = setInterval(function() {
-						if ($("#script_text_area").val() == "") {
-							clearInterval(posetSet);
-						}
-						button_disabled_change(false);
-					}, 6000);
-					setCommandMment();
-					button_disabled_change(true);
-					var posetSet = setInterval(function() {
+				if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
+					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
+						var posetSet = setInterval(function() {
+							if ($("#script_text_area").val() == "") {
+								clearInterval(posetSet);
+							}
+							button_disabled_change(false);
+						}, 6000);
 						setCommandMment();
-					}, 6000);
-				} else {
-					alert("not [COMMAND]COMMENT");
+						button_disabled_change(true);
+						var posetSet = setInterval(function() {
+							setCommandMment();
+						}, 6000);
+					} else {
+						alert("not [COMMAND]COMMENT");
+					}
+				}else{
+					//ひどい投コメ対応；；
+					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
+						var posetSet = setInterval(function() {
+							if ($("#script_text_area").val() == "") {
+								clearInterval(posetSet);
+							}
+							button_disabled_change(false);
+						}, 1500);
+						setCommandMment();
+						button_disabled_change(true);
+						var posetSet = setInterval(function() {
+							setCommandMment();
+						}, 1500);
+					} else {
+						alert("not [COMMAND]COMMENT");
+					}
 				}
 			}
 		
