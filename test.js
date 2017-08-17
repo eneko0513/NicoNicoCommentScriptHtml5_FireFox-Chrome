@@ -19,12 +19,12 @@ javascript: (function(f, dd) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
 					button_disabled_change(false);
-				}, 1500);
+				}, 500);
 				setCommandMment();
 				button_disabled_change(true);
 				var posetSet = setInterval(function() {
 					setCommandMment();
-				}, 1500);
+				}, 500);
 			} else {
 				alert("not [COMMAND]COMMENT");
 			}
@@ -381,12 +381,12 @@ javascript: (function(f, dd) {
 								clearInterval(posetSet);
 							}
 							button_disabled_change(false);
-						}, 1500);
+						}, 500);
 						setCommandMment();
 						button_disabled_change(true);
 						var posetSet = setInterval(function() {
 							setCommandMment();
-						}, 1500);
+						}, 500);
 					} else {
 						alert("not [COMMAND]COMMENT");
 					}
