@@ -13,34 +13,32 @@ javascript: (function(f, dd) {
 		var lines = text.split('\n');
 		text = lines[0];
 
-		if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
-			window.alert( "aaa" ) ;
+		if($(".GridCell OwnerEditMenuContainer-left").length){
+			//クソ適当な投コメモード対応
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
 					button_disabled_change(false);
-				}, 6000);
+				}, 1500);
 				setCommandMment();
 				button_disabled_change(true);
 				var posetSet = setInterval(function() {
 					setCommandMment();
-				}, 6000);
+				}, 1500);
 			} else {
 				alert("not [COMMAND]COMMENT");
 			}
 		}else{
-			//クソ適当な投コメモード対応
-			window.alert( "bbb" ) ;
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
 					button_disabled_change(false);
-				}, 1500);
+				}, 6000);
 				setCommandMment();
 				button_disabled_change(true);
 				var posetSet = setInterval(function() {
 					setCommandMment();
-				}, 1500);
+				}, 6000);
 			} else {
 				alert("not [COMMAND]COMMENT");
 			}
@@ -375,38 +373,36 @@ javascript: (function(f, dd) {
 					text = lines[0];
 				}
 				
-				if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
-					window.confirm( "bbb？" );
+				if($(".GridCell OwnerEditMenuContainer-left").length){
+					//ひどい投コメ対応；；
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 						var posetSet = setInterval(function() {
 							if ($("#script_text_area").val() == "") {
 								clearInterval(posetSet);
 							}
 							button_disabled_change(false);
-						}, 6000);
+						}, 1500);
 						setCommandMment();
 						button_disabled_change(true);
 						var posetSet = setInterval(function() {
 							setCommandMment();
-						}, 6000);
+						}, 1500);
 					} else {
 						alert("not [COMMAND]COMMENT");
 					}
 				}else{
-					//ひどい投コメ対応；；
-					window.confirm( "aaa？" );
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 						var posetSet = setInterval(function() {
 							if ($("#script_text_area").val() == "") {
 								clearInterval(posetSet);
 							}
 							button_disabled_change(false);
-						}, 1500);
+						}, 6000);
 						setCommandMment();
 						button_disabled_change(true);
 						var posetSet = setInterval(function() {
 							setCommandMment();
-						}, 1500);
+						}, 6000);
 					} else {
 						alert("not [COMMAND]COMMENT");
 					}
