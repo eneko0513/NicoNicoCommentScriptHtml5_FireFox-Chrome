@@ -13,7 +13,7 @@ javascript: (function(f, dd) {
 		var lines = text.split('\n');
 		text = lines[0];
 
-		if($(".GridCell OwnerEditMenuContainer-left").length){
+		if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
 			//クソ適当な投コメモード対応
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
@@ -373,7 +373,7 @@ javascript: (function(f, dd) {
 					text = lines[0];
 				}
 				
-				if($(".GridCell OwnerEditMenuContainer-left").length){
+				if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
 					//ひどい投コメ対応；；
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
 						var posetSet = setInterval(function() {
