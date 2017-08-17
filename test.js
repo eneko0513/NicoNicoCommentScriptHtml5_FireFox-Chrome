@@ -14,7 +14,7 @@ javascript: (function(f, dd) {
 		text = lines[0];
 
 		if(element.classList.contains('GridCell OwnerEditMenuContainer-left') == false ){
-			window.confirm( "bbb？" );
+			window.alert( "aaa" ) ;
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
@@ -30,7 +30,7 @@ javascript: (function(f, dd) {
 			}
 		}else{
 			//クソ適当な投コメモード対応
-			window.confirm( "aaa？" );
+			window.alert( "bbb" ) ;
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
