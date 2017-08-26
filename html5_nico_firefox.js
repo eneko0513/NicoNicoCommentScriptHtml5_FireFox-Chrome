@@ -46,9 +46,9 @@ javascript: (function(f, dd) {
 	});
 	
 	var comment_limit = 75;
-	var versions = "0.92"; 
-	var uptext = '\nHTML5投コメ状態に自動的に高速投下モードになる機能を実装';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	var versions = "0.93"; 
+	var uptext = '\n投コメのエディタのjsonを1コメント1行形式に置換して出力する機能を実装';
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓エディタのjson形式を1コメント1行単位置換したもの↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
 		
@@ -140,6 +140,29 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val(conText);
 	});
 	
+	$("#convert_json").click(function() {
+		var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
+		elements_json.click();
+		var json_text = $('.OwnerCommentEditEditorContainer-textarea').text();
+		var before = '\n';
+		var regExp = new RegExp(before, "g");
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "");
+		before = '},';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "},\n");
+		before = '\\[';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "\[\n");
+		before = '\\]';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "\n\]");
+		elements_json = document.getElementById("edit_json_output");
+		elements_json.innerText = json_text;
+		elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[2];
+		elements_json.click();
+	});
+
 	function TextCountCheck(){
 		//alert( comment_limit );
 		if($('#check_over75').prop('checked')) {
