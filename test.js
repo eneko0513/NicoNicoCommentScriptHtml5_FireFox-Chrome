@@ -140,7 +140,8 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val(conText);
 	});
 	
-	$("#convert_json").click(function() {
+	//$("#convert_json").click(function() {
+	$('button').on('click', function () {
 		var index = $('.ActionButton OwnerEditButton').index(this);
 		alert(index);
 		//$('.ActionButton OwnerEditButton').eq(5).click();
