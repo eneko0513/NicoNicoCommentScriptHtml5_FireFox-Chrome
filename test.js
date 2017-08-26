@@ -141,8 +141,9 @@ javascript: (function(f, dd) {
 	});
 	
 	$("#convert_json").click(function() {
-		console.log($('.ActionButton OwnerEditButton').text());
-		$('.ActionButton OwnerEditButton').click();
+		var index = $('.ActionButton OwnerEditButton').index(this);
+		alert(index);
+		//$('.ActionButton OwnerEditButton').eq(5).click();
 	});
 	
 	function TextCountCheck(){
