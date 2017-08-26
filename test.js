@@ -142,7 +142,7 @@ javascript: (function(f, dd) {
 	
 	//$("#convert_json").click(function() {
 	$('button').on('click', function () {
-		var index = $('.ActionButton OwnerEditButton').index(this);
+		var index = $('button.ActionButton OwnerEditButton').index(this);
 		alert(index);
 		//$('.ActionButton OwnerEditButton').eq(5).click();
 	});
