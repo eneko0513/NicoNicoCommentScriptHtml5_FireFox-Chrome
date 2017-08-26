@@ -140,11 +140,8 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val(conText);
 	});
 	
-	//$("#convert_json").click(function() {
-	$('button').on('click', function () {
-		var index = $('button.ActionButton OwnerEditButton').index(this);
-		alert(index);
-		//$('.ActionButton OwnerEditButton').eq(5).click();
+	$("#convert_json").click(function() {
+		$('.ActionButton OwnerEditButton').eq(1).click();
 	});
 	
 	function TextCountCheck(){
