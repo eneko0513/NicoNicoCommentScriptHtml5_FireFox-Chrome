@@ -157,7 +157,7 @@ javascript: (function(f, dd) {
 		before = '\\]';
 		regExp = new RegExp(before, "g");
 		json_text = json_text.replace(regExp, "\n\]");
-		elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[0];
+		elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[2];
 		elements_json.click();
 		elements_json = document.getElementById("edit_json_output");
 		elements_json.innerText = json_text;
