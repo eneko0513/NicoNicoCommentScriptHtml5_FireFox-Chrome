@@ -141,7 +141,23 @@ javascript: (function(f, dd) {
 	});
 	
 	$("#convert_json").click(function() {
-		$('.ActionButton OwnerEditButton').eq(1).click();
+		var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
+		elements_json.click();
+		var json_text = $('.OwnerCommentEditEditorContainer-textarea').text();
+		var before = '\n';
+		var regExp = new RegExp(before, "g");
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "");
+		before = '},';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "},\n");
+		before = '\[';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "\[\n");
+		before = '\]';
+		regExp = new RegExp(before, "g");
+		json_text = json_text.replace(regExp, "\n\]");
+		console.log(json_text);
 	});
 	
 	function TextCountCheck(){
