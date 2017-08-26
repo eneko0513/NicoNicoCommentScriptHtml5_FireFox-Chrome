@@ -140,6 +140,11 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val(conText);
 	});
 	
+	$("#convert_json").click(function() {
+		$('.ActionButton OwnerEditButton').click();
+
+	});
+	
 	function TextCountCheck(){
 		//alert( comment_limit );
 		if($('#check_over75').prop('checked')) {
