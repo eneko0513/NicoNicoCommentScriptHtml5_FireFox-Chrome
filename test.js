@@ -151,13 +151,14 @@ javascript: (function(f, dd) {
 		before = '},';
 		regExp = new RegExp(before, "g");
 		json_text = json_text.replace(regExp, "},\n");
-		before = '\[';
+		before = '\\[';
 		regExp = new RegExp(before, "g");
 		json_text = json_text.replace(regExp, "\[\n");
-		before = '\]';
+		before = '\\]';
 		regExp = new RegExp(before, "g");
 		json_text = json_text.replace(regExp, "\n\]");
-		console.log(json_text);
+		elements_json = document.getElementsByClassName("OwnerCommentEditEditorContainer-textarea")[0];
+		elements_json.innerText(elements_json);
 	});
 	
 	function TextCountCheck(){
