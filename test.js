@@ -19,12 +19,12 @@ javascript: (function(f, dd) {
 				var posetSet = setInterval(function() {
 					if ($("#script_text_area").val() == "") clearInterval(posetSet);
 					button_disabled_change(false);
-				}, 500);
+				}, 1500);
 				setCommandMment();
 				button_disabled_change(true);
 				var posetSet = setInterval(function() {
 					setCommandMment();
-				}, 500);
+				}, 1500);
 			} else {
 				alert("not [COMMAND]COMMENT");
 			}
@@ -46,10 +46,10 @@ javascript: (function(f, dd) {
 	});
 	
 	var comment_limit = 75;
-	var versions = "0.91"; 
-	var uptext = '\n先頭行と最終行の文字数カウントを追加(※末尾の<br>はカウントされません)\nコメント文字数オーバー時の投下の際に警告表示を追加';
-	$("div.NicoenqueteNotificationContainer").before(" <div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button> <button id='single_insert'>SINGLE</button> <button id='clear'>CLEAR</button> <span style='margin-right: 6em;'></span> <button id='convert'>Dohmo->SINGLE</button> <button id='convert_json'>エディタ一行変換</button> <span style='margin-right: 5em;'></span> <button id='version'>ver:" + versions + "(更新内容)</button> <span style='margin-right: 6em;'></span> <form><label for='id_aaa' >184投下</label> <input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span> <label for='id_aaa' >下から投下</label> <input id='check_return' type='checkbox' value='check_return'> <span style='margin-right: 2em;'></span> <label for='id_aaa' >1024投下</label> <input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span> <label for='id_aaa' >pattisier付与</label> <input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span> <label id='first_line_length' >先頭行文字数:0</label> <span style='margin-right: 2em;'></span> <label id='last_line_length' >最終行文字数:0</label> </form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea> </div>");
-	
+	var versions = "0.93TEST"; 
+	var uptext = '\nHTML5投コメ状態に自動的に高速投下モードになる機能を実装';
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+
 	function button_disabled_change(flag) {
 		
 		if (flag === true) {
@@ -381,12 +381,12 @@ javascript: (function(f, dd) {
 								clearInterval(posetSet);
 							}
 							button_disabled_change(false);
-						}, 500);
+						}, 1500);
 						setCommandMment();
 						button_disabled_change(true);
 						var posetSet = setInterval(function() {
 							setCommandMment();
-						}, 500);
+						}, 1500);
 					} else {
 						alert("not [COMMAND]COMMENT");
 					}
@@ -452,6 +452,7 @@ javascript: (function(f, dd) {
 	});
 
 })
+
 
 /*
 javascript: (function(f, dd) {
