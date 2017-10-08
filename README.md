@@ -48,6 +48,7 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.7 : 75文字以内に関わらず75文字オーバーのエラーが出る不具合の修正<br>
  ver0.8 : 75文字制限突破(max:1024)の実装 ※184投下時不可,自己責任<br>
  ver0.9 : 先頭行と最終行の文字数カウント機能の追加(※末尾の\<br>はカウントされません)<br>
+ ver0.94 :  投コメのエディタのjsonを1コメント1行形式に置換して出力する機能を実装<br>
 <br>
 ---<br>
 ~~テスト版（非推奨）：<br>
