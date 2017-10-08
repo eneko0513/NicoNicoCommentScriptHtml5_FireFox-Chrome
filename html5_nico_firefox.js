@@ -9,7 +9,7 @@ javascript: (function(f, dd) {
 
 	// 投コメ状態で起動したらコメント入力欄の75文字の制限を1024文字制限に変更
 	if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
-		$('.CommentInput-textarea').maxlength=1024;
+		$('.CommentInput-textarea').prop('maxlength', '1024');
 	}
 	
 	
