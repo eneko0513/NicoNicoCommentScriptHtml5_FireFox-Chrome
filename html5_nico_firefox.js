@@ -6,6 +6,12 @@ javascript: (function(f, dd) {
 	};
 	document.body.appendChild(dd)
 })(function($) {
+
+	// 投コメ状態で起動したらコメント入力欄の75文字の制限を1024文字制限に変更
+	if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
+		$('.CommentInput-textarea').maxlength=1024;
+	}
+	
 	
 	$("#auto_insert").click(function() {
 		
