@@ -5,7 +5,7 @@ javascript: (function(f, dd) {
 	dd.onload = function() {
 		f(jQuery.noConflict(true))
 	};
-	document.body.appendChild(dd)
+	document.body.appendChild(dd);
 })(function($) {
 	$(document).on("input", function(e) {
 		$("#header .tab").trigger("change");
