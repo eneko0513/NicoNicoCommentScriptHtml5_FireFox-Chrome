@@ -7,9 +7,9 @@ javascript: (function(f, dd) {
 	};
 	document.body.appendChild(dd);
 })(function($) {
-	$(document).on("input", function(e) {
-		$("#header .tab").trigger("change");
-	});
+var evt = $.Event('keydown');
+evt.keyCode = a;    // エンターキー入力時のテスト
+$('input .CommentCommandInput').trigger(evt);
 	
 	$("#auto_insert").click(function() {
 		
