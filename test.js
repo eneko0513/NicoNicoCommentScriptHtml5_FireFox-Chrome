@@ -1,14 +1,15 @@
 javascript: (function(f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
-	dd.src += "//eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/index.js";
-	dd.src += "//eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/bililiteRange.js";
+
 	dd.onload = function() {
 		f(jQuery.noConflict(true))
 	};
-	document.body.appendChild(dd)
 
-	
+
+	dd.src += "https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/index.js";
+	dd.src += "https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/bililiteRange.js";
+	document.body.appendChild(dd)
 })(function($) {
 	$(document).on("input", function(e) {
 		$("#header .tab").trigger("change");
