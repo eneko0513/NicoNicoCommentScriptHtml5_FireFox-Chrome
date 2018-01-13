@@ -499,8 +499,5 @@ javascript: (function(f, dd) {
 			//comment_limit = 1024;
 		}
 	});
-
-	
-}
 })
 
