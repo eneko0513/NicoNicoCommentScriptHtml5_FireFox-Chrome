@@ -8,7 +8,7 @@ javascript: (function(f, dd) {
 	document.body.appendChild(dd);
 })(function($) {
 var evt = $.Event('keydown');
-evt.keyCode = a;    // エンターキー入力時のテスト
+evt.keyCode = 48;    // エンターキー入力時のテスト
 $('input .CommentCommandInput').trigger(evt);
 	
 	$("#auto_insert").click(function() {
