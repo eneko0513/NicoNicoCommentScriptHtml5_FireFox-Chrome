@@ -6,8 +6,8 @@ javascript: (function(f, dd) {
 	};
 	document.body.appendChild(dd)
 })(function($) {
-	$(document).on("change", function(e) {
-             alert("test");
+	$(document).on("input", function(e) {
+		$("#header .tab").trigger("change");
 	});
 	
 	$("#auto_insert").click(function() {
@@ -383,6 +383,7 @@ javascript: (function(f, dd) {
 					elements_command.dispatchEvent(new Event("input", {
 						"bubbles": !0
 					}));
+					$(".CommentCommandInput").trigger("change");
 				};
 				function timers(a) {
 					a.dispatchEvent(new MouseEvent("click", {
