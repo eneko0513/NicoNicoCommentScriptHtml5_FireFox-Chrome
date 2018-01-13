@@ -379,13 +379,10 @@ javascript: (function(f, dd) {
 						elements_command.value = "patissier " + elements_command.value;
 					}
 
-					elements_command.dispatchEvent(new Event("input", {
+					elements_command.dispatchEvent(new Event("change", {
 						"bubbles": !0
 					}));
-					$(".CommentCommandInput").trigger("change");
-					var evt = $.Event('keydown');
-					evt.keyCode = 48;    // エンターキー入力時のテスト
-					$('input .CommentCommandInput').trigger(evt);
+
 				};
 				function timers(a) {
 					a.dispatchEvent(new MouseEvent("click", {
