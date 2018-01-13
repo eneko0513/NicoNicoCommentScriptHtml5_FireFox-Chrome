@@ -7,9 +7,7 @@ javascript: (function(f, dd) {
 	};
 	document.body.appendChild(dd);
 })(function($) {
-var evt = $.Event('keydown');
-evt.keyCode = 48;    // エンターキー入力時のテスト
-$('input .CommentCommandInput').trigger(evt);
+
 	
 	$("#auto_insert").click(function() {
 		
@@ -385,6 +383,9 @@ $('input .CommentCommandInput').trigger(evt);
 						"bubbles": !0
 					}));
 					$(".CommentCommandInput").trigger("change");
+					var evt = $.Event('keydown');
+					evt.keyCode = 48;    // エンターキー入力時のテスト
+					$('input .CommentCommandInput').trigger(evt);
 				};
 				function timers(a) {
 					a.dispatchEvent(new MouseEvent("click", {
