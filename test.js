@@ -6,6 +6,9 @@ javascript: (function(f, dd) {
 	};
 	document.body.appendChild(dd)
 })(function($) {
+	$(document).on("change", function(e) {
+             alert("test");
+	});
 	
 	$("#auto_insert").click(function() {
 		
