@@ -379,6 +379,10 @@ javascript: (function(f, dd) {
 						elements_command.value = "patissier " + elements_command.value;
 					}
 
+					Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(e, n), e.dispatchEvent(new % 20E vent("input", {
+      bubbles: !0
+    }))
+					
 					elements_command.dispatchEvent(new Event("change", {
 						"bubbles": !0
 					}));
