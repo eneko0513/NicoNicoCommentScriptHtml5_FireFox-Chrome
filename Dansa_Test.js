@@ -3,7 +3,7 @@ window.onload = function(){
 //const ncMain = document.getElementsByClassName('MainContainer')[0]
 //const myCmtSet = document.getElementsByClassName('CommentInput-textarea')[0];
 //const myCmdSet = document.getElementsByClassName('CommentCommandInput')[0];
-const myExtUrl = chrome.extension.getURL('');
+//const myExtUrl = chrome.extension.getURL('');
 
 var $ = function (id){return (typeof id =='string')?document.getElementById(id):id;};
 var myDrg = 'F';
