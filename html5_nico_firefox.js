@@ -138,9 +138,9 @@ javascript: (function(f, dd) {
 		before = '\\[big';
 		regExp = new RegExp(before, "g");
 		conText = conText.replace(regExp, "\n\[big");
-		//before = ' ';
-		//regExp = new RegExp(before, "g");
-		//conText = conText.replace(regExp, "[A0]");
+		before = ' ';
+		regExp = new RegExp(before, "g");
+		conText = conText.replace(regExp, "[A0]");
 		before = '\n';
 		regExp = new RegExp(before, "");
 		conText = conText.replace(regExp, "");
@@ -201,7 +201,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 
 
 				//alert(ext_check[2].length);
@@ -291,7 +291,7 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 			}
 			try{
 				lines[c] = ext_check[2];
