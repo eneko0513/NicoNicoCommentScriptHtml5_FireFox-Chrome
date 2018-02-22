@@ -13,10 +13,10 @@ javascript: (function(f, dd) {
 	}else{
 		$('.CommentInput-textarea').prop('maxlength', '75');
 	}
-	
-	
+
+
 	$("#auto_insert").click(function() {
-		
+
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
@@ -52,14 +52,14 @@ javascript: (function(f, dd) {
 			}
 		}
 	});
-	
+
 	var comment_limit = 75;
-	var versions = "0.94"; 
+	var versions = "0.94";
 	var uptext = '\n投コメ編集画面でスクリプトを起動した場合に、コメント入力欄の文字数制限を1024文字に変更する処理を追加。';
 	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓エディタのjson形式を1コメント1行単位置換したもの↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 
 	function button_disabled_change(flag) {
-		
+
 		if (flag === true) {
 			$("#auto_insert").prop("disabled", true);
 			//$("#auto_insert").text("投下停止");
@@ -94,15 +94,15 @@ javascript: (function(f, dd) {
 			$("#check_over75").prop("disabled", false);
 		}
 	}
-	
+
 	$("#clear").click(function() {
 		$("#script_text_area").val("");
 	});
-	
+
 	$("#version").click(function() {
 		alert('ver:' + versions + ':' + uptext);
 	});
-	
+
 	$("#convert").click(function() {
 		var conText = $("#script_text_area").val();
 		var before = '\t';
@@ -147,7 +147,7 @@ javascript: (function(f, dd) {
 		$("#script_text_area").val();
 		$("#script_text_area").val(conText);
 	});
-	
+
 	$("#convert_json").click(function() {
 		var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
 		elements_json.click();
@@ -178,7 +178,7 @@ javascript: (function(f, dd) {
 		}else{
 			comment_limit = 75;
 		}
-		
+
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		var textArray = new Array();
@@ -188,7 +188,7 @@ javascript: (function(f, dd) {
 			//textArray.push( lines[c] );
 			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
 				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-				
+
 				//alert(ext_check[2].substr(ext_check[2].length-4,4));
 				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
 					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
@@ -202,8 +202,8 @@ javascript: (function(f, dd) {
 				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
 				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
-				
-				
+
+
 				//alert(ext_check[2].length);
 				if (ext_check[2].length > comment_limit) {
 					checkFlag = true;
@@ -211,14 +211,14 @@ javascript: (function(f, dd) {
 				}
 			}
 		}
-		
+
 		if(checkFlag == true){
 			alert(overText);
 			//exit;
 		}
 		return checkFlag;
 	}
-	
+
 	$(function(){
 		$("#script_text_area").bind('keydown keyup keypress change',function(){
 			if($('#check_over75').prop('checked')) {
@@ -226,7 +226,7 @@ javascript: (function(f, dd) {
 			}else{
 				comment_limit = 75;
 			}
-			
+
 			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 			var lines = text.split('\n');
 			var textArray = new Array();
@@ -236,16 +236,16 @@ javascript: (function(f, dd) {
 				//textArray.push( lines[c] );
 				if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
 					ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-					
+
 					//alert(ext_check[2].substr(ext_check[2].length-4,4));
 					if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
 						ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
 					}
-	
+
 					if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
 						ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
 					}
-	
+
 					ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
 					ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
@@ -268,7 +268,7 @@ javascript: (function(f, dd) {
 		}else{
 			comment_limit = 75;
 		}
-		
+
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		var textArray = new Array();
@@ -278,7 +278,7 @@ javascript: (function(f, dd) {
 			//textArray.push( lines[c] );
 			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
 				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-				
+
 				//alert(ext_check[2].substr(ext_check[2].length-4,4));
 				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
 					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
@@ -311,7 +311,7 @@ javascript: (function(f, dd) {
 			var lines = text.split('\n');
 			if($('#check_return').prop('checked')) {
 				text = lines[lines.length - 1];
-				
+
 				if(text == ""){
 					text = $("#script_text_area").val()
 					text = text.replace(/\n+$/g,'');
@@ -320,7 +320,7 @@ javascript: (function(f, dd) {
 					lines = text.split('\n');
 					text = lines[lines.length - 1];
 				}
-				
+
 				var text_length = text.length;
 				var retext = $("#script_text_area").val();
 				retext = retext.substr( 0, retext.length - text_length);
@@ -336,7 +336,7 @@ javascript: (function(f, dd) {
 
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
-				
+
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
@@ -354,37 +354,50 @@ javascript: (function(f, dd) {
 				}, 1000);
 				function j(elements_command, command) {
 					if($('#check_184').prop('checked')) {
-						elements_command.value = command;
+						//elements_command.value = command;
 					}else{
-						elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
-					}
-					
-					//
-					if($('#patissier').prop('checked')) {
-						elements_command.value = "patissier " + elements_command.value;
+						//elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
+						command = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
 					}
 
-					elements_command.dispatchEvent(new Event("input", {
-						"bubbles": !0
+					//
+					if($('#patissier').prop('checked')) {
+						//elements_command.value = "patissier " + elements_command.value;
+						command = "pattisier" + command;
+					}
+
+					//elements_command.dispatchEvent(new Event("input", {
+					//	"bubbles": !0
+					//}));
+					Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(elements_command, command), elements_command.dispatchEvent(new Event("input", {
+					  bubbles: !0
 					}));
 				};
 				function timers(a) {
 					a.dispatchEvent(new MouseEvent("click", {
-						"view": window,
-						"bubbles": !0,
-						"cancelable": !0
-					}));
+					        view: window,
+					        bubbles: !0,
+					        cancelable: !0
+					}))
+					//a.dispatchEvent(new MouseEvent("click", {
+					//	"view": window,
+					//	"bubbles": !0,
+					//	"cancelable": !0
+					//}));
 				};
 				function come(elements_text, text) {
-					elements_text.value = text;
-					elements_text.dispatchEvent(new Event("input", {
-						"bubbles": !0
-					}));
+					Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set.call(elements_text, text), elements_text.dispatchEvent(new Event("input", {
+					  bubbles: !0
+					}))
+					//elements_text.value = text;
+					//elements_text.dispatchEvent(new Event("input", {
+					//	"bubbles": !0
+					//}));
 				}
 			} else {
 				alert("not [COMMAND]COMMENT");
 			}
-		
+
 	}
 	$("#auto_insert").click(function() {
 
@@ -394,7 +407,7 @@ javascript: (function(f, dd) {
 				var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 				var lines = text.split('\n');
 				text = lines[0];
-				
+
 				if(text == ""){
 					text = $("#script_text_area").val()
 					text = text.replace(/\n\[+?/,'[');
@@ -403,7 +416,7 @@ javascript: (function(f, dd) {
 					lines = text.split('\n');
 					text = lines[0];
 				}
-				
+
 				if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
 					//ひどい投コメ対応；；
 					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
@@ -439,18 +452,18 @@ javascript: (function(f, dd) {
 					}
 				}
 			}
-		
+
 	});
 	$("#single_insert").click(function() {
-		
+
 		var start = false;
 		start = TextCountCheck();
 		if(start == false){
-		
+
 			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 			var lines = text.split('\n');
 			text = lines[0];
-			
+
 			if(text == ""){
 				text = $("#script_text_area").val()
 				text = text.replace(/\n\[+?/,'[');
@@ -459,7 +472,7 @@ javascript: (function(f, dd) {
 				lines = text.split('\n');
 				text = lines[0];
 			}
-			
+
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				button_disabled_change(true);
 				setCommandMment();
