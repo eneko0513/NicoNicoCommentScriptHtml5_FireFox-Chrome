@@ -349,11 +349,8 @@ javascript: (function(f, dd) {
 				var elements_text = document.getElementsByClassName("CommentInput-textarea")[0];
 				come(elements_text, ext[2]);
 				var elements_post = document.getElementsByClassName("CommentPostButton")[0];
-				var elements_player1 = document.getElementsByClassName("ProgressBar")[2];
-				var elements_player2 = document.getElementsByClassName("ProgressBar")[3];
-				Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "style").set.call(elements_player1,"transform: scaleX(0.285134);"), elements_player1.dispatchEvent(new Event("input", {
-				  bubbles: !0
-				}));
+				//var elements_player1 = document.getElementsByClassName("ProgressBar")[2];
+				//var elements_player2 = document.getElementsByClassName("ProgressBar")[3];
 
 				window.setTimeout(function() {
 					timers(elements_post);
