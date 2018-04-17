@@ -63,7 +63,17 @@ javascript: (function(f, dd) {
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
 	//<form id='my_form'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></form>
 
+
+	$('#myImg').css('position','absolute');
+	$('#myImg').css('top','0px');
+	$('#myImg').css('left','0px');
+	$('#myImg').css('width','100%');
+	$('#myImg').css('height','100%');
+	$('#myImg').css('border','none');
+	$('#myImg').css('display','none');
+
 	$('#myImg').css('z-index',2);
+
 
 	//読み込み
 	$("#ufile").change(function(){
