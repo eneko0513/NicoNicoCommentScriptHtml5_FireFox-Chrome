@@ -59,6 +59,52 @@ javascript: (function(f, dd) {
 	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='imgSet'>画像読み込み</button><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓エディタのjson形式を1コメント1行単位置換したもの↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 z-index=2 display='none'></canvas>");
 
+	// 画像読み込み
+	$("#imgSet").click(function() {
+		//canvasの情報取得
+        var canvas = document.getElementById('myImg');
+
+        //canvasのオブジェクトのタイプ(2dデータ)を宣言
+        var ctx = canvas.getContext("2d");
+
+        // 選択されたファイルを取得
+        var file = this.files[0];
+
+        // 画像ファイル以外は処理中止
+        if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
+
+        //インスタンス生成2つ
+        var image = new Image();
+        var reader = new FileReader();
+
+        // File APIを使用し、ローカルファイルを読み込む
+        reader.onload = function(evt) {
+
+            // 画像がloadされた後に、canvasに描画する
+            image.onload = function() {
+                //canvasのエリアのクリア
+                ctx.clearRect(0, 0, 0, 0);
+
+                //canvasサイズを(640,360)に設定
+                canvas.width = 640;
+                canvas.height = 360;
+
+                //canvasに読み込んだ画像を表示
+                ctx.drawImage(image, 0, 0 , 640 , 360);
+
+            }
+            image.src = reader.result;
+        }
+        // ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
+        reader.readAsDataURL(file);
+        //if($('myImg').style.display == "none"){
+        //    $('myImg').style.display = "";
+        //    $('myTrcImgDisp').value = "非表示";
+        //}
+        //$('myTrcImgDisp').style.display = "";
+	});
+
+
 	function button_disabled_change(flag) {
 
 		if (flag === true) {
