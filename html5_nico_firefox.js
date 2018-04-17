@@ -71,17 +71,16 @@ javascript: (function(f, dd) {
 	$('#myImg').css('height','100%');
 	$('#myImg').css('border','none');
 	$('#myImg').css('display','none');
-
 	$('#myImg').css('z-index',2);
 
 
 	//読み込み
 	$("#ufile").change(function(){
 		if (!this.files.length) {
-			alert('ファイルが選択されていません');
+			$('#myImg').css('display','none');
 			return;
 		}
-
+		$('#myImg').css('display','');
 		//canvasの情報取得
 		var canvas = document.getElementById('myImg');
 
