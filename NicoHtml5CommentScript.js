@@ -25,8 +25,8 @@ javascript: (function (f, dd) {
     }
   });
   $("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
-  $("div.MainVideoPlayer").before("<div id='test'>aaa</div>");
-  
+  $("div.MainVideoPlayer").before("<div id='scriptdiv2'><button id='auto_insert'>TEST</button></div>");
+
   function button_disabled_change(flag) {
     if (flag === true) {
       $("#auto_insert").prop("disabled", true);
