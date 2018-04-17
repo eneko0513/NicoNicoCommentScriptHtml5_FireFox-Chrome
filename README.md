@@ -4,7 +4,7 @@
 正式版：<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 
-<br>上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容で他は適当に)<br><br>
+<br>上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容で他は適当に)<br>※先頭のjavascript:が消されてしまう時があるらしいのでご確認下さい。<br>
 使い方:<br>スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
 プレイヤー下にテキストエリアとボタンが4種類表示される<br>
 <br>
