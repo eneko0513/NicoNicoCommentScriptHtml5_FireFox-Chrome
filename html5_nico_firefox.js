@@ -56,53 +56,54 @@ javascript: (function(f, dd) {
 	var comment_limit = 75;
 	var versions = "0.94";
 	var uptext = '\n投コメ編集画面でスクリプトを起動した場合に、コメント入力欄の文字数制限を1024文字に変更する処理を追加。';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><label id='myTrcFileL' for='myTrcFile'>画像読込<input id='myTrcFile' type='file' style='display:none;' /></label><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓エディタのjson形式を1コメント1行単位置換したもの↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><label id='myTrcFileL' for='myTrcFile'>画像読込<input id='myTrcFile' type='file' /></label><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓エディタのjson形式を1コメント1行単位置換したもの↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 z-index=2 display='none'></canvas>");
 
-	// 画像読み込み
-	$("myTrcFile").onchange = function(e) {
-		//canvasの情報取得
-        var canvas = document.getElementById('myImg');
+	//読み込み
+	$('myTrcFile').onchange = function(e){
 
-        //canvasのオブジェクトのタイプ(2dデータ)を宣言
-        var ctx = canvas.getContext("2d");
+	//canvasの情報取得
+	var canvas = document.getElementById('myImg');
 
-        // 選択されたファイルを取得
-        var file = this.files[0];
+	//canvasのオブジェクトのタイプ(2dデータ)を宣言
+	var ctx = canvas.getContext("2d");
 
-        // 画像ファイル以外は処理中止
-        if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
+	// 選択されたファイルを取得
+	var file = this.files[0];
 
-        //インスタンス生成2つ
-        var image = new Image();
-        var reader = new FileReader();
+	// 画像ファイル以外は処理中止
+	if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
 
-        // File APIを使用し、ローカルファイルを読み込む
-        reader.onload = function(evt) {
+	//インスタンス生成2つ
+	var image = new Image();
+	var reader = new FileReader();
 
-            // 画像がloadされた後に、canvasに描画する
-            image.onload = function() {
-                //canvasのエリアのクリア
-                ctx.clearRect(0, 0, 0, 0);
+	// File APIを使用し、ローカルファイルを読み込む
+	reader.onload = function(evt) {
 
-                //canvasサイズを(640,360)に設定
-                canvas.width = 640;
-                canvas.height = 360;
+		// 画像がloadされた後に、canvasに描画する
+		image.onload = function() {
+			//canvasのエリアのクリア
+			ctx.clearRect(0, 0, 0, 0);
 
-                //canvasに読み込んだ画像を表示
-                ctx.drawImage(image, 0, 0 , 640 , 360);
+			//canvasサイズを(640,360)に設定
+			canvas.width = 640;
+			canvas.height = 360;
 
-            }
-            image.src = reader.result;
-        }
-        // ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
-        reader.readAsDataURL(file);
-        //if($('myImg').style.display == "none"){
-        //    $('myImg').style.display = "";
-        //    $('myTrcImgDisp').value = "非表示";
-        //}
-        //$('myTrcImgDisp').style.display = "";
-	};
+			//canvasに読み込んだ画像を表示
+			ctx.drawImage(image, 0, 0 , 640 , 360);
+
+		}
+		image.src = reader.result;
+	}
+	// ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
+	reader.readAsDataURL(file);
+	//if($('myImg').style.display == "none"){
+	//	$('myImg').style.display = "";
+	//	$('myTrcImgDisp').value = "非表示";
+	//}
+	//$('myTrcImgDisp').style.display = "";
+};
 
 
 	function button_disabled_change(flag) {
