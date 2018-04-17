@@ -60,7 +60,7 @@ javascript: (function(f, dd) {
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 z-index=2 display='none'></canvas>");
 	//<form id='my_form'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></form>
 	//読み込み
-	$("#myTrcFile").change(function(){
+	$("#ufile").change(function(){
 		if (!this.files.length) {
 			alert('ファイルが選択されていません');
 			return;
