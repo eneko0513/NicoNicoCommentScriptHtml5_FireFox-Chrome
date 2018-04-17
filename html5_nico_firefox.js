@@ -61,53 +61,53 @@ javascript: (function(f, dd) {
 	//<form id='my_form'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></form>
 	//読み込み
 	$("#myTrcFile").change(function(){
-	if (!this.files.length) {
-		alert('ファイルが選択されていません');
-		return;
-	}
-
-	//canvasの情報取得
-	var canvas = document.getElementById('myImg');
-
-	//canvasのオブジェクトのタイプ(2dデータ)を宣言
-	var ctx = canvas.getContext("2d");
-
-	// 選択されたファイルを取得
-	var file = this.files[0];
-
-	// 画像ファイル以外は処理中止
-	if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
-
-	//インスタンス生成2つ
-	var image = new Image();
-	var reader = new FileReader();
-
-	// File APIを使用し、ローカルファイルを読み込む
-	reader.onload = function(evt) {
-
-		// 画像がloadされた後に、canvasに描画する
-		image.onload = function() {
-			//canvasのエリアのクリア
-			ctx.clearRect(0, 0, 0, 0);
-
-			//canvasサイズを(640,360)に設定
-			canvas.width = 640;
-			canvas.height = 360;
-
-			//canvasに読み込んだ画像を表示
-			ctx.drawImage(image, 0, 0 , 640 , 360);
-
+		if (!this.files.length) {
+			alert('ファイルが選択されていません');
+			return;
 		}
-		image.src = reader.result;
-	}
-	// ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
-	reader.readAsDataURL(file);
-	//if($('myImg').style.display == "none"){
-	//	$('myImg').style.display = "";
-	//	$('myTrcImgDisp').value = "非表示";
-	//}
-	//$('myTrcImgDisp').style.display = "";
-};
+
+		//canvasの情報取得
+		var canvas = document.getElementById('myImg');
+
+		//canvasのオブジェクトのタイプ(2dデータ)を宣言
+		var ctx = canvas.getContext("2d");
+
+		// 選択されたファイルを取得
+		var file = this.files[0];
+
+		// 画像ファイル以外は処理中止
+		if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
+
+		//インスタンス生成2つ
+		var image = new Image();
+		var reader = new FileReader();
+
+		// File APIを使用し、ローカルファイルを読み込む
+		reader.onload = function(evt) {
+
+			// 画像がloadされた後に、canvasに描画する
+			image.onload = function() {
+				//canvasのエリアのクリア
+				ctx.clearRect(0, 0, 0, 0);
+
+				//canvasサイズを(640,360)に設定
+				canvas.width = 640;
+				canvas.height = 360;
+
+				//canvasに読み込んだ画像を表示
+				ctx.drawImage(image, 0, 0 , 640 , 360);
+
+			}
+			image.src = reader.result;
+		}
+		// ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
+		reader.readAsDataURL(file);
+		//if($('myImg').style.display == "none"){
+		//	$('myImg').style.display = "";
+		//	$('myTrcImgDisp').value = "非表示";
+		//}
+		//$('myTrcImgDisp').style.display = "";
+	})
 
 
 	function button_disabled_change(flag) {
