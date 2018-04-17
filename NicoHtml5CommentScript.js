@@ -185,6 +185,6 @@ javascript: (function (f, dd) {
     } else {
       alert("not [COMMAND]COMMENT");
       button_disabled_change(false);
-    }
+    } 
   });
 })
