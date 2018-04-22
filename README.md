@@ -4,19 +4,22 @@
 正式版：<br>
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
 
-<br>上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容で他は適当に)<br>※先頭のjavascript:が消されてしまう時があるらしいのでご確認下さい。<br>
-使い方:<br>スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
-プレイヤー下にテキストエリアとボタンが4種類表示される<br>
-<br>
-説明:<br>
-<br>
- 投下形式:<br>
+上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容でタイトルは適当に)  
+※呼び出そうとしたら検索結果に飛んでしまう場合は、URLの先頭の「javascript:」が消えていないか確認して下さい。  
+稀にブラウザによっては、先頭のjavascript:が消されてしまう時があるらしいとのことです。  
+
+使い方:  
+1. スクリプトを用いたい動画再生ページ上でブックマークに追加したスクリプトを選択<br>
+2. プレイヤー下にテキストエリアとボタンが表示されます  
+
+  説明:
+ 投下形式:  
  1.1行コメントモードのみ対応 <br>
  example1) <br>
  [コマンド]コメント\<br>コメント[tab]コメント<br>
 <br>
  example2) <br>
- [コマンド]コメントコメントコメントコメントコメントコメントコメントコメント <br>
+ [コマンド]コメントコメントコメントコメントコメントコメントコメントコメント
  75文字まで、それ以降はカットされて投稿される<br>
  <br>
  2.自動投下<br>
@@ -47,12 +50,11 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
  ver0.6 : 75文字をオーバーしたコメントがある場合はアラートを表示し、コメント投下しない形式に変更<br>
  ver0.7 : 75文字以内に関わらず75文字オーバーのエラーが出る不具合の修正<br>
  ver0.8 : 75文字制限突破(max:1024)の実装 ※184投下時不可,自己責任<br>
- ver0.9 : 先頭行と最終行の文字数カウント機能の追加(※末尾の\<br>はカウントされません)<br>
+ ver0.9 : 先頭行と最終行の文字数カウント機能の追加(※末尾の< br >はカウントされません)<br>
+ ver0.91 :　12/16から入力の仕様が変化し、コメントの反映が行えていなかった問題を解消  
  ver0.94 :  投コメのエディタのjsonを1コメント1行形式に置換して出力する機能を実装<br>
- ver1.00 :  12/16から入力の仕様が変化し、コメントの反映が行えていなかった問題を解消<br>
-<br>
----<br>
-~~テスト版（非推奨）：<br>
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/test.js';document.getElementsByTagName('head')[0].appendChild(s);})();~~<br>
+ ver0.95 :　画像読み込み機能を追加
+ ver0.96 :　読み込んだ画像から色情報を取得・表示する機能を追加    
+
 <br>
 <br>
