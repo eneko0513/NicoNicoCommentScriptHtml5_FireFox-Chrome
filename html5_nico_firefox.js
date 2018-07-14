@@ -280,7 +280,7 @@
 		if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			// 投コメモードの場合
 			$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
-			$('div.OwnerEditPanelHeader-right').prepend('<button type="button" class="ActionButton OwnerEditButton">幅調整</button>');
+			$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
 			$('button.OwnerEditButton').css('min-width','0px');
 			ModeAdmin = true;
 		} else {
@@ -289,7 +289,12 @@
 			ModeAdmin = false;
 		}
 	}
-
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// テキストエリアのクリア
+	$("#WidthChange").click(function () {
+		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+	});
+	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 画像表示機能のためのCanvasレイヤー宣言
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
