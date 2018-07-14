@@ -264,7 +264,8 @@
 	if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 		// 投コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
-		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+			$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+			$('.GridCell OwnerEditPanelHeader-right').prepend('<button type="button" class="ActionButton OwnerEditButton">幅調整</button>');
 		ModeAdmin = true;
 	} else {
 		// 通常コメモードの場合
@@ -277,7 +278,8 @@
 	function ModeCheck() {
 		if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			// 投コメモードの場合
-			$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
+			$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+			$('.GridCell OwnerEditPanelHeader-right').prepend('<button type="button" class="ActionButton OwnerEditButton">幅調整</button>');
 			ModeAdmin = true;
 		} else {
 			// 通常コメモードの場合
