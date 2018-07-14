@@ -265,7 +265,7 @@
 		// 投コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
 		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
-		$('div.OwnerEditPanelHeader-right').prepend('<button type="button" class="ActionButton OwnerEditButton">幅調整</button>');
+		$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
 		$('button.OwnerEditButton').css('min-width','0px');
 		ModeAdmin = true;
 	} else {
@@ -290,7 +290,7 @@
 		}
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// テキストエリアのクリア
+	// 幅調整ボタンを押したらコメント欄の横幅の広さを調整
 	$("#WidthChange").click(function () {
 		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
 	});
