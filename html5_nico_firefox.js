@@ -264,6 +264,7 @@
 	if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 		// 投コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
+		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
 		ModeAdmin = true;
 	} else {
 		// 通常コメモードの場合
