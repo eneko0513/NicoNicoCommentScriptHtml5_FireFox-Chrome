@@ -156,7 +156,7 @@
 		"	</label>		" +
 		"	<label id='mode' class='tab5_label' for='tab5'><font color='#ff0000'>モード： </font>" +
 		"	</label>		" +
-		"	<label id='tab4_2' class='tab4_label' for='tab4'>Version:0.9" +
+		"	<label id='tab4_2' class='tab4_label' for='tab4'>Version:0.91" +
 		"	</label>		" +
 		"  </div>		" +
 		"  <div class='panel_area'>			" +
@@ -271,6 +271,7 @@
 	} else {
 		// 通常コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
+		$('button.PlayerSkipNextButton').css('visibility','hidden');
 		ModeAdmin = false;
 	}
 
@@ -286,6 +287,7 @@
 		} else {
 			// 通常コメモードの場合
 			$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
+			$('button.PlayerSkipNextButton').css('visibility','hidden');
 			ModeAdmin = false;
 		}
 	}
@@ -313,7 +315,8 @@
 		"v0.6：エディタのJson形式 -> 1コメ1行単位のjson形式へ変換する機能追加" + "\n" +
 		"v0.7：先頭行と最終行の文字列カウントを行って表示する機能を追加" + "\n" +
 		"v0.8：【途中】段差スクリプトのトレス機能の移植（許可済み）" + "\n" + 
-		"v0.9：コメント欄、コマンド欄で改行されてしまう部分を広くするボタンの追加" + "\n"
+		"v0.9：コメント欄、コマンド欄で改行されてしまう部分を広くするボタンの追加" + "\n" +
+		"v0.91：通常コメントモードでスクリプト起動時に次の動画へ行くボタンを非表示にする機能を追加" + "\n"
 	);
 
 
