@@ -8,8 +8,7 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-	 transform: scaleX(0.102564);
-	 
+$('.ProgressBar-inner').css('transform','caleX(0.102564)');
 document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
   "view": window,
   "bubbles": !0,
