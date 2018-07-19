@@ -8,12 +8,7 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-$('.ProgressBar-inner').css('transform','caleX(0.102564)');
-document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
-  "view": window,
-  "bubbles": !0,
-  "cancelable": !0
-}));
+
 
 	$('div.NicoenqueteNotificationContainer').before("<style type='text/css'>" +
 		".tab_wrap{" +
@@ -473,6 +468,16 @@ document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseE
     }
     */
 	//});
+
+	// 1コメント投下
+	$("#TEST").click(function () {
+		$('.ProgressBar-inner').css('transform','caleX(0.102564)');
+		document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
+		  "view": window,
+		  "bubbles": !0,
+		  "cancelable": !0
+		}));
+	});
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 1コメント投下
