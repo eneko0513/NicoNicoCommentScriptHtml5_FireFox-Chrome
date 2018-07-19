@@ -8,7 +8,9 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-document.getElementsByClassName("PlayerPlayButton")[0].dispatchEvent(new MouseEvent("click", {
+	 transform: scaleX(0.102564);
+	 
+document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
   "view": window,
   "bubbles": !0,
   "cancelable": !0
