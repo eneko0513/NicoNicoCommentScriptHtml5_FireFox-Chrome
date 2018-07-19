@@ -8,7 +8,11 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-
+document.getElementsByClassName("PlayerPlayButton")[0].dispatchEvent(new MouseEvent("click", {
+  "view": window,
+  "bubbles": !0,
+  "cancelable": !0
+}));
 
 	$('div.NicoenqueteNotificationContainer').before("<style type='text/css'>" +
 		".tab_wrap{" +
