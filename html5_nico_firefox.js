@@ -297,6 +297,17 @@
 		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
 	});
 	
+	$("#TEST").click(function(){
+		$('.ProgressBar-inner').css('transform','scaleX(0.052564)');
+		document.getElementsByClassName("ProgressBar-innerSeekBar-played")[0].dispatchEvent(newMouseEvent("click",
+		{
+			"view":window,
+			"bubbles":!0,
+			"cancelable":!0
+		}
+		));
+	});
+	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 画像表示機能のためのCanvasレイヤー宣言
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
