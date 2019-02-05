@@ -1042,6 +1042,7 @@
 			//widht = font*w+1px
 			//height = lineheight *L+2px 
 			t.id = 'myTxt' + m;
+			t.name = 'myTxt';
 			myinnerTxt = '' +
 				'background-color: rgba(0,0,0,0);' +
 				'position:absolute;' +
@@ -1417,14 +1418,28 @@
 		//a.parentNode.removeChild(a);
 		//
 
+		// 削除対象のカウント
+		var loopCount = $('#myTrcSel2').children().length;
+
 		// 関連するtextareaの削除
 		//$('#myTxt1').remove();
 
 		//選択中レイヤを削除し全部1つ前に詰める
 		DeleteMyTxtLayer();
 
+
+		// 削除対象の行数
+		var temp = $('#myTrcSel2 > option:selected').remove().length;
+
 		// 選択されているoption要素を全消去
 		$('#myTrcSel2 > option:selected').remove();
+
+		// レイヤーのNoを小さい数字から対応していく
+		// (原則は小さい数字が下の方にある)
+		for(var i = 1; i <= loopCount;i++){
+			// textareaのidの再割り振り
+			$("#myTxt" + i).id = ("myTxt" + (i + 1));
+		}
 
 		// レイヤー番号とテキストの数値部分の詰め
 		var op = $('#myTrcSel2').children();
