@@ -1042,7 +1042,7 @@
 			//widht = font*w+1px
 			//height = lineheight *L+2px 
 			t.id = 'myTxt' + m;
-			t.name = 'myTxt';
+			t.className = 'myTxtClass';
 			myinnerTxt = '' +
 				'background-color: rgba(0,0,0,0);' +
 				'position:absolute;' +
