@@ -1400,7 +1400,7 @@
 		if ((a.id.slice(5) - 1) == -1) {
 			$("#myTrcSel2 option:nth-child(" + 0 + ")").css("font-weight", "bold");
 		} else {
-			var temp = 'nth-child(' + (a.id.slice(5)) + ')'
+			var temp = 'nth-child(' + (a.id.slice(5)) + ')';
 			$("#myTrcSel2 option:" + temp).css("font-weight", "bold");
 		}
 	}
