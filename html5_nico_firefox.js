@@ -1434,15 +1434,12 @@
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2]);
 
-
-
 			// textareaのidの再割り振り
 			if ($("#myTxt" + (i + 1))) {
 				$("#myTxt" + (i + 1)).id = ("myTxt" + (i + 1));
 			} else {
 				$("#myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
 			}
-
 		}
 
 		// レイヤー番号の詰め
@@ -1470,8 +1467,9 @@
 		console.log(fruit);
 
 		// 要素の数だけループ
-		var a = document.getElementById("myTxt" + (fruit.split(" ")));
-		a.parentNode.removeChild(a);
+		var deleteId = (String(fruit)).split(" ");
+		var a = document.getElementById("myTxt" + deleteId[0]);
+		element.removeChild(a);
 	}
 
 
