@@ -8,7 +8,7 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-
+// A
 
 	$('div.NicoenqueteNotificationContainer').before("<style type='text/css'>" +
 		".tab_wrap{" +
