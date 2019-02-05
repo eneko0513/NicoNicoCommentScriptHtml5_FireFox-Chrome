@@ -32,6 +32,8 @@
 		"	font-size:13px;" +
 		"	cursor:pointer;" +
 		"	transition:ease 0.2s opacity;" +
+		"	user-select: none; /* CSS3 */" +
+		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
 		"  }" +
 		"  .tab_area label:hover{" +
 		"	opacity:0.5;" +
@@ -116,6 +118,8 @@
 		"  	color: #000000;			/* フォントの色を指定 */" +
 		"  	border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */" +
 		"  	border-radius: 5px;		/* 角丸を指定する */" +
+		"	user-select: none; /* CSS3 */" +
+		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
 		"  }" +
 		"  .label2 {" +
 		"  	display: block;		/* ブロックレベル要素化する */ " +
@@ -131,6 +135,8 @@
 		"  	color: #000000;			/* フォントの色を指定 */" +
 		"  	border: 2px solid #ff50d9;/* ラベルの境界線を実線で指定する */" +
 		"  	border-radius: 5px;		/* 角丸を指定する */" +
+		"	user-select: none; /* CSS3 */" +
+		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
 		"  }" +
 		"	#ScriptTextArea {" +
 		"		min-width: 555px;" +
@@ -325,7 +331,7 @@
 		"v0.5：自動投下機能追加" + "\n" +
 		"v0.6：エディタのJson形式 -> 1コメ1行単位のjson形式へ変換する機能追加" + "\n" +
 		"v0.7：先頭行と最終行の文字列カウントを行って表示する機能を追加" + "\n" +
-		"v0.8：【途中】段差スクリプトのトレス機能の移植（許可済み）" + "\n" + 
+		"v0.8：【途中】段差スクリプトのトレス機能の移植（許可済み）" + "\n" +
 		"v0.9：コメント欄、コマンド欄で改行されてしまう部分を広くするボタンの追加" + "\n" +
 		"v0.91：通常コメントモードでスクリプト起動時に次の動画へ行くボタンを非表示にする機能を追加" + "\n"
 	);
