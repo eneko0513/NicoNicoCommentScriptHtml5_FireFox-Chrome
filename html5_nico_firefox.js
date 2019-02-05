@@ -1445,7 +1445,6 @@
 		// レイヤー番号の詰め
 		/*
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-
 			// 現在ある要素に対して1番から番号を振り直す
 			var AddArrayTemp = (String($('#myTrcSel2').val())).split(" ");
 			var AddText = (i + 1) + AddArrayTemp[1] + " " + AddArrayTemp[2];
