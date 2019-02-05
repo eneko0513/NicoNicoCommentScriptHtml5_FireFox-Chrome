@@ -1337,7 +1337,7 @@
 			a.style.zIndex = '4';
 		}
 
-		$('#myTrcSel2')[a.id.slice(5) - 1].selected = true;
+		$('#myTrcSel2')[a.id.slice(6) - 1].selected = true;
 
 		//ここ∞ループしとる
 	}
@@ -1387,8 +1387,9 @@
 			$('#myTrcTxtDisp').val("非表示");
 			a.style.zIndex = '4';
 		}
-		$('#myTrcSel2').val(a.id.slice(5) - 1);
-		//$('#myTrcSel2')[a.id.slice(5)-1].selected= true;
+		// slice(6)は myTxt_ の文字数(length)
+		$('#myTrcSel2').val(a.id.slice(6) - 1);
+		//$('#myTrcSel2')[a.id.slice(6)-1].selected= true;
 
 
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
@@ -1397,10 +1398,10 @@
 			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight", "");
 		}
 
-		if ((a.id.slice(5) - 1) == -1) {
+		if ((a.id.slice(6) - 1) == -1) {
 			$("#myTrcSel2 option:nth-child(" + 0 + ")").css("font-weight", "bold");
 		} else {
-			var temp = 'nth-child(' + (a.id.slice(5)) + ')';
+			var temp = 'nth-child(' + (a.id.slice(6)) + ')';
 			$("#myTrcSel2 option:" + temp).css("font-weight", "bold");
 		}
 	}
