@@ -1041,7 +1041,7 @@
 			var myinnerTxt;
 			//widht = font*w+1px
 			//height = lineheight *L+2px 
-			t.id = 'myTxt' + m;
+			t.id = 'myTxt_' + m;
 			t.className = 'myTxtClass';
 			myinnerTxt = '' +
 				'background-color: rgba(0,0,0,0);' +
@@ -1312,8 +1312,8 @@
 		$('#myTransY').value = a.style.transform.match(/\d+\.*\d*/g)[1];
 
 		for (var i = 0; i < $('#myTrcSel2').length; i++) {
-			if ($("#myTxt" + (i + 1)).style.zIndex == '4') {
-				$("#myTxt" + (i + 1)).style.zIndex = '3';
+			if ($("#myTxt_" + (i + 1)).style.zIndex == '4') {
+				$("#myTxt_" + (i + 1)).style.zIndex = '3';
 			}
 		}
 		if (b == "ue") {
@@ -1359,11 +1359,11 @@
 
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			$("#myTxt" + (i + 1)).css('z-index', '3');
+			$("#myTxt_" + (i + 1)).css('z-index', '3');
 			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight", "");
 		}
 
-		$("#myTxt" + a).css('z-index', '4');
+		$("#myTxt_" + a).css('z-index', '4');
 		$("#myTrcSel2 option:nth-child(" + a + ")").css("font-weight", "bold");
 
 
@@ -1376,8 +1376,8 @@
 	function myTxtSelect() {
 		a = document.activeElement;
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			if ($("#myTxt" + (i + 1)).css('zIndex') == '4') {
-				$("#myTxt" + (i + 1)).css('zIndex', '3');
+			if ($("#myTxt_" + (i + 1)).css('zIndex') == '4') {
+				$("#myTxt_" + (i + 1)).css('zIndex', '3');
 			}
 		}
 
@@ -1434,11 +1434,12 @@
 		// 選択されているoption要素を全消去
 		$('#myTrcSel2 > option:selected').remove();
 
+
 		// レイヤーのNoを小さい数字から対応していく
 		// (原則は小さい数字が下の方にある)
 		for(var i = 1; i <= loopCount;i++){
 			// textareaのidの再割り振り
-			$("#myTxt" + i).id = ("myTxt" + (i + 1));
+			$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
 		}
 
 		// レイヤー番号とテキストの数値部分の詰め
@@ -1450,12 +1451,18 @@
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2]);
 
 			// textareaのidの再割り振り
-			if ($("#myTxt" + (i + 1))) {
-				$("#myTxt" + (i + 1)).id = ("myTxt" + (i + 1));
-			} else {
-				$("#myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
-			}
+			//if ($("#myTxt" + (i + 1))) {
+			//	$("#myTxt" + (i + 1)).id = ("myTxt" + (i + 1));
+			//} else {
+			//	$("#myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
+			//}
 		}
+
+		var list = [];
+		$(".myTxtClass").each(function () {
+			list.push($(this).attr('id'));
+		});
+		
 	});
 
 	/**
@@ -1471,7 +1478,7 @@
 		var a;
 		for (i = 0; i < deleteIdCount; i++) {
 			deleteId = (String(fruit[i])).split(" ");
-			a = document.getElementById("myTxt" + deleteId[0]);
+			a = document.getElementById("myTxt_" + deleteId[0]);
 			a.parentNode.removeChild(a);
 		}
 
