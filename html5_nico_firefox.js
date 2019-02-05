@@ -1417,8 +1417,6 @@
 		//a.parentNode.removeChild(a);
 		//
 
-
-
 		// 関連するtextareaの削除
 		//$('#myTxt1').remove();
 
@@ -1472,7 +1470,7 @@
 		console.log(fruit);
 
 		// 要素の数だけループ
-		var a = document.getElementById("myTxt" + (String($('#myTrcSel2').val())).split(" "));
+		var a = document.getElementById("myTxt" + (fruit.split(" ")));
 		a.parentNode.removeChild(a);
 	}
 
