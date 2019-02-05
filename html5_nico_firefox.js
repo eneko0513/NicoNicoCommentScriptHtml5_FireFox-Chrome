@@ -1441,24 +1441,6 @@
 				$("#myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
 			}
 		}
-
-		// レイヤー番号の詰め
-		/*
-		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			// 現在ある要素に対して1番から番号を振り直す
-			var AddArrayTemp = (String($('#myTrcSel2').val())).split(" ");
-			var AddText = (i + 1) + AddArrayTemp[1] + " " + AddArrayTemp[2];
-			$('#myTrcSel2').text = AddText;
-
-			$('#myTrcSel2')[i].text = i + 1 + " " + (String($('#myTrcSel2')[i].val())).split(" ")[1];
-			$('#myTrcSel2')[i].text += " " + (String($('#myTrcSel2')[i].val())).split(" ")[2];
-			if ($("myTxt" + (i + 1))) {
-				$("myTxt" + (i + 1)).id = ("myTxt" + (i + 1));
-			} else {
-				$("myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
-			}
-		}
-		*/
 	});
 
 	/**
@@ -1470,9 +1452,14 @@
 		console.log(fruit);
 
 		// 要素の数だけループ
-		var deleteId = (String(fruit)).split(" ");
-		var a = document.getElementById("myTxt" + deleteId[0]);
-		a.parentNode.removeChild(a);
+		var deleteIdCount = fruit.length;
+		var a;
+		for (i = 0; i < deleteIdCount; i++) {
+			deleteId = (String(fruit[i])).split(" ");
+			a = document.getElementById("myTxt" + deleteId[0]);
+			a.parentNode.removeChild(a);
+		}
+
 	}
 
 
