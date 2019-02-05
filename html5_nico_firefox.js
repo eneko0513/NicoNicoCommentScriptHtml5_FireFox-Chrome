@@ -1456,8 +1456,10 @@
 			list.push($(this).attr('id'));
 		});
 
-		for(var j = 0;j < list.length;j++){
-			list[j].id = ("myTxt_" + (i + 1));
+		var obj;
+		for (var j = 0; j < list.length; j++) {
+			obj = document.getElementById(list[j]);
+			obj.id = "myTxt_" + (j + 1);
 		}
 	});
 
