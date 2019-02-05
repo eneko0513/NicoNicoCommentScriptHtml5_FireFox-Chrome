@@ -1449,20 +1449,16 @@
 			// valueとtextを変更
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2]);
-
-			// textareaのidの再割り振り
-			//if ($("#myTxt" + (i + 1))) {
-			//	$("#myTxt" + (i + 1)).id = ("myTxt" + (i + 1));
-			//} else {
-			//	$("#myTxt" + (i + 2)).id = ("myTxt" + (i + 1));
-			//}
 		}
 
 		var list = [];
 		$(".myTxtClass").each(function () {
 			list.push($(this).attr('id'));
 		});
-		
+
+		for(var j = 0;j < list.length;j++){
+			list[j].id = ("myTxt_" + (i + 1));
+		}
 	});
 
 	/**
