@@ -200,9 +200,15 @@
 		"	<div id='panel2' class='tab_panel'>				" +
 		"	  <p>" +
 		"		<input id='textColorChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='textColorChange' class='label'>文字色変更</label>" +
+		"		<label for='textColorChange' class='label'>選択レイヤー色変更</label>" +
+		"		<input id='layerVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerVisible' class='label'>選択レイヤー非表示</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label><br><br><br>" +
+		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label>" +
+		"		<input id='layerUp' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerUp' class='label'>選択レイヤーを上へ</label>" +
+		"		<input id='layerDown' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerDown' class='label'>選択レイヤーを下へ</label><br><br><br>" +
 		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select>" +
 		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea><br><br><br><br><br><br><br><br>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:1% 20px 2px 5px;'>" +
