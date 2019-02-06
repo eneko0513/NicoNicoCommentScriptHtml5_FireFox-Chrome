@@ -228,7 +228,7 @@
 		"		<input id='layerDown' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerDown' class='label'>選択レイヤーを下へ</label><br><br><br>" +
 		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select>" +
-		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea><br><br><br><br><br><br><br><br>" +
+		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:1% 20px 2px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
 		"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
@@ -246,7 +246,7 @@
 		"			<option value='medium_shita_full_gothic_W50_C22'>medium shita W50</option>" +
 		"			<option value='small_ue_full_gothic_W37_L2_C9'>small ue W37 L2</option>" +
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
-		"		</select>" +
+		"		</select><br><br><br><br><br>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
 		"		<label for='myTrcAdd' class='label3'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
