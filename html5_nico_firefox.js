@@ -203,9 +203,9 @@
 		"		<label for='textColorChange' class='label'>文字色変更</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label><br><br><br>" +
-		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select><br><br><br><br><br><br><br><br>" +
-		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea><br>" +
-		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:22px 20px 2px 5px;'>" +
+		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select>" +
+		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea><br><br><br><br><br><br><br><br>" +
+		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:1% 20px 2px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
 		"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
 		"			<option value='big_ue_ender_full_gothic_W20_L11_臨'>big ender 11 臨</option>" +
