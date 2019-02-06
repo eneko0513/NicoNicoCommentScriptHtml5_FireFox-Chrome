@@ -143,10 +143,10 @@
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
-		"  	width: 120px;		/* ラベルの横幅を指定する */" +
-		"  	height: 35px;		/* ラベルの高さを指定する */" +
+		"  	width: 80px;		/* ラベルの横幅を指定する */" +
+		"  	height: 43px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
-		"  	line-height: 35px;	/* 行の高さを指定する */" +
+		"  	line-height: 20px;	/* 行の高さを指定する */" +
 		"  	padding-left: 5px;	/* ラベル内左側の余白を指定する */" +
 		"  	padding-right: 5px;	/* ラベル内右側の余白を指定する */" +
 		"  	cursor: pointer;		/* マウスカーソルの形（リンクカーソル）を指定する */" +
@@ -256,9 +256,9 @@
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
 		"		<input id='layerSave' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerSave' class='label3'>レイヤー保存</label>" +
+		"		<label for='layerSave' class='label3 margins'>レイヤー保存</label>" +
 		"		<input id='layerLoad' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerLoad' class='label3 margins'>レイヤー復元</label>" +
+		"		<label for='layerLoad' class='label3'>レイヤー復元</label>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
