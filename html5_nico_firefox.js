@@ -146,8 +146,8 @@
 		"		min-width: 555px;" +
 		"		min-height: 116px;" +
 		"	}" +
-		"	.marginDiv {" +
-		"		margin: 30px;" +
+		"	.marginsDiv {" +
+		"		margin-right: 30px;" +
 		"	}" +
 		"  " +
 		"</style>		" +
@@ -199,7 +199,7 @@
 		"	</div>			" +
 		"	<div id='panel2' class='tab_panel'>				" +
 		"	  <p>" +
-		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select><br><br><br><br><br><br><br><br><br>" +
+		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select><br><br><br><br><br><br><br><br>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:9px 0px 0px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
 		"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
