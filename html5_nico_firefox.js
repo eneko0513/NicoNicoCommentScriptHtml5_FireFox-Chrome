@@ -199,6 +199,10 @@
 		"	</div>			" +
 		"	<div id='panel2' class='tab_panel'>				" +
 		"	  <p>" +
+		"		<input id='textColorChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='textColorChange' class='label'>文字色変更</label>" +
+		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label>" +
 		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select><br><br><br><br><br><br><br><br>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:9px 0px 0px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
@@ -218,12 +222,13 @@
 		"			<option value='small_ue_full_gothic_W37_L2_C9'>small ue W37 L2</option>" +
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
 		"		</select>" +
+		"		<textarea id='outputCreateTxtarea' style='margin: 0px; width: 450px; height: 100px;></textarea><br>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
 		"		<label for='myTrcAdd' class='label'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='myTrcDel' class='label'>レイヤー削除</label>" +
 		"		<input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png' style='display: none';></label>" +
-		"		<label for='ufile' class='label margins'>画像読み込み</label><br><br><br>" +
+		"		<label for='ufile' class='label margins'>画像読み込み</label>" +
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='imageVisible' class='label'>画像非表示</label>" +
 		"	  </p>			" +
