@@ -146,8 +146,8 @@
 		"		min-width: 555px;" +
 		"		min-height: 116px;" +
 		"	}" +
-		"	.marginsDiv {" +
-		"		margin-right: 30px;" +
+		"	.margins {" +
+		"		margin-left: 30px;" +
 		"	}" +
 		"  " +
 		"</style>		" +
@@ -222,9 +222,8 @@
 		"		<label for='myTrcAdd' class='label'>追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='myTrcDel' class='label'>削除</label>" +
-		"		<div class='marginsDiv'></div>" +
 		"		<input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png' style='display: none';></label>" +
-		"		<label for='ufile' class='label'>画像読み込み</label><br><br><br>" +
+		"		<label for='ufile' class='label margins'>画像読み込み</label><br><br><br>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
