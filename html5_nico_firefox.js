@@ -219,6 +219,8 @@
 		"	  <p>" +
 		"		<input id='textColorChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='textColorChange' class='label'>選択レイヤー色変更</label>" +
+		"		<input id='layerNameChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerNameChange' class='label'>レイヤー名前変更</label>" +
 		"		<input id='layerVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerVisible' class='label'>選択レイヤー非表示</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
