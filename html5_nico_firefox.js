@@ -138,6 +138,24 @@
 		"	user-select: none; /* CSS3 */" +
 		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
 		"  }" +
+		"  " +
+		"  .labe3 {" +
+		"  	display: block;		/* ブロックレベル要素化する */ " +
+		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
+		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
+		"  	width: 120px;		/* ラベルの横幅を指定する */" +
+		"  	height: 35px;		/* ラベルの高さを指定する */" +
+		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
+		"  	line-height: 35px;	/* 行の高さを指定する */" +
+		"  	padding-left: 5px;	/* ラベル内左側の余白を指定する */" +
+		"  	padding-right: 5px;	/* ラベル内右側の余白を指定する */" +
+		"  	cursor: pointer;		/* マウスカーソルの形（リンクカーソル）を指定する */" +
+		"  	color: #000000;			/* フォントの色を指定 */" +
+		"  	border: 2px solid #006DD9;/* ラベルの境界線を実線で指定する */" +
+		"  	border-radius: 5px;		/* 角丸を指定する */" +
+		"	user-select: none; /* CSS3 */" +
+		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
+		"  }" +
 		"	#ScriptTextArea {" +
 		"		min-width: 555px;" +
 		"		min-height: 116px;" +
@@ -230,13 +248,13 @@
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
 		"		</select>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
-		"		<label for='myTrcAdd' class='label'>レイヤー追加</label>" +
+		"		<label for='myTrcAdd' class='label3'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='myTrcDel' class='label'>レイヤー削除</label>" +
+		"		<label for='myTrcDel' class='label3'>レイヤー削除</label>" +
 		"		<input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png' style='display: none';></label>" +
-		"		<label for='ufile' class='label margins'>画像読み込み</label>" +
+		"		<label for='ufile' class='label3 margins'>画像読み込み</label>" +
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='imageVisible' class='label'>画像非表示</label>" +
+		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
