@@ -255,6 +255,10 @@
 		"		<label for='ufile' class='label3 margins'>画像読み込み</label>" +
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
+		"		<input id='layerSave' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerSave' class='label3'>レイヤー保存</label>" +
+		"		<input id='layerLoad' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerLoad' class='label3 margins'>レイヤー復元</label>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
