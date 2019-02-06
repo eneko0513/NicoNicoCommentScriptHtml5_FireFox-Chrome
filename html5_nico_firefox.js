@@ -143,8 +143,8 @@
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
-		"  	width: 80px;		/* ラベルの横幅を指定する */" +
-		"  	height: 43px;		/* ラベルの高さを指定する */" +
+		"  	width: 120px;		/* ラベルの横幅を指定する */" +
+		"  	height: 35px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
 		"  	line-height: 20px;	/* 行の高さを指定する */" +
 		"  	padding-left: 5px;	/* ラベル内左側の余白を指定する */" +
@@ -248,7 +248,7 @@
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
 		"		</select><br><br><br><br><br>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
-		"		<label for='myTrcAdd' class='label3'>レイヤー追加</label>" +
+		"		<br><br><br><br><br><label for='myTrcAdd' class='label3'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='myTrcDel' class='label3'>レイヤー削除</label>" +
 		"		<input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png' style='display: none';></label>" +
