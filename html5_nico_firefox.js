@@ -139,7 +139,7 @@
 		"	-webkit-user-select: none; /* Safari、Chromeなど */" +
 		"  }" +
 		"  " +
-		"  .labe3 {" +
+		"  .label3 {" +
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
