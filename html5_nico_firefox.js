@@ -219,11 +219,13 @@
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
 		"		</select>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
-		"		<label for='myTrcAdd' class='label'>追加</label>" +
+		"		<label for='myTrcAdd' class='label'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='myTrcDel' class='label'>削除</label>" +
+		"		<label for='myTrcDel' class='label'>レイヤー削除</label>" +
 		"		<input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png' style='display: none';></label>" +
 		"		<label for='ufile' class='label margins'>画像読み込み</label><br><br><br>" +
+		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='imageVisible' class='label'>画像非表示</label>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
