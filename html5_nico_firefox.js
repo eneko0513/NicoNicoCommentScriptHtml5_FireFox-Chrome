@@ -222,7 +222,7 @@
 		"			<option value='small_ue_full_gothic_W37_L2_C9'>small ue W37 L2</option>" +
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
 		"		</select>" +
-		"		<textarea id='outputCreateTxtarea' style='margin: 0px; width: 450px; height: 100px;></textarea><br>" +
+		"		<textarea id='outputCreateTxtarea' style='margin: 0px; width: 450px; height: 100px;'></textarea><br>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
 		"		<label for='myTrcAdd' class='label'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
