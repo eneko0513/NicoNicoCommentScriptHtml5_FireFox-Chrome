@@ -256,7 +256,7 @@
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
 		"		<input id='layerOutputAll' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerOutputAll' class='label3 margins'>全出力</label>" +
+		"		<label for='layerOutputAll' class='label3 margins'>全レイヤー出力</label>" +
 		"		<input id='layerOutput' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerOutput' class='label3'>選択レイヤー出力</label>" +
 		"		<input id='layerSave' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
