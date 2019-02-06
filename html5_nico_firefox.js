@@ -108,7 +108,7 @@
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
-		"  	width: 130px;		/* ラベルの横幅を指定する */" +
+		"  	width: 150px;		/* ラベルの横幅を指定する */" +
 		"  	height: 35px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
 		"  	line-height: 35px;	/* 行の高さを指定する */" +
@@ -202,7 +202,7 @@
 		"		<input id='textColorChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='textColorChange' class='label'>文字色変更</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label>" +
+		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label><br><br><br>" +
 		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select><br><br><br><br><br><br><br><br>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:9px 0px 0px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
