@@ -1616,7 +1616,8 @@
 			// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 			for (i = 0; i < loopCount + 1; i++) {
 				alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
-				if($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight")){
+				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					colorSetLayerNo = (i + 1);
 				}
 			}
