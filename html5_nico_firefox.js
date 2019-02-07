@@ -1601,8 +1601,17 @@
 
 			//console.log("Red: " + r + "  Green: " + g + "  Blue: " + b + "  Alpha: " + a);
 			//alert("#"+ r + "" + g + "" + b);
-
-			var t = document.getElementById("myTxt_" + $('myTrcSel2').value.split(" ")[0]);
+			// 要素の数だけループ
+			// 選択されているオプションをすべて取得
+			var deleteIdCount = $('#myTrcSel2').val().length;
+			var colorSetLayerNo = 0;
+			for (i = 0; i < deleteIdCount; i++) {
+				// CSSで font-weightが bold になっているものだけを取得
+				if($("#myTxt_" + (i + 1).css("font-weight") == "bold")){
+					colorSetLayerNo = (i + 1);
+				}
+			}
+			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
 
 
