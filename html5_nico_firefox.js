@@ -1603,9 +1603,7 @@
 			//alert("#"+ r + "" + g + "" + b);
 			// 要素の数だけループ
 			// 選択されているオプションをすべて取得
-			var deleteIdCount = $('#myTrcSel2').val();
-			var loopCount = deleteIdCount.length;
-			var colorSetLayerNo = 0;
+
 			//for (i = 0; i < loopCount + 1; i++) {
 				// CSSで font-weightが bold になっているものだけを取得
 			//	alert($("#myTxt_" + (i + 1)).css("font-weight"));
@@ -1613,8 +1611,10 @@
 			//		colorSetLayerNo = (i + 1);
 			//	}
 			//}
+			var colorSetLayerNo = 0;
+
 			// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
-			for (i = 0; i < loopCount + 1; i++) {
+			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
