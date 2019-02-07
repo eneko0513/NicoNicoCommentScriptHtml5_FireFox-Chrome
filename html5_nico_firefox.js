@@ -1606,12 +1606,21 @@
 			var deleteIdCount = $('#myTrcSel2').val();
 			var loopCount = deleteIdCount.length;
 			var colorSetLayerNo = 0;
-			for (i = 0; i < loopCount + 1; i++) {
+			//for (i = 0; i < loopCount + 1; i++) {
 				// CSSで font-weightが bold になっているものだけを取得
-				if($("#myTxt_" + (i + 1)).css("font-weight") == "bold"){
+			//	alert($("#myTxt_" + (i + 1)).css("font-weight"));
+			//	if ($("#myTxt_" + (i + 1)).css("font-weight") == "bold" || $("#myTxt_" + (i + 1)).css("font-weight") == "700"){
+			//		colorSetLayerNo = (i + 1);
+			//	}
+			//}
+			// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
+			for (i = 0; i < loopCount + 1; i++) {
+				alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
+				if($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight")){
 					colorSetLayerNo = (i + 1);
 				}
 			}
+
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
 
