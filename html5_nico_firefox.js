@@ -346,7 +346,6 @@
 	$("#WidthChange").click(function () {
 		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
 	});
-	
 	$("#TEST").click(function(){
 		$('.ProgressBar-inner').css('transform','scaleX(0.052564)');
 		document.getElementsByClassName("ProgressBar-innerSeekBar-played")[0].dispatchEvent(newMouseEvent("click",
@@ -357,7 +356,6 @@
 		}
 		));
 	});
-	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 画像表示機能のためのCanvasレイヤー宣言
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
@@ -1533,7 +1531,7 @@
     ----------------------------------------------------------------------------------------------------*/
 	var flags = false;
 	var temp_zIndex = [];
-	$('#textColorChange').onclick = function () {
+	$('#textColorChange').click(function () {
 
 		if (flags == false) {
 			flags = true;
@@ -1551,7 +1549,7 @@
 				//$("myTxt" + (i+1)).style.zIndex = '4';
 			}
 		}
-	}
+	});
 
 	// RGBから#ffffff形式へ変換する
 	function RGB2bgColor(r, g, b) {
