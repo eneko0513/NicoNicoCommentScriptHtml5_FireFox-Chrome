@@ -1534,9 +1534,7 @@
 	$('#textColorChange').click(function () {
 		if (flags == false) {
 			flags = true;
-			$('label#textColorChange').text("色確定");
-			$('#textColorChange').removeClass("label");
-			$('#textColorChange').addClass("label2");
+			$("label[for*='textColorChange']").html("色の反映");
 			//全レイヤーを一番下に(擬似的に非表示にする)
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				temp_zIndex[i] = $("#myTxt_" + (i + 1)).css('zIndex');
@@ -1544,11 +1542,8 @@
 			}
 		} else {
 			flags = false;
-			//$('#textColorChange').text = "色変更";
-			$('label#textColorChange').text("選択レイヤー色変更");
-			$('#textColorChange').removeClass("label2");
-			$('#textColorChange').addClass("label");
-			//全レイヤーを一番下に(擬似的に表示にする)
+			$("label[for*='textColorChange']").html("選択レイヤー色変更");
+			//全レイヤーを表示にする（元から非表示のものは非表示のままに）
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				$("#myTxt_" + (i + 1)).css('zIndex', temp_zIndex[i]);
 				//$("myTxt" + (i+1)).style.zIndex = '4';
