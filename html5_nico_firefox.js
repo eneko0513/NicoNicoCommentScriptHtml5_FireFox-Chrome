@@ -1603,11 +1603,12 @@
 			//alert("#"+ r + "" + g + "" + b);
 			// 要素の数だけループ
 			// 選択されているオプションをすべて取得
-			var deleteIdCount = $('#myTrcSel2').val().length;
+			var deleteIdCount = $('#myTrcSel2').val();
+			var loopCount = deleteIdCount.length;
 			var colorSetLayerNo = 0;
-			for (i = 0; i < deleteIdCount; i++) {
+			for (i = 0; i < loopCount + 1; i++) {
 				// CSSで font-weightが bold になっているものだけを取得
-				if($("#myTxt_" + (i + 1).css("font-weight") == "bold")){
+				if($("#myTxt_" + (i + 1)).css("font-weight") == "bold"){
 					colorSetLayerNo = (i + 1);
 				}
 			}
