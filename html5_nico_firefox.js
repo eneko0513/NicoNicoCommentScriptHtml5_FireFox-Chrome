@@ -1535,17 +1535,17 @@
 
 		if (flags == false) {
 			flags = true;
-			$('#textColorChange').value = "色確定";
+			$('#textColorChange').text = "色確定";
 			//全レイヤーを一番下に(擬似的に非表示にする)
 			for (var i = 0; i < $('#myTrcSel2').length; i++) {
-				temp_zIndex[i] = $("#myTxt_" + (i + 1)).style.zIndex;
-				$("#myTxt_" + (i + 1)).style.zIndex = '0';
+				temp_zIndex[i] = $("#myTxt_" + (i + 1)).css('zIndex');
+				$("#myTxt_" + (i + 1)).css('zIndex', '0');
 			}
 		} else {
-			flags = false; $('#textColorChange').value = "色変更";
+			flags = false; $('#textColorChange').text = "色変更";
 			//全レイヤーを一番下に(擬似的に表示にする)
 			for (var i = 0; i < $('#myTrcSel2').length; i++) {
-				$("#myTxt_" + (i + 1)).style.zIndex = temp_zIndex[i];
+				$("#myTxt_" + (i + 1)).css('zIndex', temp_zIndex[i]);
 				//$("myTxt" + (i+1)).style.zIndex = '4';
 			}
 		}
