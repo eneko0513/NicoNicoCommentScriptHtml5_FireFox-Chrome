@@ -1532,22 +1532,21 @@
 	var flags = false;
 	var temp_zIndex = [];
 	$('#textColorChange').click(function () {
-
 		if (flags == false) {
 			flags = true;
 			//$('#textColorChange').text = "色確定";
-			window.opener.document.getElementById("textColorChange").innerHTML = "色確定";
+			$('#textColorChange').css("content", "色確定");
 			//全レイヤーを一番下に(擬似的に非表示にする)
-			for (var i = 0; i < $('#myTrcSel2').length; i++) {
+			for (var i = 0; i < $('#myTrcSel2').length + 1; i++) {
 				temp_zIndex[i] = $("#myTxt_" + (i + 1)).css('zIndex');
 				$("#myTxt_" + (i + 1)).css('zIndex', '0');
 			}
 		} else {
 			flags = false;
 			//$('#textColorChange').text = "色変更";
-			window.opener.document.getElementById("textColorChange").innerHTML = "選択レイヤー色変更";
+			$('#textColorChange').css("content", "選択レイヤー色変更");
 			//全レイヤーを一番下に(擬似的に表示にする)
-			for (var i = 0; i < $('#myTrcSel2').length; i++) {
+			for (var i = 0; i < $('#myTrcSel2').length + 1; i++) {
 				$("#myTxt_" + (i + 1)).css('zIndex', temp_zIndex[i]);
 				//$("myTxt" + (i+1)).style.zIndex = '4';
 			}
