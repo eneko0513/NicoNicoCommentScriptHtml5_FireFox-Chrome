@@ -1528,6 +1528,87 @@
 
 	}
 
+    /*----------------------------------------------------------------------------------------------------
+    [スライダーの代わりの画像から色データを取得する処理]
+    ----------------------------------------------------------------------------------------------------*/
+	var flags = false;
+	var temp_zIndex = [];
+	$('myTrcColor').onclick = function () {
+
+		if (flags == false) {
+			flags = true; $('myTrcColor').value = "色確定";
+			//全レイヤーを一番下に(擬似的に非表示にする)
+			for (var i = 0; i < $('myTrcSel2').length; i++) {
+				temp_zIndex[i] = $("myTxt" + (i + 1)).style.zIndex;
+				$("myTxt" + (i + 1)).style.zIndex = '0';
+			}
+		} else {
+			flags = false; $('myTrcColor').value = "色変更";
+			//全レイヤーを一番下に(擬似的に表示にする)
+			for (var i = 0; i < $('myTrcSel2').length; i++) {
+				$("myTxt" + (i + 1)).style.zIndex = temp_zIndex[i];
+				//$("myTxt" + (i+1)).style.zIndex = '4';
+			}
+		}
+	}
+
+	// RGBから#ffffff形式へ変換する
+	function RGB2bgColor(r, g, b) {
+
+		r = r.toString(16);
+		if (r.length == 1) r = "0" + r;
+
+		g = g.toString(16);
+		if (g.length == 1) g = "0" + g;
+
+		b = b.toString(16);
+		if (b.length == 1) b = "0" + b;
+
+		return '#' + r + g + b;
+	}
+
+	var canvas_color = document.getElementById("myImg");
+
+	if (canvas_color.getContext) {
+		// コンテキストの取得
+		var ctx = canvas_color.getContext("2d");
+	}
+
+	canvas_color.onclick = function (evt) {
+		if (flags == true) {
+			//  マウス座標の取得
+			var x = parseInt(evt.offsetX);
+			var y = parseInt(evt.offsetY);
+
+			//  指定座標のImageDataオブジェクトの取得
+			var imagedata = ctx.getImageData(x, y, 1, 1);
+
+			//  RGBAの取得
+			var r = imagedata.data[0];
+			var g = imagedata.data[1];
+			var b = imagedata.data[2];
+			var a = imagedata.data[3];
+
+			r = parseInt(r).toString(16);
+			if (r < 10) r = "0" + r;
+
+			g = parseInt(g).toString(16);
+			if (g < 10) g = "0" + g;
+
+			b = parseInt(b).toString(16);
+			if (b < 10) b = "0" + b;
+
+			//console.log("Red: " + r + "  Green: " + g + "  Blue: " + b + "  Alpha: " + a);
+			//alert("#"+ r + "" + g + "" + b);
+
+			var t = document.getElementById("myTxt_" + $('myTrcSel2').value.split(" ")[0]);
+			t.style.color = "#" + r + "" + g + "" + b;
+
+
+		}
+	}
+
+
 
 
 })
