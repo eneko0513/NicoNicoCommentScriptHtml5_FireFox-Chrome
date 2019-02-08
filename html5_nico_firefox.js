@@ -1627,10 +1627,23 @@
 	}
 
 	/*----------------------------------------------------------------------------------------------------
-	[レイヤーに名前を設定する処理]
+	[レイヤーの表示を切り替えする処理]
 	----------------------------------------------------------------------------------------------------*/
-	$('#textColorChange').click(function () {
+	$('#layerVisible').click(function () {
+		if ($('myTrcSel2').value === "") { return; }
 
+		var fruit = $('#myTrcSel2').val();
+		console.log(fruit);
+
+		// 要素の数だけループ
+		var selectLayerCount = fruit.length;
+		var dispChange;
+		var a;
+		for (i = 0; i < selectLayerCount; i++) {
+			dispChange = (String(fruit[i])).split(" ");
+			a = document.getElementById("myTxt_" + dispChange[0]);
+			a.parentNode.removeChild(a);
+		}
 	});
 
 
