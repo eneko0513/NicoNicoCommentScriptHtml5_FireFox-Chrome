@@ -108,7 +108,7 @@
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
-		"  	width: 155px;		/* ラベルの横幅を指定する */" +
+		"  	width: 160px;		/* ラベルの横幅を指定する */" +
 		"  	height: 35px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
 		"  	line-height: 35px;	/* 行の高さを指定する */" +
@@ -222,9 +222,9 @@
 		"		<input id='layerNameChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerNameChange' class='label'>レイヤーの名前設定</label>" +
 		"		<input id='layerVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerVisible' class='label'>選択レイヤー非表示</label>" +
+		"		<label for='layerVisible' class='label'>レイヤー表示切り替え</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerAllVisible' class='label'>レイヤー一括非表示</label>" +
+		"		<label for='layerAllVisible' class='label'>レイヤー一括切り替え</label>" +
 		"		<input id='layerUp' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerUp' class='label'>選択レイヤーを上へ</label>" +
 		"		<input id='layerDown' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
@@ -1623,9 +1623,15 @@
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
 			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
-
 		}
 	}
+
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤーに名前を設定する処理]
+	----------------------------------------------------------------------------------------------------*/
+	$('#textColorChange').click(function () {
+
+	});
 
 
 
