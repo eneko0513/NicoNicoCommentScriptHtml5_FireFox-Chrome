@@ -1622,7 +1622,7 @@
 
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
-
+			$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
 
 		}
 	}
