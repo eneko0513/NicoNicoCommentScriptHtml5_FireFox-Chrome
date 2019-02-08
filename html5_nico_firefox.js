@@ -108,7 +108,7 @@
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
 		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
-		"  	width: 150px;		/* ラベルの横幅を指定する */" +
+		"  	width: 155px;		/* ラベルの横幅を指定する */" +
 		"  	height: 35px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
 		"  	line-height: 35px;	/* 行の高さを指定する */" +
@@ -1622,7 +1622,7 @@
 
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
-			$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
+			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
 
 		}
 	}
