@@ -1641,8 +1641,15 @@
 		var a;
 		for (i = 0; i < selectLayerCount; i++) {
 			dispChange = (String(fruit[i])).split(" ");
-			a = document.getElementById("myTxt_" + dispChange[0]);
-			a.parentNode.removeChild(a);
+			// zIndexが4なら0に、0なら4に
+			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4'){
+				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
+			}else{
+				$("#myTxt_" + dispChange[0]).css('zIndex', '4');
+			}
+
+			//a = document.getElementById("myTxt_" + dispChange[2]);
+			//$("#myTxt_" + (i + 1)).css('zIndex', '0');
 		}
 	});
 
