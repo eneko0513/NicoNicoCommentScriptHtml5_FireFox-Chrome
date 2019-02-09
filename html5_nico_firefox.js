@@ -1414,6 +1414,7 @@
     [text選択]
     ----------------------------------------------------------------------------------------------------*/
 	function myTxtSelect() {
+		var nameSetId = 0;
 		a = document.activeElement;
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTxt_" + (i + 1)).css('zIndex') == '4') {
@@ -1427,6 +1428,9 @@
 			$('#myTrcTxtDisp').val("非表示");
 			a.style.zIndex = '4';
 		}
+
+
+
 		// slice(6)は myTxt_ の文字数(length)
 		$('#myTrcSel2').val(a.id.slice(6) - 1);
 		//$('#myTrcSel2')[a.id.slice(6)-1].selected= true;
@@ -1442,6 +1446,13 @@
 		} else {
 			var temp = 'nth-child(' + (a.id.slice(6)) + ')';
 			$("#myTrcSel2 option:" + temp).css("font-weight", "bold");
+		}
+
+		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
+			}
 		}
 	}
 
@@ -1733,7 +1744,7 @@
 
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 
-				tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
+				//tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤー番号を変更
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
