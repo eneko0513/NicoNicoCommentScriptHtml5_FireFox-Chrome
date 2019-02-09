@@ -1700,6 +1700,11 @@
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+			}else{
+				// レイヤーの値を1あげる
+				dispChange = (String(fruit)).split(" ");
+				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text((nameSetId + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 			}
 		}
 
