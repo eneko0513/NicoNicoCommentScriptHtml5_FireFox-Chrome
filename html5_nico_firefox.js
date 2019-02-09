@@ -1751,24 +1751,6 @@
 			}
 		}
 
-		/*
-		// レイヤーのNoを小さい数字から対応していく
-		// (原則は小さい数字が下の方にある)
-		for (var i = 1; i <= loopCount; i++) {
-			// textareaのidの再割り振り
-			$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
-		}
-
-		// レイヤー番号とテキストの数値部分の詰め
-		var op = $('#myTrcSel2').children();
-		for (var i = 0; i < op.length; i++) {
-			var val = op.eq(i).val().split(" ");
-			var tex = op.eq(i).text().split(" ");
-			// valueとtextを変更
-			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
-			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
-		}
-
 		var list = [];
 		$(".myTxtClass").each(function () {
 			list.push($(this).attr('id'));
@@ -1779,7 +1761,34 @@
 			obj = document.getElementById(list[j]);
 			obj.id = "myTxt_" + (j + 1);
 		}
-		*/
+
+		// レイヤーのNoを小さい数字から対応していく
+		// (原則は小さい数字が下の方にある)
+		//for (var i = 1; i <= loopCount; i++) {
+		//	// textareaのidの再割り振り
+		//	$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
+		//}
+
+		//// レイヤー番号とテキストの数値部分の詰め
+		//var op = $('#myTrcSel2').children();
+		//for (var i = 0; i < op.length; i++) {
+		//	var val = op.eq(i).val().split(" ");
+		//	var tex = op.eq(i).text().split(" ");
+		//	// valueとtextを変更
+		//	$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
+		//	$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
+		//}
+
+		//var list = [];
+		//$(".myTxtClass").each(function () {
+		//	list.push($(this).attr('id'));
+		//});
+
+		//var obj;
+		//for (var j = 0; j < list.length; j++) {
+		//	obj = document.getElementById(list[j]);
+		//	obj.id = "myTxt_" + (j + 1);
+		//}
 	});
 })
 
