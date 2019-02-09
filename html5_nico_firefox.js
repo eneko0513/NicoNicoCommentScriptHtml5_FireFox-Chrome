@@ -1711,13 +1711,6 @@
 			list.push($(this).attr('id'));
 		});
 
-		var obj;
-		// 一度全てのレイヤーに_tempを付与
-		//for (var j = 0; j < list.length; j++) {
-		//	obj = document.getElementById(list[j]);
-		//	obj.id = "myTxt_" + (j + 1) + "_temp";
-		//}
-
 		var tempLayer;
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
@@ -1728,10 +1721,11 @@
 				//dispChange = (String(fruit)).split(" ");
 				tempLayer = $("#myTrcSel2 option:nth-child(" + i + ")").text();	// 元が上のやつ
 				tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
+				var tempObj_up = document.getElementById(list[nameSetId - 1]);
+				var tempObj_down = document.getElementById(list[nameSetId - 2]);
 
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
-				var tempObj_up = document.getElementById(list[nameSetId - 1]);
-				var tempObj_down = document.getElementById(list[nameSetId]);
+
 				tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤー番号を変更
@@ -1744,20 +1738,6 @@
 				// 下がったレイヤーの番号を変更する
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId) + " " + tempLayer[1] + " " + tempLayer[2] + " " + tempLayer[3]);
 			}
-		}
-
-		// 最終的な並びを取得
-
-		// 動画上のトレース用レイヤーのIDも一つあげる
-		var list = [];
-		$(".myTxtClass").each(function () {
-			list.push($(this).attr('id'));
-		});
-
-		var obj;
-		for (var j = 0; j < list.length; j++) {
-			obj = document.getElementById(list[j]);
-			obj.id = "myTxt_" + (j + 1);
 		}
 
 		/*
