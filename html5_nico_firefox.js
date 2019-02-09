@@ -1690,13 +1690,16 @@
 	// つまり他のやつが1つ数字があがる
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerUp').click(function () {
-
+		var dispChange;
+		var nameSetId = 0;
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+				dispChange = (String(fruit)).split(" ");
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
-				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").val();
+				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 			}
 		}
 
