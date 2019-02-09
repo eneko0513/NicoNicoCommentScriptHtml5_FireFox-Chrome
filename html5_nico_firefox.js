@@ -1383,7 +1383,7 @@
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var texts = $('option:selected').text();
-		if (!ModeAdmin){
+		if (!ModeAdmin) {
 			// 投稿者コメントモードでなければ 通常コメント という文字列が入ってしまうので除去する
 			texts = texts.slice(6);	// 通常コメント という文字列が入っていたら消す
 		}
@@ -1394,18 +1394,19 @@
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			a = c[i].text;
 			a = (String(a)).split(' ');
-			if (a[2] === '●'){
+			if (a[2] === '●') {
 				$("#myTxt_" + a[0]).css('z-index', '3');
-			}else{
+			} else {
 				$("#myTxt_" + a[0]).css('z-index', '0');
 			}
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
-
-
 		}
 		texts = (String(texts)).split(' ');
-		if ($("#myTrcSel2 option:nth-child(" + texts[0] + ")").text().match(/●/)){
-			$("#myTxt_" + texts[0]).css('z-index', '4');
+
+		var layerNo = $("#myTrcSel2 option:nth-child(" + texts[0] + ")").attr("id");
+		if ($("#myTrcSel2 option:nth-child(" + texts[0] + ")").text().match(/●/)) {
+			layerNo = (String(layerNo)).split('_')[1];
+			$("#myTxt_" + layerNo).css('z-index', '4');
 		}
 		$("#myTrcSel2 option:nth-child(" + texts[0] + ")").css("font-weight", "bold");
 	});
@@ -1429,8 +1430,6 @@
 			a.style.zIndex = '4';
 		}
 
-
-
 		// slice(6)は myTxt_ の文字数(length)
 		$('#myTrcSel2').val(a.id.slice(6) - 1);
 		//$('#myTrcSel2')[a.id.slice(6)-1].selected= true;
@@ -1453,7 +1452,6 @@
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				// 太字のレイヤーのidを取得する
-
 				layerNo = (String(layerNo)).split('_')[1];
 				$("#myTxt_" + layerNo).css('zIndex', '4');
 			} else {
