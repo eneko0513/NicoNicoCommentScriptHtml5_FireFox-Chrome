@@ -222,9 +222,9 @@
 		"		<input id='layerNameChange' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerNameChange' class='label'>レイヤーの名前設定</label>" +
 		"		<input id='layerVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerVisible' class='label'>レイヤー表示切り替え</label>" +
+		"		<label for='layerVisible' class='label'>レイヤー表示切替</label>" +
 		"		<input id='layerAllVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerAllVisible' class='label'>レイヤー一括切り替え</label>" +
+		"		<label for='layerAllVisible' class='label'>レイヤー一括切替</label>" +
 		"		<input id='layerUp' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerUp' class='label'>選択レイヤーを上へ</label>" +
 		"		<input id='layerDown' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
@@ -1397,18 +1397,21 @@
 	$('#myTrcSel2').change(function () {
 		var text = $('option:selected').text();
 		var aa = $(this).val();
-		var a = (String(aa)).split(' ')[0];
+		var a;// = (String(aa)).split(' ');
 
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			$("#myTxt_" + (i + 1)).css('z-index', '3');
+			a = (String(aa[i])).split(' ');
+			if (a[2] === '●'){
+				$("#myTxt_" + (i + 1)).css('z-index', '3');
+			}else{
+				$("#myTxt_" + (i + 1)).css('z-index', '0');
+			}
 			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight", "");
 		}
 
-		$("#myTxt_" + a).css('z-index', '4');
-		$("#myTrcSel2 option:nth-child(" + a + ")").css("font-weight", "bold");
-
-
+		$("#myTxt_" + a[0]).css('z-index', '4');
+		$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "bold");
 	});
 
 
@@ -1641,15 +1644,17 @@
 		var a;
 		for (i = 0; i < selectLayerCount; i++) {
 			dispChange = (String(fruit[i])).split(" ");
-			// zIndexが4なら0に、0なら4に
-			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4'){
+			// zIndexが4or3なら0に、0なら4or3に
+			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3'){
 				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
 			}else{
-				$("#myTxt_" + dispChange[0]).css('zIndex', '4');
+				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+					$("#myTxt_" + dispChange[0]).css('zIndex', '4');
+				}else{
+					$("#myTxt_" + dispChange[0]).css('zIndex', '3');
+				}
 			}
-
-			//a = document.getElementById("myTxt_" + dispChange[2]);
-			//$("#myTxt_" + (i + 1)).css('zIndex', '0');
 		}
 	});
 
