@@ -1310,7 +1310,7 @@
 			var option = document.createElement('option');
 			// option要素のvalue属性に値をセット
 			option.setAttribute('value', m + ' ' + $('#myTrcSel').val() + ' ● ');
-			option.id = "option_" + (m + 1);
+			option.id = "option_" + m;
 			// option要素に値をセット
 			option.innerHTML = m + ' ' + $('#myTrcSel').val() + ' ● ';
 			// 作成したoption要素をselectタグに追加
