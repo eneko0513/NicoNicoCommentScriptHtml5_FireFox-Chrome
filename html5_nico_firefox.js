@@ -8,7 +8,7 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-// A
+	// A
 
 	$('div.NicoenqueteNotificationContainer').before("<style type='text/css'>" +
 		".tab_wrap{" +
@@ -314,14 +314,14 @@
 	if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 		// 投コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
-		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+		$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
 		$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
-		$('button.OwnerEditButton').css('min-width','0px');
+		$('button.OwnerEditButton').css('min-width', '0px');
 		ModeAdmin = true;
 	} else {
 		// 通常コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
-		$('button.PlayerSkipNextButton').css('visibility','hidden');
+		$('button.PlayerSkipNextButton').css('visibility', 'hidden');
 		ModeAdmin = false;
 	}
 
@@ -330,30 +330,30 @@
 	function ModeCheck() {
 		if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			// 投コメモードの場合
-			$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+			$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
 			$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
-			$('button.OwnerEditButton').css('min-width','0px');
+			$('button.OwnerEditButton').css('min-width', '0px');
 			ModeAdmin = true;
 		} else {
 			// 通常コメモードの場合
 			$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
-			$('button.PlayerSkipNextButton').css('visibility','hidden');
+			$('button.PlayerSkipNextButton').css('visibility', 'hidden');
 			ModeAdmin = false;
 		}
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 幅調整ボタンを押したらコメント欄の横幅の広さを調整
 	$("#WidthChange").click(function () {
-		$('.OwnerCommentEditContainer-inlineEdit').css('width','500%');
+		$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
 	});
-	$("#TEST").click(function(){
-		$('.ProgressBar-inner').css('transform','scaleX(0.052564)');
+	$("#TEST").click(function () {
+		$('.ProgressBar-inner').css('transform', 'scaleX(0.052564)');
 		document.getElementsByClassName("ProgressBar-innerSeekBar-played")[0].dispatchEvent(newMouseEvent("click",
-		{
-			"view":window,
-			"bubbles":!0,
-			"cancelable":!0
-		}
+			{
+				"view": window,
+				"bubbles": !0,
+				"cancelable": !0
+			}
 		));
 	});
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -525,11 +525,11 @@
 
 	// 1コメント投下
 	$("#TEST").click(function () {
-		$('.ProgressBar-inner').css('transform','caleX(0.102564)');
+		$('.ProgressBar-inner').css('transform', 'caleX(0.102564)');
 		document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
-		  "view": window,
-		  "bubbles": !0,
-		  "cancelable": !0
+			"view": window,
+			"bubbles": !0,
+			"cancelable": !0
 		}));
 	});
 
@@ -1395,19 +1395,24 @@
 		if ((a.id.slice(6) - 1) == -1) {
 			$("#myTrcSel2 option:nth-child(" + 0 + ")").css("font-weight", "bold");
 		} else {
-			var temp = 'nth-child(' + (a.id.slice(6)) + ')';
-			$("#myTrcSel2 option:" + temp).css("font-weight", "bold");
+			var layerNo = a.id.slice(6);
+
+			//layerNo = (String(layerNo)).split('_')[1];
+			$("#option_" + layerNo).css("font-weight", "bold");
+			//var temp = 'nth-child(' + (a.id.slice(6)) + ')';
+
+			//$("#myTrcSel2 option:" + temp).css("font-weight", "bold");
 		}
 
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
+			var layerNos = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				// 太字のレイヤーのidを取得する
-				layerNo = (String(layerNo)).split('_')[1];
-				$("#myTxt_" + layerNo).css('zIndex', '4');
+				layerNos = (String(layerNos)).split('_')[1];
+				$("#myTxt_" + layerNos).css('zIndex', '4');
 			} else {
-				$("#myTxt_" + layerNo).css('zIndex', '3');
+				$("#myTxt_" + layerNos).css('zIndex', '3');
 			}
 		}
 	}
@@ -1445,7 +1450,7 @@
 
 		// レイヤーのNoを小さい数字から対応していく
 		// (原則は小さい数字が下の方にある)
-		for(var i = 1; i <= loopCount;i++){
+		for (var i = 1; i <= loopCount; i++) {
 			// textareaのidの再割り振り
 			$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
 		}
@@ -1593,15 +1598,15 @@
 			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
 			LayerNo = (String(layerNo)).split('_')[1];
 			// zIndexが4or3なら0に、0なら4or3に
-			if ($("#myTxt_" + LayerNo).css('zIndex') == '4' || $("#myTxt_" + LayerNo).css('zIndex') == '3'){
+			if ($("#myTxt_" + LayerNo).css('zIndex') == '4' || $("#myTxt_" + LayerNo).css('zIndex') == '3') {
 				$("#myTxt_" + LayerNo).css('zIndex', '0');
-				$("#myTrcSel2 option:nth-child(" + LayerNo + ")").text($("#myTrcSel2 option:nth-child(" + LayerNo + ")").text().replace('●','○'));
-			}else{
+				$("#myTrcSel2 option:nth-child(" + LayerNo + ")").text($("#myTrcSel2 option:nth-child(" + LayerNo + ")").text().replace('●', '○'));
+			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + LayerNo).css('zIndex', '4');
 					$("#myTrcSel2 option:nth-child(" + LayerNo + ")").text($("#myTrcSel2 option:nth-child(" + LayerNo + ")").text().replace('○', '●'));
-				}else{
+				} else {
 					$("#myTxt_" + LayerNo).css('zIndex', '3');
 					$("#myTrcSel2 option:nth-child(" + LayerNo + ")").text($("#myTrcSel2 option:nth-child(" + LayerNo + ")").text().replace('○', '●'));
 				}
@@ -1765,633 +1770,633 @@
 
 
 //古いやつ
-		/*
+/*
 javascript: (function(f, dd) {
-	dd = document.createElement("script");
-	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
-	dd.onload = function() {
-		f(jQuery.noConflict(true))
-	};
-	document.body.appendChild(dd)
+dd = document.createElement("script");
+dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+dd.onload = function() {
+f(jQuery.noConflict(true))
+};
+document.body.appendChild(dd)
 })(function($) {
 
-	// 投コメ状態で起動したらコメント入力欄の75文字の制限を1024文字制限に変更
-	if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
-		$('.CommentInput-textarea').prop('maxlength', '1024');
+// 投コメ状態で起動したらコメント入力欄の75文字の制限を1024文字制限に変更
+if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
+$('.CommentInput-textarea').prop('maxlength', '1024');
+}else{
+$('.CommentInput-textarea').prop('maxlength', '75');
+}
+
+
+$("#auto_insert").click(function() {
+
+var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+var lines = text.split('\n');
+text = lines[0];
+
+if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
+	//クソ適当な投コメモード対応
+	if (text.match(/^\[(.+?)\](.*)/) != null) {
+		var posetSet = setInterval(function() {
+			if ($("#script_text_area").val() == "") clearInterval(posetSet);
+			button_disabled_change(false);
+		}, 2250);
+		setCommandMment();
+		button_disabled_change(true);
+		var posetSet = setInterval(function() {
+			setCommandMment();
+		}, 2250);
+	} else {
+		alert("not [COMMAND]COMMENT");
+	}
+}else{
+	if (text.match(/^\[(.+?)\](.*)/) != null) {
+		var posetSet = setInterval(function() {
+			if ($("#script_text_area").val() == "") clearInterval(posetSet);
+			button_disabled_change(false);
+		}, 6000);
+		setCommandMment();
+		button_disabled_change(true);
+		var posetSet = setInterval(function() {
+			setCommandMment();
+		}, 6000);
+	} else {
+		alert("not [COMMAND]COMMENT");
+	}
+}
+});
+
+var comment_limit = 75;
+var versions = "0.96";
+var uptext = '\n読み込んだ画像のところでクリックをすると、カラーコードを表示する機能を追加';
+$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></label><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓json形式1コメント1行単位置換 & 読み込み画像の色情報↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
+
+
+
+$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
+//<form id='my_form'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></form>
+
+
+$('#myImg').css('position','absolute');
+$('#myImg').css('top','0px');
+$('#myImg').css('left','0px');
+$('#myImg').css('width','100%');
+$('#myImg').css('height','100%');
+$('#myImg').css('border','none');
+$('#myImg').css('display','none');
+$('#myImg').css('z-index',2);
+
+
+//読み込み
+$("#ufile").change(function(){
+if (!this.files.length) {
+	$('#myImg').css('display','none');
+	return;
+}
+$('#myImg').css('display','');
+//canvasの情報取得
+var canvas = document.getElementById('myImg');
+
+//canvasのオブジェクトのタイプ(2dデータ)を宣言
+var ctx = canvas.getContext("2d");
+
+// 選択されたファイルを取得
+var file = this.files[0];
+
+// 画像ファイル以外は処理中止
+if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
+
+//インスタンス生成2つ
+var image = new Image();
+var reader = new FileReader();
+
+// File APIを使用し、ローカルファイルを読み込む
+reader.onload = function(evt) {
+
+	// 画像がloadされた後に、canvasに描画する
+	image.onload = function() {
+		//canvasのエリアのクリア
+		ctx.clearRect(0, 0, 0, 0);
+
+		//canvasサイズを(640,360)に設定
+		canvas.width = 640;
+		canvas.height = 360;
+
+		//canvasに読み込んだ画像を表示
+		ctx.drawImage(image, 0, 0 , 640 , 360);
+
+	}
+	image.src = reader.result;
+}
+// ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
+reader.readAsDataURL(file);
+//if($('myImg').style.display == "none"){
+//	$('myImg').style.display = "";
+//	$('myTrcImgDisp').value = "非表示";
+//}
+//$('myTrcImgDisp').style.display = "";
+})
+
+
+function button_disabled_change(flag) {
+
+if (flag === true) {
+	$("#auto_insert").prop("disabled", true);
+	//$("#auto_insert").text("投下停止");
+	$("#single_insert").prop("disabled", true);
+	$("#clear").prop("disabled", true);
+	$("#script_text_area").prop("disabled", true);
+	$("#convert").prop("disabled", true);
+	$("#check_184").prop("disabled", true);
+	$("#check_return").prop("disabled", true);
+	$("#version").prop("disabled", true);
+	$("#check_over75").prop("disabled", true);
+} else if (flag === false) {
+	if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
+	//$("#auto_insert").text("AUTO-ALL");
+	if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#clear").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#script_text_area").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#convert").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#check_184").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#check_return").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#version").prop("disabled", false);
+	if ($("#script_text_area").val() == "") $("#check_over75").prop("disabled", false);
+} else {
+	$("#auto_insert").prop("disabled", false);
+	$("#single_insert").prop("disabled", false);
+	$("#clear").prop("disabled", false);
+	$("#script_text_area").prop("disabled", false);
+	$("#convert").prop("disabled", false);
+	$("#check_184").prop("disabled", false);
+	$("#check_return").prop("disabled", false);
+	$("#version").prop("disabled", false);
+	$("#check_over75").prop("disabled", false);
+}
+}
+
+$("#clear").click(function() {
+$("#script_text_area").val("");
+});
+
+$("#version").click(function() {
+alert('ver:' + versions + ':' + uptext);
+});
+
+$("#convert").click(function() {
+var conText = $("#script_text_area").val();
+var before = '\t';
+var regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "[tab]");
+before = 'small';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "[small");
+before = 'medium';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "[medium");
+before = 'big';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "[big");
+before = '#(.{6})(.{0})';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "#$1]");
+before = '\n';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "<br>\n");
+before = '#(.{7})(.{0})<br>';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "#$1");
+before = '\n';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "");
+before = '\\[small';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "\n\[small");
+before = '\\[medium';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "\n\[medium");
+before = '\\[big';
+regExp = new RegExp(before, "g");
+conText = conText.replace(regExp, "\n\[big");
+//before = ' ';
+//regExp = new RegExp(before, "g");
+//conText = conText.replace(regExp, "[A0]");
+before = '\n';
+regExp = new RegExp(before, "");
+conText = conText.replace(regExp, "");
+$("#script_text_area").val();
+$("#script_text_area").val(conText);
+});
+
+$("#convert_json").click(function() {
+var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
+elements_json.click();
+var json_text = $('.OwnerCommentEditEditorContainer-textarea').text();
+var before = '\n';
+var regExp = new RegExp(before, "g");
+regExp = new RegExp(before, "g");
+json_text = json_text.replace(regExp, "");
+before = '},';
+regExp = new RegExp(before, "g");
+json_text = json_text.replace(regExp, "},\n");
+before = '\\[';
+regExp = new RegExp(before, "g");
+json_text = json_text.replace(regExp, "\[\n");
+before = '\\]';
+regExp = new RegExp(before, "g");
+json_text = json_text.replace(regExp, "\n\]");
+elements_json = document.getElementById("edit_json_output");
+elements_json.innerText = json_text;
+elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[2];
+elements_json.click();
+});
+
+function TextCountCheck(){
+//alert( comment_limit );
+if($('#check_over75').prop('checked')) {
+	comment_limit = 1024;
+}else{
+	comment_limit = 75;
+}
+
+var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+var lines = text.split('\n');
+var textArray = new Array();
+var checkFlag = false;
+var overText = "";
+for( var c = 0;c < lines.length;c++){
+	//textArray.push( lines[c] );
+	if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
+		ext_check = lines[c].match(/^\[(.+?)\](.*)/);
+
+		//alert(ext_check[2].substr(ext_check[2].length-4,4));
+		if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+			ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+		}
+
+		if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
+			ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+		}
+
+		ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
+		ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
+		ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
+		//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+
+
+		//alert(ext_check[2].length);
+		if (ext_check[2].length > comment_limit) {
+			checkFlag = true;
+			overText += (c+1) + "行目のコメントが" + comment_limit + "より" + (ext_check[2].length - comment_limit) + "文字オーバーしています\n";
+		}
+	}
+}
+
+if(checkFlag == true){
+	alert(overText);
+	//exit;
+}
+return checkFlag;
+}
+
+$(function(){
+$("#script_text_area").bind('keydown keyup keypress change',function(){
+	if($('#check_over75').prop('checked')) {
+		comment_limit = 1024;
 	}else{
-		$('.CommentInput-textarea').prop('maxlength', '75');
+		comment_limit = 75;
 	}
 
+	var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+	var lines = text.split('\n');
+	var textArray = new Array();
+	var checkFlag = false;
+	var overText = "";
+	for( var c = 0;c < lines.length;c++){
+		//textArray.push( lines[c] );
+		if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
+			ext_check = lines[c].match(/^\[(.+?)\](.*)/);
 
-	$("#auto_insert").click(function() {
+			//alert(ext_check[2].substr(ext_check[2].length-4,4));
+			if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+				ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+			}
 
+			if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
+				ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+			}
+
+			ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
+			ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
+			ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
+			//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+		}
+		try{
+			lines[c] = ext_check[2];
+		}catch(e){
+		}
+	}
+	$("#first_line_length").text("先頭行文字数:" + lines[0].length);
+	$("#last_line_length").text("最終行文字数:" + lines[lines.length -1].length);
+});
+});
+
+
+function TextCheckCountFirstLast(){
+if($('#check_over75').prop('checked')) {
+	comment_limit = 1024;
+}else{
+	comment_limit = 75;
+}
+
+var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+var lines = text.split('\n');
+var textArray = new Array();
+var checkFlag = false;
+var overText = "";
+for( var c = 0;c < lines.length;c++){
+	//textArray.push( lines[c] );
+	if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
+		ext_check = lines[c].match(/^\[(.+?)\](.*)/);
+
+		//alert(ext_check[2].substr(ext_check[2].length-4,4));
+		if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
+			ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+		}
+
+		if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
+			ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
+		}
+
+		ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
+		ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
+		ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
+		//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
+	}
+	try{
+		lines[c] = ext_check[2];
+	}catch(e){
+	}
+}
+$("#first_line_length").text("先頭行文字数:" + lines[0].length);
+$("#last_line_length").text("最終行文字数:" + lines[lines.length -1].length);
+}
+
+function setCommandMment() {
+
+	if ($("#script_text_area").val() == "") {
+		clearInterval(posetSet);
+	}
+	var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+	var lines = text.split('\n');
+	if($('#check_return').prop('checked')) {
+		text = lines[lines.length - 1];
+
+		if(text == ""){
+			text = $("#script_text_area").val()
+			text = text.replace(/\n+$/g,'');
+			$("#script_text_area").val(text);
+			text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+			lines = text.split('\n');
+			text = lines[lines.length - 1];
+		}
+
+		var text_length = text.length;
+		var retext = $("#script_text_area").val();
+		retext = retext.substr( 0, retext.length - text_length);
+		retext = retext.replace(/\n+$/g,'');
+	}else{
+		text = lines[0];
+		var retext = $("#script_text_area").val().replace(text, "");
+		retext = retext.replace("\n", "");
+	}
+
+	$("#script_text_area").val(retext);
+	TextCheckCountFirstLast();
+
+	if (text.match(/^\[(.+?)\](.*)/) != null) {
+		ext = text.match(/^\[(.+?)\](.*)/);
+
+		ext[2] = ext[2].replace(/<br>/gi, '\n');
+		ext[2] = ext[2].replace(/<br \/>/gi, '\n');
+		ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
+		//ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
+		if (ext[2].length > comment_limit) {
+			ext[2] = ext[2].slice(0, comment_limit);
+		}
+		var elements_command = document.getElementsByClassName("CommentCommandInput")[0];
+		j(elements_command, ext[1]);
+		var elements_text = document.getElementsByClassName("CommentInput-textarea")[0];
+		come(elements_text, ext[2]);
+		var elements_post = document.getElementsByClassName("CommentPostButton")[0];
+		//var elements_player1 = document.getElementsByClassName("ProgressBar")[2];
+		//var elements_player2 = document.getElementsByClassName("ProgressBar")[3];
+
+		window.setTimeout(function() {
+			timers(elements_post);
+		}, 1000);
+		function j(elements_command, command) {
+			if($('#check_184').prop('checked')) {
+				//elements_command.value = command;
+			}else{
+				//elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
+				command = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
+			}
+
+			//
+			if($('#patissier').prop('checked')) {
+				//elements_command.value = "patissier " + elements_command.value;
+				command = "pattisier" + command;
+			}
+
+			//elements_command.dispatchEvent(new Event("input", {
+			//	"bubbles": !0
+			//}));
+			Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(elements_command, command), elements_command.dispatchEvent(new Event("input", {
+			  bubbles: !0
+			}));
+		};
+		function timers(a) {
+			a.dispatchEvent(new MouseEvent("click", {
+					view: window,
+					bubbles: !0,
+					cancelable: !0
+			}))
+			//a.dispatchEvent(new MouseEvent("click", {
+			//	"view": window,
+			//	"bubbles": !0,
+			//	"cancelable": !0
+			//}));
+		};
+		function come(elements_text, text) {
+			Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set.call(elements_text, text), elements_text.dispatchEvent(new Event("input", {
+			  bubbles: !0
+			}))
+			//elements_text.value = text;
+			//elements_text.dispatchEvent(new Event("input", {
+			//	"bubbles": !0
+			//}));
+		}
+	} else {
+		alert("not [COMMAND]COMMENT");
+	}
+
+}
+$("#auto_insert").click(function() {
+
+	var start = false;
+	start = TextCountCheck();
+	if(start == false){
 		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
 		var lines = text.split('\n');
 		text = lines[0];
 
-		if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
-			//クソ適当な投コメモード対応
-			if (text.match(/^\[(.+?)\](.*)/) != null) {
-				var posetSet = setInterval(function() {
-					if ($("#script_text_area").val() == "") clearInterval(posetSet);
-					button_disabled_change(false);
-				}, 2250);
-				setCommandMment();
-				button_disabled_change(true);
-				var posetSet = setInterval(function() {
-					setCommandMment();
-				}, 2250);
-			} else {
-				alert("not [COMMAND]COMMENT");
-			}
-		}else{
-			if (text.match(/^\[(.+?)\](.*)/) != null) {
-				var posetSet = setInterval(function() {
-					if ($("#script_text_area").val() == "") clearInterval(posetSet);
-					button_disabled_change(false);
-				}, 6000);
-				setCommandMment();
-				button_disabled_change(true);
-				var posetSet = setInterval(function() {
-					setCommandMment();
-				}, 6000);
-			} else {
-				alert("not [COMMAND]COMMENT");
-			}
-		}
-	});
-
-	var comment_limit = 75;
-	var versions = "0.96";
-	var uptext = '\n読み込んだ画像のところでクリックをすると、カラーコードを表示する機能を追加';
-	$("div.NicoenqueteNotificationContainer").before("<div id='scriptdiv'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></label><button id='auto_insert'>AUTO-ALL</button><button id='single_insert'>SINGLE</button><button id='clear'>CLEAR</button><span style='margin-right: 6em;'></span><button id='convert'>Dohmo->SINGLE</button><button id='convert_json'>エディタ1行変換</button><span style='margin-right: 5em;'></span><button id='version'>ver:" + versions +"(更新内容)</button><span style='margin-right: 6em;'></span><form><label for='id_aaa' >184投下</label><input id='check_184' type='checkbox' value='check_184'><span style='margin-right: 2em;'></span><label for='id_aaa' >下から投下</label><input id='check_return' type='checkbox' value='check_return'><span style='margin-right: 2em;'></span><label for='id_aaa' >1024投下</label><input id='check_over75' type='checkbox' value='check_over75'><span style='margin-right: 2em;'></span><label for='id_aaa' >pattisier付与</label><input id='patissier' type='checkbox' value='patissier'><span style='margin-right: 3em;'></span><label id='first_line_length' >先頭行文字数:0</label><span style='margin-right: 2em;'></span><label id='last_line_length' >最終行文字数:0</label></form><br><textarea id='script_text_area' style='margin: 0px; width: 641px; height: 122px;'></textarea><br><label for='id_bbb' >↓json形式1コメント1行単位置換 & 読み込み画像の色情報↓</label><br><textarea id='edit_json_output' style='margin: 0px; width: 641px; height: 122px;'></textarea></div>");
-
-
-
-	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
-	//<form id='my_form'><input id='ufile' name='ufile' type='file' accept='image/jpeg,image/png'></form>
-
-
-	$('#myImg').css('position','absolute');
-	$('#myImg').css('top','0px');
-	$('#myImg').css('left','0px');
-	$('#myImg').css('width','100%');
-	$('#myImg').css('height','100%');
-	$('#myImg').css('border','none');
-	$('#myImg').css('display','none');
-	$('#myImg').css('z-index',2);
-
-
-	//読み込み
-	$("#ufile").change(function(){
-		if (!this.files.length) {
-			$('#myImg').css('display','none');
-			return;
-		}
-		$('#myImg').css('display','');
-		//canvasの情報取得
-		var canvas = document.getElementById('myImg');
-
-		//canvasのオブジェクトのタイプ(2dデータ)を宣言
-		var ctx = canvas.getContext("2d");
-
-		// 選択されたファイルを取得
-		var file = this.files[0];
-
-		// 画像ファイル以外は処理中止
-		if (!file.type.match(/^image\/(png|jpeg|gif)$/)) return;
-
-		//インスタンス生成2つ
-		var image = new Image();
-		var reader = new FileReader();
-
-		// File APIを使用し、ローカルファイルを読み込む
-		reader.onload = function(evt) {
-
-			// 画像がloadされた後に、canvasに描画する
-			image.onload = function() {
-				//canvasのエリアのクリア
-				ctx.clearRect(0, 0, 0, 0);
-
-				//canvasサイズを(640,360)に設定
-				canvas.width = 640;
-				canvas.height = 360;
-
-				//canvasに読み込んだ画像を表示
-				ctx.drawImage(image, 0, 0 , 640 , 360);
-
-			}
-			image.src = reader.result;
-		}
-		// ファイルを読み込み、データをBase64でエンコードされたデータURLにして返す
-		reader.readAsDataURL(file);
-		//if($('myImg').style.display == "none"){
-		//	$('myImg').style.display = "";
-		//	$('myTrcImgDisp').value = "非表示";
-		//}
-		//$('myTrcImgDisp').style.display = "";
-	})
-
-
-	function button_disabled_change(flag) {
-
-		if (flag === true) {
-			$("#auto_insert").prop("disabled", true);
-			//$("#auto_insert").text("投下停止");
-			$("#single_insert").prop("disabled", true);
-			$("#clear").prop("disabled", true);
-			$("#script_text_area").prop("disabled", true);
-			$("#convert").prop("disabled", true);
-			$("#check_184").prop("disabled", true);
-			$("#check_return").prop("disabled", true);
-			$("#version").prop("disabled", true);
-			$("#check_over75").prop("disabled", true);
-		} else if (flag === false) {
-			if ($("#script_text_area").val() == "") $("#auto_insert").prop("disabled", false);
-			//$("#auto_insert").text("AUTO-ALL");
-			if ($("#script_text_area").val() == "") $("#single_insert").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#clear").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#script_text_area").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#convert").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#check_184").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#check_return").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#version").prop("disabled", false);
-			if ($("#script_text_area").val() == "") $("#check_over75").prop("disabled", false);
-		} else {
-			$("#auto_insert").prop("disabled", false);
-			$("#single_insert").prop("disabled", false);
-			$("#clear").prop("disabled", false);
-			$("#script_text_area").prop("disabled", false);
-			$("#convert").prop("disabled", false);
-			$("#check_184").prop("disabled", false);
-			$("#check_return").prop("disabled", false);
-			$("#version").prop("disabled", false);
-			$("#check_over75").prop("disabled", false);
-		}
-	}
-
-	$("#clear").click(function() {
-		$("#script_text_area").val("");
-	});
-
-	$("#version").click(function() {
-		alert('ver:' + versions + ':' + uptext);
-	});
-
-	$("#convert").click(function() {
-		var conText = $("#script_text_area").val();
-		var before = '\t';
-		var regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "[tab]");
-		before = 'small';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "[small");
-		before = 'medium';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "[medium");
-		before = 'big';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "[big");
-		before = '#(.{6})(.{0})';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "#$1]");
-		before = '\n';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "<br>\n");
-		before = '#(.{7})(.{0})<br>';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "#$1");
-		before = '\n';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "");
-		before = '\\[small';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "\n\[small");
-		before = '\\[medium';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "\n\[medium");
-		before = '\\[big';
-		regExp = new RegExp(before, "g");
-		conText = conText.replace(regExp, "\n\[big");
-		//before = ' ';
-		//regExp = new RegExp(before, "g");
-		//conText = conText.replace(regExp, "[A0]");
-		before = '\n';
-		regExp = new RegExp(before, "");
-		conText = conText.replace(regExp, "");
-		$("#script_text_area").val();
-		$("#script_text_area").val(conText);
-	});
-
-	$("#convert_json").click(function() {
-		var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
-		elements_json.click();
-		var json_text = $('.OwnerCommentEditEditorContainer-textarea').text();
-		var before = '\n';
-		var regExp = new RegExp(before, "g");
-		regExp = new RegExp(before, "g");
-		json_text = json_text.replace(regExp, "");
-		before = '},';
-		regExp = new RegExp(before, "g");
-		json_text = json_text.replace(regExp, "},\n");
-		before = '\\[';
-		regExp = new RegExp(before, "g");
-		json_text = json_text.replace(regExp, "\[\n");
-		before = '\\]';
-		regExp = new RegExp(before, "g");
-		json_text = json_text.replace(regExp, "\n\]");
-		elements_json = document.getElementById("edit_json_output");
-		elements_json.innerText = json_text;
-		elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[2];
-		elements_json.click();
-	});
-
-	function TextCountCheck(){
-		//alert( comment_limit );
-		if($('#check_over75').prop('checked')) {
-			comment_limit = 1024;
-		}else{
-			comment_limit = 75;
-		}
-
-		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-		var lines = text.split('\n');
-		var textArray = new Array();
-		var checkFlag = false;
-		var overText = "";
-		for( var c = 0;c < lines.length;c++){
-			//textArray.push( lines[c] );
-			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
-				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-
-				//alert(ext_check[2].substr(ext_check[2].length-4,4));
-				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
-					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-				}
-
-				if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
-					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-				}
-
-				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
-				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
-				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
-
-
-				//alert(ext_check[2].length);
-				if (ext_check[2].length > comment_limit) {
-					checkFlag = true;
-					overText += (c+1) + "行目のコメントが" + comment_limit + "より" + (ext_check[2].length - comment_limit) + "文字オーバーしています\n";
-				}
-			}
-		}
-
-		if(checkFlag == true){
-			alert(overText);
-			//exit;
-		}
-		return checkFlag;
-	}
-
-	$(function(){
-		$("#script_text_area").bind('keydown keyup keypress change',function(){
-			if($('#check_over75').prop('checked')) {
-				comment_limit = 1024;
-			}else{
-				comment_limit = 75;
-			}
-
-			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-			var lines = text.split('\n');
-			var textArray = new Array();
-			var checkFlag = false;
-			var overText = "";
-			for( var c = 0;c < lines.length;c++){
-				//textArray.push( lines[c] );
-				if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
-					ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-
-					//alert(ext_check[2].substr(ext_check[2].length-4,4));
-					if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
-						ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-					}
-
-					if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
-						ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-					}
-
-					ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
-					ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
-					ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-					//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
-				}
-				try{
-					lines[c] = ext_check[2];
-				}catch(e){
-				}
-			}
-			$("#first_line_length").text("先頭行文字数:" + lines[0].length);
-			$("#last_line_length").text("最終行文字数:" + lines[lines.length -1].length);
-		});
-	});
-
-
-	function TextCheckCountFirstLast(){
-		if($('#check_over75').prop('checked')) {
-			comment_limit = 1024;
-		}else{
-			comment_limit = 75;
-		}
-
-		var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-		var lines = text.split('\n');
-		var textArray = new Array();
-		var checkFlag = false;
-		var overText = "";
-		for( var c = 0;c < lines.length;c++){
-			//textArray.push( lines[c] );
-			if (lines[c].match(/^\[(.+?)\](.*)/) != null) {
-				ext_check = lines[c].match(/^\[(.+?)\](.*)/);
-
-				//alert(ext_check[2].substr(ext_check[2].length-4,4));
-				if('<br>' == ext_check[2].substr(ext_check[2].length-4,4)){
-					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-				}
-
-				if('[A0]' == ext_check[2].substr(ext_check[2].length-4,4)){
-					ext_check[2] = ext_check[2].substr(0,ext_check[2].length-4);
-				}
-
-				ext_check[2] = ext_check[2].replace(/<br>/gi, '\n');
-				ext_check[2] = ext_check[2].replace(/<br \/>/gi, '\n');
-				ext_check[2] = ext_check[2].replace(/\[tab\]/gi, '\t');
-				//ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
-			}
-			try{
-				lines[c] = ext_check[2];
-			}catch(e){
-			}
-		}
-		$("#first_line_length").text("先頭行文字数:" + lines[0].length);
-		$("#last_line_length").text("最終行文字数:" + lines[lines.length -1].length);
-	}
-
-	function setCommandMment() {
-
-			if ($("#script_text_area").val() == "") {
-				clearInterval(posetSet);
-			}
-			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-			var lines = text.split('\n');
-			if($('#check_return').prop('checked')) {
-				text = lines[lines.length - 1];
-
-				if(text == ""){
-					text = $("#script_text_area").val()
-					text = text.replace(/\n+$/g,'');
-					$("#script_text_area").val(text);
-					text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-					lines = text.split('\n');
-					text = lines[lines.length - 1];
-				}
-
-				var text_length = text.length;
-				var retext = $("#script_text_area").val();
-				retext = retext.substr( 0, retext.length - text_length);
-				retext = retext.replace(/\n+$/g,'');
-			}else{
-				text = lines[0];
-				var retext = $("#script_text_area").val().replace(text, "");
-				retext = retext.replace("\n", "");
-			}
-
-			$("#script_text_area").val(retext);
-			TextCheckCountFirstLast();
-
-			if (text.match(/^\[(.+?)\](.*)/) != null) {
-				ext = text.match(/^\[(.+?)\](.*)/);
-
-				ext[2] = ext[2].replace(/<br>/gi, '\n');
-				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
-				ext[2] = ext[2].replace(/\[tab\]/gi, '\t');
-				//ext[2] = ext[2].replace(/\[A0\]/gi, ' ');
-				if (ext[2].length > comment_limit) {
-					ext[2] = ext[2].slice(0, comment_limit);
-				}
-				var elements_command = document.getElementsByClassName("CommentCommandInput")[0];
-				j(elements_command, ext[1]);
-				var elements_text = document.getElementsByClassName("CommentInput-textarea")[0];
-				come(elements_text, ext[2]);
-				var elements_post = document.getElementsByClassName("CommentPostButton")[0];
-				//var elements_player1 = document.getElementsByClassName("ProgressBar")[2];
-				//var elements_player2 = document.getElementsByClassName("ProgressBar")[3];
-
-				window.setTimeout(function() {
-					timers(elements_post);
-				}, 1000);
-				function j(elements_command, command) {
-					if($('#check_184').prop('checked')) {
-						//elements_command.value = command;
-					}else{
-						//elements_command.value = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
-						command = command + "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ";
-					}
-
-					//
-					if($('#patissier').prop('checked')) {
-						//elements_command.value = "patissier " + elements_command.value;
-						command = "pattisier" + command;
-					}
-
-					//elements_command.dispatchEvent(new Event("input", {
-					//	"bubbles": !0
-					//}));
-					Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(elements_command, command), elements_command.dispatchEvent(new Event("input", {
-					  bubbles: !0
-					}));
-				};
-				function timers(a) {
-					a.dispatchEvent(new MouseEvent("click", {
-					        view: window,
-					        bubbles: !0,
-					        cancelable: !0
-					}))
-					//a.dispatchEvent(new MouseEvent("click", {
-					//	"view": window,
-					//	"bubbles": !0,
-					//	"cancelable": !0
-					//}));
-				};
-				function come(elements_text, text) {
-					Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set.call(elements_text, text), elements_text.dispatchEvent(new Event("input", {
-					  bubbles: !0
-					}))
-					//elements_text.value = text;
-					//elements_text.dispatchEvent(new Event("input", {
-					//	"bubbles": !0
-					//}));
-				}
-			} else {
-				alert("not [COMMAND]COMMENT");
-			}
-
-	}
-	$("#auto_insert").click(function() {
-
-			var start = false;
-			start = TextCountCheck();
-			if(start == false){
-				var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-				var lines = text.split('\n');
-				text = lines[0];
-
-				if(text == ""){
-					text = $("#script_text_area").val()
-					text = text.replace(/\n\[+?/,'[');
-					$("#script_text_area").val(text);
-					text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-					lines = text.split('\n');
-					text = lines[0];
-				}
-
-				if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
-					//ひどい投コメ対応；；
-					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
-						var posetSet = setInterval(function() {
-							if ($("#script_text_area").val() == "") {
-								clearInterval(posetSet);
-							}
-							button_disabled_change(false);
-						}, 1500);
-						setCommandMment();
-						button_disabled_change(true);
-						var posetSet = setInterval(function() {
-							setCommandMment();
-						}, 1500);
-					} else {
-						alert("not [COMMAND]COMMENT");
-					}
-				}else{
-					if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
-						var posetSet = setInterval(function() {
-							if ($("#script_text_area").val() == "") {
-								clearInterval(posetSet);
-							}
-							button_disabled_change(false);
-						}, 6000);
-						setCommandMment();
-						button_disabled_change(true);
-						var posetSet = setInterval(function() {
-							setCommandMment();
-						}, 6000);
-					} else {
-						alert("not [COMMAND]COMMENT");
-					}
-				}
-			}
-
-	});
-	$("#single_insert").click(function() {
-
-		var start = false;
-		start = TextCountCheck();
-		if(start == false){
-
-			var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-			var lines = text.split('\n');
+		if(text == ""){
+			text = $("#script_text_area").val()
+			text = text.replace(/\n\[+?/,'[');
+			$("#script_text_area").val(text);
+			text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+			lines = text.split('\n');
 			text = lines[0];
+		}
 
-			if(text == ""){
-				text = $("#script_text_area").val()
-				text = text.replace(/\n\[+?/,'[');
-				$("#script_text_area").val(text);
-				text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
-				lines = text.split('\n');
-				text = lines[0];
-			}
-
-			if (text.match(/^\[(.+?)\](.*)/) != null) {
-				button_disabled_change(true);
+		if($('div').hasClass('GridCell OwnerEditMenuContainer-left')){
+			//ひどい投コメ対応；；
+			if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
+				var posetSet = setInterval(function() {
+					if ($("#script_text_area").val() == "") {
+						clearInterval(posetSet);
+					}
+					button_disabled_change(false);
+				}, 1500);
 				setCommandMment();
-				button_disabled_change("ok");
+				button_disabled_change(true);
+				var posetSet = setInterval(function() {
+					setCommandMment();
+				}, 1500);
 			} else {
 				alert("not [COMMAND]COMMENT");
-				button_disabled_change(false);
+			}
+		}else{
+			if ((text.match(/^\[(.+?)\](.*)/) != null)  ) {
+				var posetSet = setInterval(function() {
+					if ($("#script_text_area").val() == "") {
+						clearInterval(posetSet);
+					}
+					button_disabled_change(false);
+				}, 6000);
+				setCommandMment();
+				button_disabled_change(true);
+				var posetSet = setInterval(function() {
+					setCommandMment();
+				}, 6000);
+			} else {
+				alert("not [COMMAND]COMMENT");
 			}
 		}
-	});
+	}
 
-	$('#check_184').change(function(){
-		if ($(this).is(':checked')) {
-			$('#check_over75').prop("checked", false);
-			$('#check_over75').prop("disabled", true);
-			//comment_limit = 75;
-		} else {
-			$('#check_over75').prop("disabled", false);
-			//comment_limit = 1024;
-		}
-	});
+});
+$("#single_insert").click(function() {
 
-    // 画像の色取得
-    var flags = true;
-		// RGBから#ffffff形式へ変換する
-	    function RGB2bgColor(r,g,b) {
+var start = false;
+start = TextCountCheck();
+if(start == false){
 
-	        r = r.toString(16);
-	        if (r.length == 1) r = "0" + r;
+	var text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+	var lines = text.split('\n');
+	text = lines[0];
 
-	        g = g.toString(16);
-	        if (g.length == 1) g = "0" + g;
+	if(text == ""){
+		text = $("#script_text_area").val()
+		text = text.replace(/\n\[+?/,'[');
+		$("#script_text_area").val(text);
+		text = $("#script_text_area").val().replace(/\r\n|\r/g, "\n");
+		lines = text.split('\n');
+		text = lines[0];
+	}
 
-	        b = b.toString(16);
-	        if (b.length == 1) b = "0" + b;
+	if (text.match(/^\[(.+?)\](.*)/) != null) {
+		button_disabled_change(true);
+		setCommandMment();
+		button_disabled_change("ok");
+	} else {
+		alert("not [COMMAND]COMMENT");
+		button_disabled_change(false);
+	}
+}
+});
 
-	        return '#' + r + g + b;
-	    }
+$('#check_184').change(function(){
+if ($(this).is(':checked')) {
+	$('#check_over75').prop("checked", false);
+	$('#check_over75').prop("disabled", true);
+	//comment_limit = 75;
+} else {
+	$('#check_over75').prop("disabled", false);
+	//comment_limit = 1024;
+}
+});
 
-	    var canvas_color = document.getElementById("myImg");
+// 画像の色取得
+var flags = true;
+// RGBから#ffffff形式へ変換する
+function RGB2bgColor(r,g,b) {
 
-	    if (canvas_color.getContext) {
-	        // コンテキストの取得
-	        var ctx = canvas_color.getContext("2d");
-	    }
+	r = r.toString(16);
+	if (r.length == 1) r = "0" + r;
 
-	    canvas_color.onclick = function(evt){
-	        if(flags == true){
-	            //  マウス座標の取得
-	            var x = parseInt(evt.offsetX);
-	            var y = parseInt(evt.offsetY);
+	g = g.toString(16);
+	if (g.length == 1) g = "0" + g;
 
-	            //  指定座標のImageDataオブジェクトの取得
-	            var imagedata = ctx.getImageData(x, y, 1, 1);
+	b = b.toString(16);
+	if (b.length == 1) b = "0" + b;
 
-	            //  RGBAの取得
-	            var r =  imagedata.data[0];
-	            var g =  imagedata.data[1];
-	            var b =  imagedata.data[2];
-	            var a =  imagedata.data[3];
+	return '#' + r + g + b;
+}
 
-	            r = parseInt(r).toString(16);
-	            if(r < 10) r = "0" + r;
+var canvas_color = document.getElementById("myImg");
 
-	            g = parseInt(g).toString(16);
-	            if(g < 10) g = "0" + g;
+if (canvas_color.getContext) {
+	// コンテキストの取得
+	var ctx = canvas_color.getContext("2d");
+}
 
-	            b = parseInt(b).toString(16);
-	            if(b < 10) b = "0" + b;
+canvas_color.onclick = function(evt){
+	if(flags == true){
+		//  マウス座標の取得
+		var x = parseInt(evt.offsetX);
+		var y = parseInt(evt.offsetY);
 
-	            //console.log("Red: " + r + "  Green: " + g + "  Blue: " + b + "  Alpha: " + a);
-	            //alert("#"+ r + "" + g + "" + b);
+		//  指定座標のImageDataオブジェクトの取得
+		var imagedata = ctx.getImageData(x, y, 1, 1);
 
-				var elements_json = document.getElementById("edit_json_output");
-				elements_json.innerText = "#"+ r + "" + g + "" + b;
+		//  RGBAの取得
+		var r =  imagedata.data[0];
+		var g =  imagedata.data[1];
+		var b =  imagedata.data[2];
+		var a =  imagedata.data[3];
+
+		r = parseInt(r).toString(16);
+		if(r < 10) r = "0" + r;
+
+		g = parseInt(g).toString(16);
+		if(g < 10) g = "0" + g;
+
+		b = parseInt(b).toString(16);
+		if(b < 10) b = "0" + b;
+
+		//console.log("Red: " + r + "  Green: " + g + "  Blue: " + b + "  Alpha: " + a);
+		//alert("#"+ r + "" + g + "" + b);
+
+		var elements_json = document.getElementById("edit_json_output");
+		elements_json.innerText = "#"+ r + "" + g + "" + b;
 
 
-	        }
-	    }
+	}
+}
 
 
 })
-	*/
+*/
 
