@@ -1391,8 +1391,6 @@
 	//    a.focus();
 	//});
 
-
-
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var text = $('option:selected').text();
@@ -1410,10 +1408,11 @@
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
 		text = (String(text)).split(' ')[0];
-		$("#myTxt_" + text).css('z-index', '4');
+		if ($("#myTrcSel2 option:nth-child(" + text + ")").text().match(/●/)){
+			$("#myTxt_" + text).css('z-index', '4');
+		}
 		$("#myTrcSel2 option:nth-child(" + text + ")").css("font-weight", "bold");
 	});
-
 
 	/*----------------------------------------------------------------------------------------------------
     [text選択]
