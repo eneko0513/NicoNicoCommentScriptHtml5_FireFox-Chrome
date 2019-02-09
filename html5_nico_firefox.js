@@ -1704,7 +1704,7 @@
 			}else{
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
 				dispChange = (String(fruit)).split(" ");
-				if(i > nameSetId){
+				if(i >= nameSetId){
 					// レイヤーの値を1あげる
 					//$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text(((i + 1) + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				}else{
