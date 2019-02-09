@@ -1479,9 +1479,10 @@
 		var op = $('#myTrcSel2').children();
 		for (var i = 0; i < op.length; i++) {
 			var val = op.eq(i).val().split(" ");
+			var tex = op.eq(i).text().split(" ");
 			// valueとtextを変更
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
-			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2]);
+			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
 		}
 
 		var list = [];
@@ -1672,15 +1673,15 @@
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").val();
 			}
 		}
-		var dispChange;
 		layerName = window.prompt(nameSetId + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
 		if (layerName.match(/○/) || layerName.match(/●/)) {
 			window.alert('禁止文字が使われています。');
 		} else {
 			// 設定処理
-			dispChange = (String(fruit[i])).split(" ");
+			dispChange = (String(fruit)).split(" ");
 			$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(
-				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text() + " " + layerName);
+				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
+				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text() + " " + layerName);
 		}
 	});
 })
