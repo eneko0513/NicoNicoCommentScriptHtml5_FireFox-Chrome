@@ -1708,12 +1708,13 @@
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();		// 元が下のやつ
-			tempLayer = $("#myTrcSel2 option:nth-child(" + (i + 2) + ")").text();	// 元が上のやつ
-			tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
 			dispChange = (String(fruit)).split(" ");
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				//dispChange = (String(fruit)).split(" ");
+				tempLayer = $("#myTrcSel2 option:nth-child(" + i + ")").text();	// 元が上のやつ
+				tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
+
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤー番号を変更
