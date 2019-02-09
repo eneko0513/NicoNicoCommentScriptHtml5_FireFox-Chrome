@@ -370,12 +370,7 @@
 
 
 	$("#VersionHistory").val(
-		"v0.5：自動投下機能追加" + "\n" +
-		"v0.6：エディタのJson形式 -> 1コメ1行単位のjson形式へ変換する機能追加" + "\n" +
-		"v0.7：先頭行と最終行の文字列カウントを行って表示する機能を追加" + "\n" +
-		"v0.8：【途中】段差スクリプトのトレス機能の移植（許可済み）" + "\n" +
-		"v0.9：コメント欄、コマンド欄で改行されてしまう部分を広くするボタンの追加" + "\n" +
-		"v0.91：通常コメントモードでスクリプト起動時に次の動画へ行くボタンを非表示にする機能を追加" + "\n"
+		"v0.0.1：コメント作成支援機能のベース作成中"
 	);
 
 
@@ -1384,13 +1379,6 @@
 		//ここ∞ループしとる
 	}
 
-	// Select2選択
-	//$("#myTrcSel2").click(function() {
-	//	if ($('#myTrcSel2').value === "") {return;}
-	//	var a = $("myTxt" + (String($('#myTrcSel2').value)).split(" ")[0]);
-	//    a.focus();
-	//});
-
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var text = $('option:selected').text();
@@ -1435,7 +1423,6 @@
 		$('#myTrcSel2').val(a.id.slice(6) - 1);
 		//$('#myTrcSel2')[a.id.slice(6)-1].selected= true;
 
-
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			//$("#myTxt" + (i + 1)).css('z-index', '3');
@@ -1451,12 +1438,12 @@
 	}
 
     /*----------------------------------------------------------------------------------------------------
-    [削除]
+    [選択レイヤーの削除]
     ----------------------------------------------------------------------------------------------------*/
 	$("#myTrcDel").click(function () {
 		//
 		if ($('#myTrcSel2').value === "") { return; }
-		var q = confirm("選択中レイヤを削除します。")
+		var q = confirm("選択中のレイヤーを削除します。")
 		if (q === false) { return; }
 
 		//選択中レイヤを削除し全部1つ前に詰める
@@ -1525,7 +1512,6 @@
 			a = document.getElementById("myTxt_" + deleteId[0]);
 			a.parentNode.removeChild(a);
 		}
-
 	}
 
     /*----------------------------------------------------------------------------------------------------
@@ -1599,20 +1585,7 @@
 			b = parseInt(b).toString(16);
 			if (b < 10) b = "0" + b;
 
-			//console.log("Red: " + r + "  Green: " + g + "  Blue: " + b + "  Alpha: " + a);
-			//alert("#"+ r + "" + g + "" + b);
-			// 要素の数だけループ
-			// 選択されているオプションをすべて取得
-
-			//for (i = 0; i < loopCount + 1; i++) {
-				// CSSで font-weightが bold になっているものだけを取得
-			//	alert($("#myTxt_" + (i + 1)).css("font-weight"));
-			//	if ($("#myTxt_" + (i + 1)).css("font-weight") == "bold" || $("#myTxt_" + (i + 1)).css("font-weight") == "700"){
-			//		colorSetLayerNo = (i + 1);
-			//	}
-			//}
 			var colorSetLayerNo = 0;
-
 			// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				//alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
@@ -1621,7 +1594,6 @@
 					colorSetLayerNo = (i + 1);
 				}
 			}
-
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
 			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
@@ -1640,13 +1612,11 @@
 		// 要素の数だけループ
 		var selectLayerCount = fruit.length;
 		var dispChange;
-		var a;
 		for (i = 0; i < selectLayerCount; i++) {
 			dispChange = (String(fruit[i])).split(" ");
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3'){
 				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
-				//a.push(dispChange[0]);
 				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('●','○'));
 			}else{
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
@@ -1659,20 +1629,39 @@
 				}
 			}
 		}
-
-		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
-		//for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-		//	//alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
-		//	if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
-		//		$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-		//		colorSetLayerNo = (i + 1);
-		//	}
-		//}
 	});
 
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤーの表示を一括で切り替えする処理]
+	// 全て表示 -> 全て非表示, 1つでも非表示 -> 全て表示 -> 全て非表示 の動作順序にする
+	----------------------------------------------------------------------------------------------------*/
+	$('#layerAllVisible').click(function () {
+		if ($('myTrcSel2').value === "") { return; }
 
+		var fruit = $('#myTrcSel2').val();
+		console.log(fruit);
 
-
+		// 要素の数だけループ
+		var selectLayerCount = fruit.length;
+		var dispChange;
+		for (i = 0; i < i < $('#myTrcSel2').children('option').length; i++) {
+			dispChange = (String(fruit[i])).split(" ");
+			// zIndexが4or3なら0に、0なら4or3に
+			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3') {
+				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
+				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('●', '○'));
+			} else {
+				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+					$("#myTxt_" + dispChange[0]).css('zIndex', '4');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+				} else {
+					$("#myTxt_" + dispChange[0]).css('zIndex', '3');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+				}
+			}
+		}
+	});
 })
 
 
