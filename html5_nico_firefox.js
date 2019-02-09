@@ -1309,9 +1309,9 @@
 			// option要素の宣言
 			var option = document.createElement('option');
 			// option要素のvalue属性に値をセット
-			option.setAttribute('value', m + ' ' + $('#myTrcSel').val() + ' ●');
+			option.setAttribute('value', m + ' ' + $('#myTrcSel').val() + ' ● ');
 			// option要素に値をセット
-			option.innerHTML = m + ' ' + $('#myTrcSel').val() + ' ●';
+			option.innerHTML = m + ' ' + $('#myTrcSel').val() + ' ● ';
 			// 作成したoption要素をselectタグに追加
 			select.appendChild(option);
 			//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
@@ -1320,7 +1320,7 @@
 			//$('myTrcSel2')[m-1].style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
 
 		}
-		$('#myTrcSel2').val(m + ' ' + $('#myTrcSel').val() + ' ●');
+		$('#myTrcSel2').val(m + ' ' + $('#myTrcSel').val() + ' ● ');
 
 		t.focus();
 		//$('myFontSize').value = t.style.fontSize
@@ -1442,7 +1442,7 @@
     ----------------------------------------------------------------------------------------------------*/
 	$("#myTrcDel").click(function () {
 		//
-		if ($('#myTrcSel2').value === "") { return; }
+		if ($('#myTrcSel2').val() === null) { return; }
 		var q = confirm("選択中のレイヤーを削除します。")
 		if (q === false) { return; }
 
@@ -1604,7 +1604,7 @@
 	[レイヤーの表示を切り替えする処理]
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerVisible').click(function () {
-		if ($('myTrcSel2').value === "") { return; }
+		if ($('#myTrcSel2').val() == null) { return; }
 
 		var fruit = $('#myTrcSel2').val();
 		console.log(fruit);
@@ -1636,7 +1636,7 @@
 	// レイヤーの表示を選択状態に関わらず反転させる処理
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerAllVisible').click(function () {
-		if ($('myTrcSel2').value === "") { return; }
+		if ($('#myTrcSel2').val() == null) { return; }
 		// 要素の数だけループ
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			//dispChange = (String(fruit[i])).split(" ");
@@ -1661,22 +1661,26 @@
 	[レイヤーに対して名前を設定する処理]
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerNameChange').click(function () {
+		if ($('#myTrcSel2').val() == null) { return; }
 		var nameSetId = 0;
+		var fruit;
+
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-					nameSetId = (i + 1);
+				nameSetId = (i + 1);
+				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").val();
 			}
 		}
-
+		var dispChange;
 		layerName = window.prompt(nameSetId + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
-		if (user.match(/○/) || user.match(/●/)) {
+		if (layerName.match(/○/) || layerName.match(/●/)) {
 			window.alert('禁止文字が使われています。');
-		} else if(aa){
-			// 設定処理
-			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text() + " " + layerName);
 		} else {
-			window.alert('キャンセルされました');
+			// 設定処理
+			dispChange = (String(fruit[i])).split(" ");
+			$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text() + " " + layerName);
 		}
 	});
 })
