@@ -1383,6 +1383,11 @@
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var texts = $('option:selected').text();
+		if (!ModeAdmin){
+			// 投稿者コメントモードでなければ 通常コメント という文字列が入ってしまうので除去する
+			texts = texts.slice(6);	// 通常コメント という文字列が入っていたら消す
+		}
+
 		var a;// = (String(aa)).split(' ');
 		var c = $('#myTrcSel2').children('option');
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
@@ -1395,6 +1400,8 @@
 				$("#myTxt_" + a[0]).css('z-index', '0');
 			}
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
+
+
 		}
 		texts = (String(texts)).split(' ');
 		if ($("#myTrcSel2 option:nth-child(" + texts[0] + ")").text().match(/●/)){
