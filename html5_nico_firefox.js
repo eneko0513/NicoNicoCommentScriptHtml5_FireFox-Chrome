@@ -1694,6 +1694,16 @@
 		var nameSetId = 0;
 		var fruit;
 
+
+
+		if ($('#myTrcSel2').value === "") { return; }
+		if ($('#myTrcSel2').value.split(" ")[0] == 1) { return; }
+		var b = parseInt($('#myTrcSel2').value.split(" ")[0] - 1);
+		myTrcUD(b, "u");
+
+
+
+
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
@@ -1712,15 +1722,17 @@
 			}else{
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
 				dispChange = (String(fruit)).split(" ");
-				if(i >= nameSetId){
-					// レイヤーの値を1あげる
-					//$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text(((i + 1) + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
-				}else{
+				if(i <= nameSetId){
 					// レイヤーの値を1あげる
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text(((i + 1) + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				}
 			}
 		}
+
+		// optionの並びを替える
+
+
+
 
 		// レイヤーのNoを小さい数字から対応していく
 		// (原則は小さい数字が下の方にある)
@@ -1750,6 +1762,34 @@
 			obj.id = "myTxt_" + (j + 1);
 		}
 	});
+
+
+	var myTrcUD = function (b, g) {
+		//aを上に上げる
+		var a = $('myTrcSel2').getElementsByTagName('option');
+		//セレクタ選択中の名前
+		var c = a[b].value.split(" ")[1] + " " + a[b].value.split(" ")[2];
+		var d = $("myTxt" + (b + 1));
+		//上の名前
+		var e = a[b - 1].value.split(" ")[1] + " " + a[b - 1].value.split(" ")[2];
+		var f = $("myTxt" + b);
+		//エレメント入れ替え
+		f.before(d);
+		//エレメントID変更
+		d.id = ("myTxt" + (b));
+		f.id = ("myTxt" + (b + 1));
+		//セレクトの入れ替え
+		$('myTrcSel2').insertBefore(a[b], a[b - 1]);
+		//セレクタ名前の変更
+		a[b - 1].text = b + " " + c;
+		a[b].text = (b + 1) + " " + e;
+		//テキスト選択
+		if (g == 'u') {
+			d.focus();
+		} else {
+			f.focus();
+		}
+	};
 
 
 })
