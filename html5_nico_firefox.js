@@ -1692,6 +1692,7 @@
 	$('#layerUp').click(function () {
 		var dispChange;
 		var nameSetId = 0;
+		var fruit;
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
@@ -1701,10 +1702,15 @@
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 			}else{
-				// レイヤーの値を1あげる
-				dispChange = (String(fruit)).split(" ");
 				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
-				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text((nameSetId + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				dispChange = (String(fruit)).split(" ");
+				if(i > nameSetId){
+					// レイヤーの値を1あげる
+					//$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text(((i + 1) + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				}else{
+					// レイヤーの値を1あげる
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text(((i + 1) + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				}
 			}
 		}
 
