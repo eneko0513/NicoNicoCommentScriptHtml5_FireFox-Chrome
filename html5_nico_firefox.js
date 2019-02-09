@@ -1648,15 +1648,15 @@
 			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3'){
 				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
 				//a.push(dispChange[0]);
-				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('●','○');
+				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('●','○'));
 			}else{
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + dispChange[0]).css('zIndex', '4');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('○', '●');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
 				}else{
 					$("#myTxt_" + dispChange[0]).css('zIndex', '3');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('○', '●');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
 				}
 			}
 		}
