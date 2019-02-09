@@ -1449,12 +1449,15 @@
 		}
 
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				// 太字のレイヤーのidを取得する
-				var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
+
 				layerNo = (String(layerNo)).split('_')[1];
 				$("#myTxt_" + layerNo).css('zIndex', '4');
+			} else {
+				$("#myTxt_" + layerNo).css('zIndex', '3');
 			}
 		}
 	}
