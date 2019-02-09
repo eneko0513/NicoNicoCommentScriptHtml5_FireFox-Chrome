@@ -1736,7 +1736,7 @@
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// レイヤーの配置を一つ上にあげる
 				$("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
-				var tempObj = document.getElementById(list[nameSetId] + "_temp");
+				var tempObj = document.getElementById(list[nameSetId -1] + "_temp");
 				tempObj.id = "myTxt_" + (nameSetId - 1);
 				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// 下がったレイヤーの番号を変更する
