@@ -1705,17 +1705,15 @@
 		// 先頭が選択されていたら処理しない
 		if (nameSetId == 1) { return; }
 
-		
-
-
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				dispChange = (String(fruit)).split(" ");
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
-				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")"));
+				$("#myTrcSel2 option:nth-child(" + (nameSetId -1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
 				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 			}else{
 				//fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
