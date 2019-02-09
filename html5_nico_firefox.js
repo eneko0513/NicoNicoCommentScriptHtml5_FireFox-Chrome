@@ -1698,6 +1698,7 @@
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
+			}
 		}
 
 		// 選択されているレイヤーの情報を取得
