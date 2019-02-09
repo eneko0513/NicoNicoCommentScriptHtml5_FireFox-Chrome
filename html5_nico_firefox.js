@@ -1708,17 +1708,17 @@
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
+			dispChange = (String(fruit[i])).split(" ");
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-				dispChange = (String(fruit)).split(" ");
+				//dispChange = (String(fruit)).split(" ");
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤーの内容を入れ替えるために一時的に保持
 				tempLayerText = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(nameSetId+" " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// レイヤーの配置を一つ上にあげる
 				$("#myTrcSel2 option:nth-child(" + (nameSetId -1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
-				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(tempLayerText);
-				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(tempLayerText);
 				// 動画上のトレース用レイヤーのIDも一つあげる
 				var list = [];
 				$(".myTxtClass").each(function () {
