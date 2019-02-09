@@ -1713,10 +1713,10 @@
 
 		var obj;
 		// 一度全てのレイヤーに_tempを付与
-		for (var j = 0; j < list.length; j++) {
-			obj = document.getElementById(list[j]);
-			obj.id = "myTxt_" + (j + 1) + "_temp";
-		}
+		//for (var j = 0; j < list.length; j++) {
+		//	obj = document.getElementById(list[j]);
+		//	obj.id = "myTxt_" + (j + 1) + "_temp";
+		//}
 
 		var tempLayer;
 		// 選択されているレイヤーの情報を取得
@@ -1730,14 +1730,16 @@
 				tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
 
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
-
+				var tempObj_up = document.getElementById(list[nameSetId - 1]);
+				var tempObj_down = document.getElementById(list[nameSetId]);
+				tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤー番号を変更
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// レイヤーの配置を一つ上にあげる
 				$("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
-				var tempObj = document.getElementById(list[nameSetId -1] + "_temp");
-				tempObj.id = "myTxt_" + (nameSetId - 1);
+				tempObj_up.id = "myTxt_" + (nameSetId - 1);
+				tempObj_down.id = "myTxt_" + (nameSetId);
 				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// 下がったレイヤーの番号を変更する
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId) + " " + tempLayer[1] + " " + tempLayer[2] + " " + tempLayer[3]);
