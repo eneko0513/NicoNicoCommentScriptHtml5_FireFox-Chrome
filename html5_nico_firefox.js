@@ -1633,33 +1633,50 @@
 
 	/*----------------------------------------------------------------------------------------------------
 	[レイヤーの表示を一括で切り替えする処理]
-	// 全て表示 -> 全て非表示, 1つでも非表示 -> 全て表示 -> 全て非表示 の動作順序にする
+	// レイヤーの表示を選択状態に関わらず反転させる処理
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerAllVisible').click(function () {
 		if ($('myTrcSel2').value === "") { return; }
-
-		var fruit = $('#myTrcSel2').val();
-		console.log(fruit);
-
 		// 要素の数だけループ
-		var selectLayerCount = fruit.length;
-		var dispChange;
-		for (i = 0; i < i < $('#myTrcSel2').children('option').length; i++) {
-			dispChange = (String(fruit[i])).split(" ");
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			//dispChange = (String(fruit[i])).split(" ");
 			// zIndexが4or3なら0に、0なら4or3に
-			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3') {
-				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
-				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('●', '○'));
+			if ($("#myTxt_" + (i + 1)).css('zIndex') == '4' || $("#myTxt_" + (i + 1)).css('zIndex') == '3') {
+				$("#myTxt_" + (i + 1)).css('zIndex', '0');
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-					$("#myTxt_" + dispChange[0]).css('zIndex', '4');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+					$("#myTxt_" + (i + 1)).css('zIndex', '4');
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text().replace('○', '●'));
 				} else {
-					$("#myTxt_" + dispChange[0]).css('zIndex', '3');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+					$("#myTxt_" + (i + 1)).css('zIndex', '3');
+					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text().replace('○', '●'));
 				}
 			}
+		}
+	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤーに対して名前を設定する処理]
+	----------------------------------------------------------------------------------------------------*/
+	$('#layerNameChange').click(function () {
+		var nameSetId = 0;
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+					nameSetId = (i + 1);
+			}
+		}
+
+		layerName = window.prompt(nameSetId + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
+		if (user.match(/○/) || user.match(/●/)) {
+			window.alert('禁止文字が使われています。');
+		} else if(aa){
+			// 設定処理
+			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text() + " " + layerName);
+		} else {
+			window.alert('キャンセルされました');
 		}
 	});
 })
