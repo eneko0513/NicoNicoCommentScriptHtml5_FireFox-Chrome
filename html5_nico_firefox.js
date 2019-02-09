@@ -1739,11 +1739,11 @@
 				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// レイヤーの配置を一つ上にあげる
 				$("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
-				tempObj_up.id = "myTxt_" + (nameSetId - 1);
-				tempObj_down.id = "myTxt_" + (nameSetId);
+				//tempObj_up.id = "myTxt_" + (nameSetId - 1);
+				//tempObj_down.id = "myTxt_" + (nameSetId);
 
 				// 入れ替え
-				$("#myTxt_" + (nameSetId + 1)).before($("#myTxt_" + nameSetId));
+				//$("#myTxt_" + (nameSetId + 1)).before($("#myTxt_" + nameSetId));
 
 				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// 下がったレイヤーの番号を変更する
