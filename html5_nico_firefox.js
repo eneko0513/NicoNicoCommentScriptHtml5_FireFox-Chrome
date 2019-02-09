@@ -1704,7 +1704,7 @@
 
 		// 先頭が選択されていたら処理しない
 		if (nameSetId == 1) { return; }
-
+		var tempLayerText;
 		// 選択されているレイヤーの情報を取得
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
@@ -1713,7 +1713,24 @@
 				dispChange = (String(fruit)).split(" ");
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
+				// レイヤーの内容を入れ替えるために一時的に保持
+				tempLayerText = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
+				// レイヤーの配置を一つ上にあげる
 				$("#myTrcSel2 option:nth-child(" + (nameSetId -1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(tempLayerText);
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(tempLayerText);
+				// 動画上のトレース用レイヤーのIDも一つあげる
+				var list = [];
+				$(".myTxtClass").each(function () {
+					list.push($(this).attr('id'));
+				});
+
+				var obj;
+				for (var j = 0; j < list.length; j++) {
+					obj = document.getElementById(list[j]);
+					obj.id = "myTxt_" + (j + 1);
+				}
+
 				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 			}else{
 				//fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();
