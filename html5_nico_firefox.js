@@ -1681,9 +1681,55 @@
 			dispChange = (String(fruit)).split(" ");
 			$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(
 				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
-				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text() + " " + layerName);
 		}
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[選択レイヤーの順番を上にあげる処理]
+	// 上にあげるのでidが小さくなるイメージ。
+	// つまり他のやつが1つ数字があがる
+	----------------------------------------------------------------------------------------------------*/
+	$('#layerUp').click(function () {
+
+		// 選択されているレイヤーの情報を取得
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
+				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").val();
+			}
+		}
+
+		// レイヤーのNoを小さい数字から対応していく
+		// (原則は小さい数字が下の方にある)
+		for (var i = 1; i <= loopCount; i++) {
+			// textareaのidの再割り振り
+			$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
+		}
+
+		// レイヤー番号とテキストの数値部分の詰め
+		var op = $('#myTrcSel2').children();
+		for (var i = 0; i < op.length; i++) {
+			var val = op.eq(i).val().split(" ");
+			var tex = op.eq(i).text().split(" ");
+			// valueとtextを変更
+			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
+			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
+		}
+
+		var list = [];
+		$(".myTxtClass").each(function () {
+			list.push($(this).attr('id'));
+		});
+
+		var obj;
+		for (var j = 0; j < list.length; j++) {
+			obj = document.getElementById(list[j]);
+			obj.id = "myTxt_" + (j + 1);
+		}
+	});
+
+
 })
 
 
