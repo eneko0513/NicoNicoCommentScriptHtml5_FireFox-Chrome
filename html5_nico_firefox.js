@@ -1332,54 +1332,6 @@
 		//$('myTransY').value  = t.style.transform.match(/\d+\.*\d*/g)[1];
 	});
 
-	function myTxtSelect() {
-		a = document.activeElement;
-		b = $('#myTrcSel2').value.split(" ")[1].split("_")[1];//サイズ
-		$('#slider2').style.left = (a.style.color.match(/\d+/g)[0] - $('#slider2').clientWidth / 2) + 'px';
-		$('#myTxtR').value = a.style.color.match(/\d+/g)[0];
-		$('#slider4').style.left = (a.style.color.match(/\d+/g)[1] - $('#slider4').clientWidth / 2) + 'px';
-		$('#myTxtG').value = a.style.color.match(/\d+/g)[1];
-		$('#slider6').style.left = (a.style.color.match(/\d+/g)[2] - $('#slider6').clientWidth / 2) + 'px';
-		$('#myTxtB').value = a.style.color.match(/\d+/g)[2];
-
-		$('#myFontSize').value = a.style.fontSize.match(/\d+\.*\d*/g)[0];
-		$('#myLineHeight').value = parseInt(a.style.lineHeight);
-		$('#myTop').value = parseInt(a.style.top); //ここueshitanakaで変わるから
-		$('#myLeft').value = parseInt(a.style.left);
-		$('#myTransX').value = a.style.transform.match(/\d+\.*\d*/g)[0];
-		$('#myTransY').value = a.style.transform.match(/\d+\.*\d*/g)[1];
-
-		for (var i = 0; i < $('#myTrcSel2').length; i++) {
-			if ($("#myTxt_" + (i + 1)).style.zIndex == '4') {
-				$("#myTxt_" + (i + 1)).style.zIndex = '3';
-			}
-		}
-		if (b == "ue") {
-			$('#myTrcUSN').value = 'shita';
-		} else if (b == "shita") {
-			$('#myTrcUSN').value = 'naka';
-		} else {
-			$('#myTrcUSN').value = 'ue';
-		}
-
-		if (a.style.fontFamily.slice(0, 2) == "游ゴ") {
-			$('#myTrcGM').value = 'mincho';
-		} else {
-			$('#myTrcGM').value = 'gothic';
-		}
-
-		if (a.style.zIndex == "0") {
-			$('#myTrcTxtDisp').value = "表示";
-		} else {
-			$('#myTrcTxtDisp').value = "非表示";
-			a.style.zIndex = '4';
-		}
-
-		$('#myTrcSel2')[a.id.slice(6) - 1].selected = true;
-
-		//ここ∞ループしとる
-	}
-
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var texts = $('option:selected').text();
@@ -1414,7 +1366,6 @@
 	/*----------------------------------------------------------------------------------------------------
     [text選択]
     ----------------------------------------------------------------------------------------------------*/
-/*
 	function myTxtSelect() {
 		var nameSetId = 0;
 		a = document.activeElement;
@@ -1460,7 +1411,7 @@
 			}
 		}
 	}
-*/
+
     /*----------------------------------------------------------------------------------------------------
     [選択レイヤーの削除]
     ----------------------------------------------------------------------------------------------------*/
