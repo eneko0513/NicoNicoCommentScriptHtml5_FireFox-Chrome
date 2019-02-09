@@ -1396,22 +1396,22 @@
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
 		var text = $('option:selected').text();
-		var aa = $(this).val();
 		var a;// = (String(aa)).split(' ');
-
+		var c = $('#myTrcSel2').children('option');
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			a = (String(aa[i])).split(' ');
+			a = c[i].text;
+			a = (String(a)).split(' ');
 			if (a[2] === '●'){
-				$("#myTxt_" + (i + 1)).css('z-index', '3');
+				$("#myTxt_" + a[0]).css('z-index', '3');
 			}else{
-				$("#myTxt_" + (i + 1)).css('z-index', '0');
+				$("#myTxt_" + a[0]).css('z-index', '0');
 			}
-			$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight", "");
+			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
-
-		$("#myTxt_" + a[0]).css('z-index', '4');
-		$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "bold");
+		text = (String(text)).split(' ')[0];
+		$("#myTxt_" + text).css('z-index', '4');
+		$("#myTrcSel2 option:nth-child(" + text + ")").css("font-weight", "bold");
 	});
 
 
@@ -1647,15 +1647,28 @@
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + dispChange[0]).css('zIndex') == '4' || $("#myTxt_" + dispChange[0]).css('zIndex') == '3'){
 				$("#myTxt_" + dispChange[0]).css('zIndex', '0');
+				//a.push(dispChange[0]);
+				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('●','○');
 			}else{
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + dispChange[0]).css('zIndex', '4');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('○', '●');
 				}else{
 					$("#myTxt_" + dispChange[0]).css('zIndex', '3');
+					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text.replace('○', '●');
 				}
 			}
 		}
+
+		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
+		//for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+		//	//alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
+		//	if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+		//		$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+		//		colorSetLayerNo = (i + 1);
+		//	}
+		//}
 	});
 
 
