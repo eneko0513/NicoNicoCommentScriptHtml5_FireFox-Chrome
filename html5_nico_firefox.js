@@ -1709,7 +1709,7 @@
 
 
 		// 選択されているレイヤーの情報を取得
-		for (i = 0; i < $('#myTrcSel2').children('option').length; i+2) {
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i = i + 2) {
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				dispChange = (String(fruit)).split(" ");
