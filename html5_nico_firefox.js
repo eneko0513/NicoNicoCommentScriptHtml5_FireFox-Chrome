@@ -1382,7 +1382,7 @@
 
 	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
 	$('#myTrcSel2').change(function () {
-		var text = $('option:selected').text();
+		var texts = $('option:selected').text();
 		var a;// = (String(aa)).split(' ');
 		var c = $('#myTrcSel2').children('option');
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
@@ -1396,11 +1396,11 @@
 			}
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
-		text = (String(text)).split(' ')[0];
-		if ($("#myTrcSel2 option:nth-child(" + text + ")").text().match(/●/)){
-			$("#myTxt_" + text).css('z-index', '4');
+		texts = (String(texts)).split(' ');
+		if ($("#myTrcSel2 option:nth-child(" + texts[0] + ")").text().match(/●/)){
+			$("#myTxt_" + texts[0]).css('z-index', '4');
 		}
-		$("#myTrcSel2 option:nth-child(" + text + ")").css("font-weight", "bold");
+		$("#myTrcSel2 option:nth-child(" + texts[0] + ")").css("font-weight", "bold");
 	});
 
 	/*----------------------------------------------------------------------------------------------------
