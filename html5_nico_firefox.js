@@ -1,4 +1,5 @@
 ﻿javascript: (function (f, dd) {
+	// 読み込み時にjqueryを展開する
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
 	dd.onload = function () {
@@ -8,8 +9,27 @@
 })(function ($) {
 	//$('div.NicoenqueteNotificationContainer').load("https://eneko0513.github.io/NicoNicoCommentTools/General.js");
 
-	// A
+	/*----------------------------------------------------------------------------------------------------
+	[グローバル変数]
+	----------------------------------------------------------------------------------------------------*/
+	var CommentMaxLengthNormal = 75;
+	var CommentMaxLengthAdmin = 1024;
+	var CommentLimit = 0;
 
+	var ModeAdmin = false;
+	var AllPostNow = false;
+	var CommentLimitOver = false;
+
+	/*----------------------------------------------------------------------------------------------------
+	[バージョン情報]
+	----------------------------------------------------------------------------------------------------*/
+	$("#VersionHistory").val(
+		"v0.0.1：コメント作成支援機能のベース作成中"
+	);
+
+	/*----------------------------------------------------------------------------------------------------
+	[コンポーネント, CSSの配置]
+	----------------------------------------------------------------------------------------------------*/
 	$('div.NicoenqueteNotificationContainer').before("<style type='text/css'>" +
 		".tab_wrap{" +
 		"  margin:10px auto;" +
@@ -291,26 +311,13 @@
 		"	</div>		" +
 		"  </div>	" +
 		"</div>" +
-		"			" +
-		"" +
 		"<script type='text/javascript'>" +
-		"" +
-		"" +
-		"" +
 		"</script>");
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 変数
-	var CommentMaxLengthNormal = 75;
-	var CommentMaxLengthAdmin = 1024;
-	var CommentLimit = 0;
-
-	var ModeAdmin = false;
-	var AllPostNow = false;
-	var CommentLimitOver = false;
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// スクリプト起動時のモード判定(投稿者編集モードか通常モードか）
+	/*----------------------------------------------------------------------------------------------------
+	[スクリプト起動時のモード判定処理]
+	// (投稿者編集モードか通常モードか）
+	----------------------------------------------------------------------------------------------------*/
 	if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 		// 投コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
@@ -325,8 +332,10 @@
 		ModeAdmin = false;
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// コメント投下時にもモード判定するようにする(投稿者編集モードか通常モードか）
+	/*----------------------------------------------------------------------------------------------------
+	[コメント投稿時のモード判定処理]
+	// (投稿者編集モードか通常モードか）
+	----------------------------------------------------------------------------------------------------*/
 	function ModeCheck() {
 		if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			// 投コメモードの場合
@@ -341,23 +350,17 @@
 			ModeAdmin = false;
 		}
 	}
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 幅調整ボタンを押したらコメント欄の横幅の広さを調整
+
+	/*----------------------------------------------------------------------------------------------------
+	[幅調整ボタンを押したらコメント欄の横幅の広さを調整]
+	----------------------------------------------------------------------------------------------------*/
 	$("#WidthChange").click(function () {
 		$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
 	});
-	$("#TEST").click(function () {
-		$('.ProgressBar-inner').css('transform', 'scaleX(0.052564)');
-		document.getElementsByClassName("ProgressBar-innerSeekBar-played")[0].dispatchEvent(newMouseEvent("click",
-			{
-				"view": window,
-				"bubbles": !0,
-				"cancelable": !0
-			}
-		));
-	});
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 画像表示機能のためのCanvasレイヤー宣言
+
+	/*----------------------------------------------------------------------------------------------------
+	[画像表示機能で使用するCanvasのレイヤーの設定]
+	----------------------------------------------------------------------------------------------------*/
 	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
 	$('#myImg').css('position', 'absolute');
 	$('#myImg').css('top', '0px');
@@ -368,27 +371,16 @@
 	$('#myImg').css('display', 'none');
 	$('#myImg').css('z-index', 2);
 
-
-	$("#VersionHistory").val(
-		"v0.0.1：コメント作成支援機能のベース作成中"
-	);
-
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// コマンド欄、コメント欄への入力反映処理
-	function setCommandMment() {
-		//alert("OK");
-	}
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// テキストエリアのクリア
+	/*----------------------------------------------------------------------------------------------------
+	[投下用のテキストエリアの内容をクリアする処理]
+	----------------------------------------------------------------------------------------------------*/
 	$("#Clear").click(function () {
 		$("#ScriptTextArea").val("");
 	});
 
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 画像読み込み機能
+	/*----------------------------------------------------------------------------------------------------
+	[画像読み込み機能]
+	----------------------------------------------------------------------------------------------------*/
 	$("#ufile").change(function () {
 		if (!this.files.length) {
 			$('#myImg').css('display', 'none');
@@ -424,11 +416,11 @@
 		reader.readAsDataURL(file);
 	})
 
-	/* 画像の色取得 */
-	// var flags = true;
+	/*----------------------------------------------------------------------------------------------------
+	[画像からカラーコードを取得する処理]
 	// RGBから#ffffff形式へ変換する
+	----------------------------------------------------------------------------------------------------*/
 	function RGB2bgColor(r, g, b) {
-
 		r = r.toString(16);
 		if (r.length == 1) r = "0" + r;
 
@@ -441,13 +433,13 @@
 		return '#' + r + g + b;
 	}
 
-	var canvas_color = document.getElementById("myImg");
 
-	if (canvas_color.getContext) {
-		// コンテキストの取得
-		var ctx = canvas_color.getContext("2d");
-	}
 
+
+	/*----------------------------------------------------------------------------------------------------
+	[画像がクリックされた場合の座標を元にカラー情報を取得する]
+	// RGBから#ffffff形式へ変換する
+	----------------------------------------------------------------------------------------------------*/
 	canvas_color.onclick = function (evt) {
 		// マウス座標の取得
 		var x = parseInt(evt.offsetX);
@@ -476,10 +468,15 @@
 		JsonORColorCodeArea.value = "#" + r + "" + g + "" + b;
 	}
 
+	var canvas_color = document.getElementById("myImg");
+	if (canvas_color.getContext) {
+		// コンテキストの取得
+		var ctx = canvas_color.getContext("2d");
+	}
 
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 75文字突破ボタンが押された場合の挙動
+	/*----------------------------------------------------------------------------------------------------
+	[75文字突破ボタンが押下された場合は、184を強制解除するが任意で切り替えられないように184投下ボタンを非表示にする]
+	----------------------------------------------------------------------------------------------------*/
 	$("#PostUnLimited").click(function () {
 		// 75文字突破が押された時は184投下に強制チェックをする
 		if ($('#PostUnLimited').prop('checked')) {
@@ -490,53 +487,10 @@
 		}
 	});
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 1コメント投下ボタンが押された場合の挙動
-	//$("#SinglePost").click(function() {
-    /*
-    var Start = false;
-    Start = TextCountCheck();
-    if(!Start){
-
-        var Text = $("#ScriptTextArea").val().replace(/\r\n|\r/g, "\n");
-        var Lines = Text.split('\n');
-        Text = Lines[0];
-
-        if(Text == ""){
-            Text = $("#ScriptTextArea").val()
-            Text = Text.replace(/\n\[+?/,'[');
-            $("#ScriptTextArea").val(Text);
-            Text = $("#ScriptTextArea").val().replace(/\r\n|\r/g, "\n");
-            Lines = Text.split('\n');
-            Text = Lines[0];
-        }
-
-        if (Text.match(/^\[(.+?)\](.*)/) != null) {
-            //button_disabled_change(true);
-            setCommandMment();
-            //button_disabled_change("ok");
-        } else {
-            //alert("形式に誤りがあります [コマンド]コメント の形式にして下さい");
-            //button_disabled_change(false);
-        }
-    }
-    */
-	//});
-
-	// 1コメント投下
-	$("#TEST").click(function () {
-		$('.ProgressBar-inner').css('transform', 'caleX(0.102564)');
-		document.getElementsByClassName("ProgressBar-inner")[0].dispatchEvent(new MouseEvent("click", {
-			"view": window,
-			"bubbles": !0,
-			"cancelable": !0
-		}));
-	});
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 1コメント投下
+	/*----------------------------------------------------------------------------------------------------
+	[1コメントを投下する]
+	----------------------------------------------------------------------------------------------------*/
 	$("#SinglePost").click(function () {
-
 		// コメント投下時に投稿者モードか判定する
 		//ModeCheck();
 
@@ -549,13 +503,12 @@
 		}
 		// 先頭行と最終行の文字カウント
 		TextCheckCountFirstLast();
-
 		setCommandMment();
 	});
 
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 全コメント投下
+	/*----------------------------------------------------------------------------------------------------
+	[全コメント投下する]
+	----------------------------------------------------------------------------------------------------*/
 	$("#AllPost").click(function () {
 
 		// コメント投下時に投稿者モードか判定する
@@ -597,14 +550,8 @@
 						setCommandMment();
 
 					}
-
 					//button_disabled_change(false);
 				}, 2250);
-
-				//button_disabled_change(true);
-				//var posetSet = setInterval(function() {
-				//	setCommandMment();
-				//}, 2250);
 			} else {
 				alert("形式に誤りがあります [コマンド]コメント の形式にして下さい");
 				ButtonEnabledTrue();
@@ -629,8 +576,9 @@
 		}
 	});
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// コメントの文字数が規定数を超えていないかを確認する
+	/*----------------------------------------------------------------------------------------------------
+	[コメントの文字数をカウントする]
+	----------------------------------------------------------------------------------------------------*/
 	function TextCountCheck() {
 		if ($('#PostUnLimited').prop('checked')) {
 			CommentLimit = CommentMaxLengthAdmin;
@@ -675,8 +623,6 @@
 				ext_check[2] = ext_check[2].replace(/\[tb\]/gi, '	');
 				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				ext_check[2] = ext_check[2].replace(/\[a0\]/gi, ' ');
-
-
 				//alert(ext_check[2].length);
 				if (ext_check[2].length > CommentLimit) {
 					CheckFlag = true;
@@ -695,12 +641,12 @@
 		return CheckFlag;
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// コマンド、コメントをそれぞれの入力欄にセットする
+	/*----------------------------------------------------------------------------------------------------
+	[コマンド、コメントをそれぞれの入力欄にセットする]
+	----------------------------------------------------------------------------------------------------*/
 	function setCommandMment() {
 		// コメント投下時に投稿者モードか判定する
 		//ModeCheck();
-
 		var Temp_184 = "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　184解除";
 		var Pattisier = "pattisier ";
 
@@ -711,7 +657,6 @@
 		TextCheckCountFirstLast();
 
 		if (!Start) {
-
 			if ($("#ScriptTextArea").val() == "") {
 				clearInterval(posetSet);
 			}
@@ -744,7 +689,6 @@
 
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
 				ext = text.match(/^\[(.+?)\](.*)/);
-
 				ext[2] = ext[2].replace(/<br>/gi, '\n');
 				ext[2] = ext[2].replace(/<br \/>/gi, '\n');
 				ext[2] = ext[2].replace(/\[tab\]/gi, '	');
@@ -755,6 +699,7 @@
 				if (ext[2].length > CommentLimit) {
 					ext[2] = ext[2].slice(0, CommentLimit);
 				}
+
 				var elements_command = document.getElementsByClassName("CommentCommandInput")[0];
 				j(elements_command, ext[1]);
 				var elements_text = document.getElementsByClassName("CommentInput-textarea")[0];
@@ -788,20 +733,11 @@
 						bubbles: !0,
 						cancelable: !0
 					}))
-					//a.dispatchEvent(new MouseEvent("click", {
-					//	"view": window,
-					//	"bubbles": !0,
-					//	"cancelable": !0
-					//}));
 				};
 				function come(elements_text, text) {
 					Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set.call(elements_text, text), elements_text.dispatchEvent(new Event("input", {
 						bubbles: !0
 					}))
-					//elements_text.value = text;
-					//elements_text.dispatchEvent(new Event("input", {
-					//	"bubbles": !0
-					//}));
 				}
 			} else {
 				alert("形式に誤りがあります [コマンド]コメント の形式にして下さい");
@@ -809,9 +745,9 @@
 		}
 	}
 
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// コメントの最初の行と最終行の文字数をカウント
+	/*----------------------------------------------------------------------------------------------------
+	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示](未使用)
+	----------------------------------------------------------------------------------------------------*/
 	function TextLengthCountFirstAndLast() {
 		if ($('#PostUnLimited').prop('checked')) {
 			CommentLimit = CommentMaxLengthAdmin;
@@ -868,14 +804,11 @@
 		//$("#last_line_length").text("最終行文字数:" + lines[lines.length -1].length);
 	}
 
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 自動投下中は停止ボタン以外を非表示にするようにする
-	// Visibility指定なのは、前詰めをさせないように
+	/*----------------------------------------------------------------------------------------------------
+	[自動投下中は停止ボタン以外を非表示にするようにする]
+	----------------------------------------------------------------------------------------------------*/
 	function ButtonEnabledFalse() {
 		// 別パネルの方にあるボタンは考慮しない
-		// パネル郡
-
 		// テキストエリア
 		$("#ScriptTextArea").prop("disabled", true);
 
@@ -896,8 +829,9 @@
 		$("#AllPost2").text("投下停止");
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 停止または投下が終わったら非表示にしていたボタンを戻す
+	/*----------------------------------------------------------------------------------------------------
+	[停止ボタンを押下または投下が終わったら非表示にしていたボタンを戻す]
+	----------------------------------------------------------------------------------------------------*/
 	function ButtonEnabledTrue() {
 		// 別パネルの方にあるボタンは考慮しない
 		// パネル郡
@@ -922,6 +856,9 @@
 		$("#AllPost2").text("全コメント投下");
 	}
 
+	/*----------------------------------------------------------------------------------------------------
+	[投下済みの投稿者コメントの内容を1行形式のjsonに変換する]
+	----------------------------------------------------------------------------------------------------*/
 	$("#JsonConvert").click(function () {
 		var elements_json = document.getElementsByClassName("ActionButton OwnerEditButton")[1];
 		elements_json.click();
@@ -945,8 +882,9 @@
 		elements_json.click();
 	});
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// 先頭行と最終行の文字数表示
+	/*----------------------------------------------------------------------------------------------------
+	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示]
+	----------------------------------------------------------------------------------------------------*/
 	$(function () {
 		$("#ScriptTextArea").bind('keydown keyup keypress change', function () {
 			if ($('#PostUnLimited').prop('checked')) {
@@ -1003,7 +941,9 @@
 		});
 	});
 
-
+	/*----------------------------------------------------------------------------------------------------
+	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示]
+	----------------------------------------------------------------------------------------------------*/
 	function TextCheckCountFirstLast() {
 		if ($('#PostUnLimited').prop('checked')) {
 			CommentLimit = CommentMaxLengthAdmin;
@@ -1058,7 +998,9 @@
 		$("#LastLineCommentCountLength").text("最終行の文字数： " + lines[lines.length - 1].length);
 	}
 
-	// レイヤー追加ボタン 
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤー追加処理]
+	----------------------------------------------------------------------------------------------------*/
 	$("#myTrcAdd").click(function () {
 		var a = $('#myTrcSel').val();
 		a = a.split('_');
@@ -1332,7 +1274,9 @@
 		//$('myTransY').value  = t.style.transform.match(/\d+\.*\d*/g)[1];
 	});
 
-	// レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤーの表示されているテキストボックスからレイヤーを選んだら実行する処理]
+	----------------------------------------------------------------------------------------------------*/
 	$('#myTrcSel2').change(function () {
 		var texts = $('option:selected').text();
 		if (!ModeAdmin) {
@@ -1346,16 +1290,18 @@
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			a = c[i].text;
 			a = (String(a)).split(' ');
+			var b = c[i].id;
+			b = (String(b)).split('_');
 			if (a[2] === '●') {
-				$("#myTxt_" + a[0]).css('z-index', '3');
+				$("#myTxt_" + b[1]).css('z-index', '3');
 			} else {
-				$("#myTxt_" + a[0]).css('z-index', '0');
+				$("#myTxt_" + b[1]).css('z-index', '0');
 			}
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
 		var layerNo = $('[name=MyTrcSel] option:selected')[i];
 		//layerNo = layerNo.id.split("_")[1];
-		
+
 		texts = (String(texts)).split(' ');
 
 		var layerNo = $("#myTrcSel2 option:nth-child(" + texts[0] + ")").attr("id");
@@ -1368,7 +1314,7 @@
 	});
 
 	/*----------------------------------------------------------------------------------------------------
-    [text選択]
+    [text選択時の処理]
     ----------------------------------------------------------------------------------------------------*/
 	function myTxtSelect() {
 		var nameSetId = 0;
@@ -1481,10 +1427,9 @@
 		}
 	});
 
-	/**
-	 * レイヤー削除
-	 *
-	 */
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤー削除処理]
+	----------------------------------------------------------------------------------------------------*/
 	function DeleteMyTxtLayer() {
 		var fruit = $('#myTrcSel2').val();
 		console.log(fruit);
@@ -1524,7 +1469,9 @@
 		}
 	});
 
-	// RGBから#ffffff形式へ変換する
+	/*----------------------------------------------------------------------------------------------------
+	[色取得(未使用)]
+	----------------------------------------------------------------------------------------------------*/
 	function RGB2bgColor(r, g, b) {
 
 		r = r.toString(16);
@@ -1540,7 +1487,6 @@
 	}
 
 	var canvas_color = document.getElementById("myImg");
-
 	if (canvas_color.getContext) {
 		// コンテキストの取得
 		var ctx = canvas_color.getContext("2d");
@@ -1767,10 +1713,106 @@
 		//	obj.id = "myTxt_" + (j + 1);
 		//}
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[選択レイヤーの順番を下にする処理]
+	// 下にさげるのでidが大きくなるイメージ。
+	// つまり他のやつが1つ数字が下がる
+	----------------------------------------------------------------------------------------------------*/
+	$('#layerDown').click(function () {
+		var dispChange;
+		var nameSetId = 0;
+		var fruit;
+
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
+			}
+		}
+
+		// 一番下のレイヤーが選択されていたら処理しない
+		if (nameSetId == $('#myTrcSel2').children('option').length) { return; }
+
+		// 動画上のトレース用レイヤーのIDも一つあげる
+		var list = [];
+		$(".myTxtClass").each(function () {
+			list.push($(this).attr('id'));
+		});
+
+		var tempLayer;
+		// 選択されているレイヤーの情報を取得
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").text();		// 元が下のやつ
+			dispChange = (String(fruit)).split(" ");
+			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
+				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
+				//dispChange = (String(fruit)).split(" ");
+				tempLayer = $("#myTrcSel2 option:nth-child(" + i + ")").text();	// 元が上のやつ
+				tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
+				var tempObj_up = document.getElementById(list[nameSetId - 1]);
+				var tempObj_down = document.getElementById(list[nameSetId - 2]);
+
+				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
+
+				//tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
+				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
+				// レイヤー番号を変更
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				// レイヤーの配置を一つ上にあげる
+				$("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
+				//tempObj_up.id = "myTxt_" + (nameSetId - 1);
+				//tempObj_down.id = "myTxt_" + (nameSetId);
+
+				// 入れ替え
+				//$("#myTxt_" + (nameSetId + 1)).before($("#myTxt_" + nameSetId));
+
+				//$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				// 下がったレイヤーの番号を変更する
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId) + " " + tempLayer[1] + " " + tempLayer[2] + " " + tempLayer[3]);
+			}
+		}
+
+		var list = [];
+		$(".myTxtClass").each(function () {
+			list.push($(this).attr('id'));
+		});
+
+		var obj;
+		for (var j = 0; j < list.length; j++) {
+			obj = document.getElementById(list[j]);
+			obj.id = "myTxt_" + (j + 1);
+		}
+
+		// レイヤーのNoを小さい数字から対応していく
+		// (原則は小さい数字が下の方にある)
+		//for (var i = 1; i <= loopCount; i++) {
+		//	// textareaのidの再割り振り
+		//	$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
+		//}
+
+		//// レイヤー番号とテキストの数値部分の詰め
+		//var op = $('#myTrcSel2').children();
+		//for (var i = 0; i < op.length; i++) {
+		//	var val = op.eq(i).val().split(" ");
+		//	var tex = op.eq(i).text().split(" ");
+		//	// valueとtextを変更
+		//	$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
+		//	$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
+		//}
+
+		//var list = [];
+		//$(".myTxtClass").each(function () {
+		//	list.push($(this).attr('id'));
+		//});
+
+		//var obj;
+		//for (var j = 0; j < list.length; j++) {
+		//	obj = document.getElementById(list[j]);
+		//	obj.id = "myTxt_" + (j + 1);
+		//}
+	});
 })
-
-
-
 
 //古いやつ
 /*
