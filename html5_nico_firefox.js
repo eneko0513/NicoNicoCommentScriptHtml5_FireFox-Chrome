@@ -1409,7 +1409,7 @@
 		for (var i = 0; i < op.length; i++) {
 			var val = op.eq(i).val().split(" ");
 			var tex = op.eq(i).text().split(" ");
-			temp = op.eq(i)[0].id = "option_" + i;
+			op.eq(i)[0].id = "option_" + (i + 1);
 			//temp = temp.split("_")[1];
 
 			//temp = 
