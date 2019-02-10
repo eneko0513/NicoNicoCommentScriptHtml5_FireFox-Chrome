@@ -1746,19 +1746,19 @@
 			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 				//dispChange = (String(fruit)).split(" ");
-				tempLayer = $("#myTrcSel2 option:nth-child(" + i + ")").text();	// 元が上のやつ
+				tempLayer = $("#myTrcSel2 option:nth-child(" + (i + 2) + ")").text();	// 元が下のやつ
 				tempLayer = (String(tempLayer)).split(" ");	// テキスト区切り
-				var tempObj_up = document.getElementById(list[nameSetId - 1]);
-				var tempObj_down = document.getElementById(list[nameSetId - 2]);
+				var tempObj_up = document.getElementById(list[nameSetId - 2]);
+				var tempObj_down = document.getElementById(list[nameSetId]);
 
 				nameSetId = (i + 1);	// 現時点の選択されているレイヤーの番号を取得
 
 				//tempObj_down.id = "myTxt_" + (nameSetId) + "_temp";
 				fruit = $("#myTrcSel2 option:nth-child(" + nameSetId + ")").text();
 				// レイヤー番号を変更
-				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId - 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
+				$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text((nameSetId + 1) + " " + dispChange[1] + " " + dispChange[2] + " " + dispChange[3]);
 				// レイヤーの配置を一つ上にあげる
-				$("#myTrcSel2 option:nth-child(" + (nameSetId - 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
+				$("#myTrcSel2 option:nth-child(" + (nameSetId + 1) + ")").before($("#myTrcSel2 option:nth-child(" + (nameSetId) + ")"));
 				//tempObj_up.id = "myTxt_" + (nameSetId - 1);
 				//tempObj_down.id = "myTxt_" + (nameSetId);
 
