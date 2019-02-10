@@ -1405,12 +1405,17 @@
 
 		// レイヤー番号とテキストの数値部分の詰め
 		var op = $('#myTrcSel2').children();
+		var temp;
 		for (var i = 0; i < op.length; i++) {
 			var val = op.eq(i).val().split(" ");
 			var tex = op.eq(i).text().split(" ");
+			temp = op.eq(i)[0].id;
+			temp = temp.split("_")[1];
+			//temp = 
 			// valueとtextを変更
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2]);
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
+			$("option_" + temp).id = "option_" + i;
 		}
 
 		var list = [];
