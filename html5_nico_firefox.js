@@ -1,5 +1,4 @@
 ﻿javascript: (function (f, dd) {
-	// 読み込み時にjqueryを展開する
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
 	dd.onload = function () {
