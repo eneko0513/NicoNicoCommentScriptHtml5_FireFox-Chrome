@@ -1344,18 +1344,18 @@
 		var c = $('#myTrcSel2').children('option');
 		// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			var layerNo = $('[name=MyTrcSel] option:selected')[i];
-			layerNo = layerNo.id.split("_")[1];
-
 			a = c[i].text;
 			a = (String(a)).split(' ');
 			if (a[2] === '●') {
-				$("#myTxt_" + layerNo).css('z-index', '3');
+				$("#myTxt_" + a[0]).css('z-index', '3');
 			} else {
-				$("#myTxt_" + layerNo).css('z-index', '0');
+				$("#myTxt_" + a[0]).css('z-index', '0');
 			}
-			$("#myTrcSel2 option:nth-child(" + layerNo + ")").css("font-weight", "");
+			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
+		var layerNo = $('[name=MyTrcSel] option:selected')[i];
+		//layerNo = layerNo.id.split("_")[1];
+		
 		texts = (String(texts)).split(' ');
 
 		var layerNo = $("#myTrcSel2 option:nth-child(" + texts[0] + ")").attr("id");
