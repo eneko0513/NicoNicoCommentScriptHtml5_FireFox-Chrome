@@ -1400,7 +1400,7 @@
 		// (原則は小さい数字が下の方にある)
 		for (var i = 1; i <= loopCount; i++) {
 			// textareaのidの再割り振り
-			$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
+			//$("#myTxt_" + i).id = ("myTxt_" + (i + 1));
 		}
 
 		// レイヤー番号とテキストの数値部分の詰め
@@ -1409,7 +1409,7 @@
 		for (var i = 0; i < op.length; i++) {
 			var val = op.eq(i).val().split(" ");
 			var tex = op.eq(i).text().split(" ");
-			op.eq(i)[0].id = "option_" + (i + 1);
+			//op.eq(i)[0].id = "option_" + (i + 1);
 			//temp = temp.split("_")[1];
 
 			//temp = 
@@ -1427,7 +1427,7 @@
 		var obj;
 		for (var j = 0; j < list.length; j++) {
 			obj = document.getElementById(list[j]);
-			obj.id = "myTxt_" + (j + 1);
+			//obj.id = "myTxt_" + (j + 1);
 		}
 		$("#myTxt_" + list.length).css('zIndex', '4');
 		$("#myTrcSel2 option:nth-child(" + list.length + ")").css("font-weight", "bold");
