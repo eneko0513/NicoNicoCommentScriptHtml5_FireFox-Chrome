@@ -1585,18 +1585,18 @@
 	[レイヤーの表示を切り替えする処理]
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerVisible').click(function () {
-		if ($('#myTrcSel2').val() == null) { return; }
-
-		var fruit = $('#myTrcSel2').val();
-		console.log(fruit);
+		if ($('[name=MyTrcSel]').val() == null) { return; }
+		//var idname = $('[name=MyTrcSel]').val().attr("id"); 
+		var fruit = $('[name=MyTrcSel]').val();
+		//console.log(fruit);
 
 		// 要素の数だけループ
-		var selectLayerCount = fruit.length;
+		//var selectLayerCount = fruit.length;
 		var dispChange;
-		for (i = 0; i < selectLayerCount; i++) {
+		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			dispChange = (String(fruit[i])).split(" ");
-			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").attr("id");
-			LayerNo = (String(layerNo)).split('_')[1];
+			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].innerHTML;
+			LayerNo = (String(layerNo)).split(' ')[0];
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + LayerNo).css('zIndex') == '4' || $("#myTxt_" + LayerNo).css('zIndex') == '3') {
 				$("#myTxt_" + LayerNo).css('zIndex', '0');
