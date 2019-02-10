@@ -1430,6 +1430,7 @@
 			obj.id = "myTxt_" + (j + 1);
 		}
 		$("#myTxt_" + list.length).css('zIndex', '4');
+		$("#myTrcSel2 option:nth-child(" + list.length + ")").css("font-weight", "bold");
 	});
 
 	/*----------------------------------------------------------------------------------------------------
