@@ -2341,6 +2341,7 @@ javascript: (function (f, dd) {
 					}
 				}
 			}
+			// a001だけ半角になってしまう・・。
 			z = z.replace(/\uA001/g, ' ');
 			z = z.replace(/\uA002/g, '<br>');
 			z = z.replace(/\u0009/g, '[tb]');
