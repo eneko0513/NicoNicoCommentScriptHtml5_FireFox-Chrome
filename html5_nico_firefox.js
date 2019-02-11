@@ -1563,21 +1563,25 @@
 		for (i = 0; i < fruit.length; i++) {
 			dispChange = fruit[i].innerHTML.split(" ");
 			// optionIDを取得する
-			var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].id;
+			var layerNo;
 			layerNo = $('[name=MyTrcSel] option:selected')[i];
 			layerNo = layerNo.id.split("_")[1];
+
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + layerNo).css('zIndex') == '4' || $("#myTxt_" + layerNo).css('zIndex') == '3') {
 				$("#myTxt_" + layerNo).css('zIndex', '0');
-				$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('●', '○'));
+				//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('●', '○'));
+				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + layerNo).css('zIndex', '4');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + layerNo).css('zIndex', '3');
-					$("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text($("#myTrcSel2 option:nth-child(" + dispChange[0] + ")").text().replace('○', '●'));
+					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
 				}
 			}
 		}
