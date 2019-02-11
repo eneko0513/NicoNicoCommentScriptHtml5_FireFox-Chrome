@@ -1890,7 +1890,7 @@
 			//a = $("#myTxt_" + $('myTrcSel2').value.split(" ")[0]).value;
 			layerNo = $('#myTrcSel2').children('option')[count];
 			layerNo = layerNo.id.split("_")[1];
-			a = $("#myTxt_" + layerNo);
+			a = $("#myTxt_" + layerNo).val;
 			All = false;
 		}
 		count++;
@@ -1930,9 +1930,13 @@
 
 		var d;
 		if (All) {
-			d = $('myTrcSel2')[count - 1].value.split(" ")[1].split("_");
+			//d = $('myTrcSel2')[count - 1].value.split(" ")[1].split("_");
+			d = $('#myTrcSel2').children('option')[count];
+			d = d.id.split("_")[1];
 		} else {
-			d = $('myTrcSel2').value.split(" ")[1].split("_");
+			//d = $('myTrcSel2').value.split(" ")[1].split("_");
+			d = $('#myTrcSel2').children('option')[count];
+			d = d.id.split("_")[1];
 		}
 		var w = 0; //=  //あとでWから取得するように
 		var l = 0; //=  //あとでlから取得するように
