@@ -1254,10 +1254,10 @@
 			// option要素の宣言
 			var option = document.createElement('option');
 			// option要素のvalue属性に値をセット
-			option.setAttribute('value', m + ' ' + $('#myTrcSel').val() + ' ● ');
+			option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
 			option.id = "option_" + m;
 			// option要素に値をセット
-			option.innerHTML = m + ' ' + $('#myTrcSel').val() + ' ● ';
+			option.innerHTML = ($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ';
 			// 作成したoption要素をselectタグに追加
 			select.appendChild(option);
 			//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
