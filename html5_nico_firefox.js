@@ -1445,10 +1445,19 @@
 		var fruit = $('#myTrcSel2').val();
 		console.log(fruit);
 
+		//var layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].id;
+		//layerNo = $('[name=MyTrcSel] option:selected')[i];
+		//layerNo = layerNo.id.split("_")[1];
+
 		// 要素の数だけループ
 		var deleteIdCount = fruit.length;
 		var a;
+		var layerNo;
 		for (i = 0; i < deleteIdCount; i++) {
+			layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].id;
+			layerNo = $('[name=MyTrcSel] option:selected')[i];
+			layerNo = layerNo.id.split("_")[1];
+
 			deleteId = (String(fruit[i])).split(" ");
 			a = document.getElementById("myTxt_" + deleteId[0]);
 			a.parentNode.removeChild(a);
