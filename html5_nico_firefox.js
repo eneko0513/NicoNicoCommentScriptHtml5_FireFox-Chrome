@@ -1931,12 +1931,12 @@
 		var d;
 		if (All) {
 			//d = $('myTrcSel2')[count - 1].value.split(" ")[1].split("_");
-			d = $('#myTrcSel2').children('option')[count];
-			d = d.id.split("_")[1];
+			d = $('#myTrcSel2').children('option')[count].value;
+			d = d.split("_");
 		} else {
 			//d = $('myTrcSel2').value.split(" ")[1].split("_");
-			d = $('#myTrcSel2').children('option')[count];
-			d = d.id.split("_")[1];
+			d = $('#myTrcSel2').children('option')[count].value;
+			d = d.split("_");
 		}
 		var w = 0; //=  //あとでWから取得するように
 		var l = 0; //=  //あとでlから取得するように
@@ -2235,6 +2235,7 @@
 			}
 
 			//タブに置換
+			myTab = false;
 			if (myTab === true) {
 				n[0].TEXT = n[0].TEXT.replace(/[\u2003]{2}/g, '\u0009')
 				if (n[0].TEXT.slice(-1).match(/[\u0009]/)) {
@@ -2347,10 +2348,10 @@
 			z = v + z;
 			//v = '';
 			//}
-			if ($('myTxtIpt').value == '') {
-				$('myTxtIpt').value = z;
+			if ($('#outputCreateTxtarea').value == '') {
+				$('#outputCreateTxtarea').val(z);
 			} else {
-				$('myTxtIpt').value += '\n' + z;
+				$('#outputCreateTxtarea').val($('#outputCreateTxtarea').val() + '\n' + z);
 			}
 			//n配列なくなるまでループ
 		}
