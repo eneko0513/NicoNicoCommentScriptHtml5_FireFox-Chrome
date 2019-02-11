@@ -1702,7 +1702,7 @@
 		var obj;
 		for (var j = 0; j < list.length; j++) {
 			obj = document.getElementById(list[j]);
-			obj.id = "myTxt_" + (j + 1);
+			//obj.id = "myTxt_" + (j + 1);
 		}
 
 		// レイヤーのNoを小さい数字から対応していく
@@ -1806,7 +1806,7 @@
 		var obj;
 		for (var j = 0; j < list.length; j++) {
 			obj = document.getElementById(list[j]);
-			obj.id = "myTxt_" + (j + 1);
+			//obj.id = "myTxt_" + (j + 1);
 		}
 
 		// レイヤーのNoを小さい数字から対応していく
