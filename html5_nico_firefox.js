@@ -1864,7 +1864,6 @@
 		AllClick = false;
 	});
 	$('#layerOutput').click(function () {
-		count++;
 		if (!AllClick) {
 			count = 0;
 		}
@@ -1894,7 +1893,7 @@
 			a = $("#myTxt_" + layerNo);
 			All = false;
 		}
-
+		count++;
 
 		//半スペ、A0が含まれていたらNG
 		if (a.indexOf('\u00A0') != -1) {
