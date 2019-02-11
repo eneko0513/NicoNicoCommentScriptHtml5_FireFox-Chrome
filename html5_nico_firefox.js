@@ -1858,7 +1858,7 @@
 		AllClick = true;
 		for (var i = 0; i < $('#myTrcSel2').length; i++) {
 			$('#myTrcSel2')[i].selected = true;
-			$('#myTxtExpOne').onclick();
+			$('#layerOutput').click();
 		}
 		// 最後に全出力からを判定するフラグをfalseに戻す
 		AllClick = false;
@@ -1870,17 +1870,28 @@
 		}
 
 		if ($('#myTrcSel2').val() === null) { return; }
-		//$('myTxtIpt').value = ''
-		//全体
+
+		var layerNo;
+		//layerNo = $('#myTrcSel2').children('option')[i];
+		//layerNo = layerNo.id.split("_")[1];
+
+		// 全体
 		var a;
 		var All = true;
 		try {
 			// 全行出力の場合はこちら
-			a = $("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).value;
+			//a = $("#myTxt_" + $('myTrcSel2')[count - 1].value.split(" ")[0]).value;
+			//a = $("#myTxt_" + $('myTrcSel2')[count - 1].value.split(" ")[0]);
+			layerNo = $('#myTrcSel2').children('option')[count];
+			layerNo = layerNo.id.split("_")[1];
+			a = $("#myTxt_" + layerNo);
 			All = true;
 		} catch (e) {
 			// 個別出力の場合はこちら
-			a = $("myTxt" + $('myTrcSel2').value.split(" ")[0]).value;
+			//a = $("#myTxt_" + $('myTrcSel2').value.split(" ")[0]).value;
+			layerNo = $('#myTrcSel2').children('option')[count];
+			layerNo = layerNo.id.split("_")[1];
+			a = $("#myTxt_" + layerNo);
 			All = false;
 		}
 
