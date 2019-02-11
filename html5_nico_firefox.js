@@ -1845,4 +1845,500 @@
 		//	obj.id = "myTxt_" + (j + 1);
 		//}
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[選択レイヤーの順番を下にする処理]
+	// 下にさげるのでidが大きくなるイメージ。
+	// つまり他のやつが1つ数字が下がる
+	----------------------------------------------------------------------------------------------------*/
+	var count = 0;
+	var AllClick = false;
+	$('#layerOutputAll').click(function () {
+		count = 0;
+		AllClick = true;
+		for (var i = 0; i < $('#myTrcSel2').length; i++) {
+			$('#myTrcSel2')[i].selected = true;
+			$('#myTxtExpOne').onclick();
+		}
+		// 最後に全出力からを判定するフラグをfalseに戻す
+		AllClick = false;
+	});
+	$('#layerOutput').click(function () {
+		count++;
+		if (!AllClick) {
+			count = 0;
+		}
+
+		if ($('#myTrcSel2').val() === null) { return; }
+		//$('myTxtIpt').value = ''
+		//全体
+		var a;
+		var All = true;
+		try {
+			// 全行出力の場合はこちら
+			a = $("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).value;
+			All = true;
+		} catch (e) {
+			// 個別出力の場合はこちら
+			a = $("myTxt" + $('myTrcSel2').value.split(" ")[0]).value;
+			All = false;
+		}
+
+
+		//半スペ、A0が含まれていたらNG
+		if (a.indexOf('\u00A0') != -1) {
+			alert('u00A0が' + (a.indexOf('\u00A0') + 1) + '文字目にあるので出力を停止します。')
+			return;
+		}
+		if (a.indexOf('\u0020') != -1) {
+			alert('u0020が' + (a.indexOf('\u0020') + 1) + '文字目にあるので出力を停止します。')
+			return;
+		}
+		//全角空白は全て2003へ
+		a = a.replace(/[\u2001]/g, '\u2003');
+		a = a.replace(/[\u3000]/g, '\u2003');
+		a = a.replace(/[\u2000]/g, '\u2002');
+		//空白の最適化 200Aを使う
+		a = a.replace(/[\u2003]/g, Array(12 + 1).join('\u200A'));
+		a = a.replace(/[\u2002]/g, Array(6 + 1).join('\u200A'));
+		a = a.replace(/[\u2004]/g, Array(4 + 1).join('\u200A'));
+		a = a.replace(/[\u2005]/g, Array(3 + 1).join('\u200A'));
+		a = a.replace(/[\u2006]/g, Array(2 + 1).join('\u200A'));
+		//戻す
+		a = a.replace(/[\u200A]{12}/g, '\u2003');
+		a = a.replace(/[\u200A]{6}/g, '\u2002');
+		a = a.replace(/[\u200A]{4}/g, '\u2004');
+		a = a.replace(/[\u200A]{3}/g, '\u2005');
+		a = a.replace(/[\u200A]{2}/g, '\u2006');
+		//余りの処理　パターンは3つ
+		a = a.replace(/[\u2003][\u200A]/g, '\u2002' + '\u2004' + '\u2005');
+		a = a.replace(/[\u2002][\u200A]/g, '\u2004' + '\u2005');
+		a = a.replace(/[\u2004][\u200A]/g, '\u2005' + '\u2006');
+
+		var b = a.split(/[\n\r]/g);
+		var c;//調査文字
+
+		var d;
+		if (All) {
+			d = $('myTrcSel2')[count - 1].value.split(" ")[1].split("_");
+		} else {
+			d = $('myTrcSel2').value.split(" ")[1].split("_");
+		}
+		var w = 0; //=  //あとでWから取得するように
+		var l = 0; //=  //あとでlから取得するように
+		var e;//計算用
+		var f;
+		var n = [];//長さ、左空白幅格納配列
+		var nd = [];//処理用
+		var z;//出力用
+		var zi;//出力文字数
+		var p;//ループ用
+		var q;//ループ用
+		var r;//ループスイッチ用
+		//色
+		var u = "#FFFFFF";
+		if (All) {
+			try {
+				u = "#" + parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+					+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+					+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
+			} catch (e) {
+				u = "色未設定です";
+			}
+		} else {
+			try {
+				u = "#" + parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+					+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+					+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
+			} catch (e) {
+				u = "色未設定です";
+			}
+		}
+
+
+		var v = '';//コマンド
+		r = true;
+
+		//サイズチェック
+		for (var i = 0; i < d.length; i++) {
+			if (d[i].slice(0, 1) == "W") {
+				w = d[i].slice(1) * 12;
+			} else if (d[i].slice(0, 1) == "L") {
+				l = d[i].slice(1);
+			} else if (d[i].slice(0, 1) == "C") {
+				//
+			} else {
+				v += d[i] + " ";
+			}
+		}
+		v = "[" + u + " " + v.slice(0, -1) + "]";
+
+		for (var i = 0; i < b.length; i++) {
+
+			//文字を分解し幅を調べて行く
+			c = b[i].split("")
+			p = 0; q = 0; //g= ''
+			for (var m = 0; m < c.length; m++) {
+				switch (c[m]) {
+					case '\u2003':
+						p += 12;
+						if (r === true) {
+							q += 12;
+							//g += Array(12+1).join('\uA003');
+						}
+						break;
+					case '\u2002':
+						p += 6;
+						if (r === true) {
+							q += 6;
+							//g += Array(6+1).join('\uA003');
+						}
+						break;
+					case '\u2004':
+						p += 4;
+						if (r === true) {
+							q += 4;
+							//g += Array(4+1).join('\uA003');
+						}
+						break;
+					case '\u2005':
+						p += 3;
+						if (r === true) {
+							q += 3;
+							//g += Array(3+1).join('\uA003');
+						}
+						break;
+					case '\u2006':
+						p += 2;
+						if (r === true) {
+							q += 2;
+							//g += Array(2+1).join('\uA003');
+						}
+						break;
+					case '\u200A':
+						p += 1;
+						if (r === true) {
+							q += 1;
+							//g += Array(2+1).join('\uA003');
+						}
+						break;
+					case '\u005F':
+					case '\u00AF':
+					case '\u2216':
+					case '\uFFE8':
+						p += 6;
+						r = false;
+						break;
+					case '\u2580':
+					case '\u2590':
+						p += 8.5;
+						r = false;
+						break;
+					case '\u2043':
+						p += 3.692307;
+						r = false;
+						break;
+					case '\u01C0':
+						p += 3.111111;
+						r = false;
+						break;
+					case '\u207B':
+					case '\u208B':
+						p += 3.466666;
+						r = false;
+						break;
+					case '\u002F':
+						p += 5.647058;
+						r = false;
+						break;
+					default:
+						//未登録文字を検討、塗り用として割り切るか
+						p += 12;
+						r = false;
+						break;
+				}
+			}
+			//終わった時点でr=true;なら空白しか無い行。さよならする
+			if (r !== true) {
+				n[i] = {};
+				n[i].LINE = i;
+				//切り上げないと臨界幅超えたら怖いが微妙なずれは発生する
+				n[i].WIDTH = Math.ceil(p);
+				n[i].LEFTSPACE = q;
+				n[i].TEXT = b[i];
+				r = true;
+				//この時点でw<pなら終了
+				if (p > w) {
+					alert('テンプレ幅超えてます');
+					return;
+				}
+			}
+		}
+
+		//幅順ソート
+		n.sort(function (x, y) {
+			if (x.WIDTH > y.WIDTH) return -1;
+			if (x.WIDTH < y.WIDTH) return 1;
+			return 0;
+		});
+
+		//配列なくなるまでループ
+		while (n[0] != undefined) {
+			//出力用テンプレのセット
+			for (i = 0; i < l; i++) {
+				if (i == l - 1) {
+					nd[i] = '\uA001'
+				} else {
+					if (i == 0 || (i % 3) == 0) {
+						nd[i] = '\uA001' + '\uA002'
+					} else {
+						nd[i] = '\uA002'
+					}
+				}
+			}
+
+			//左空白少ない順ソート
+			n.sort(function (x, y) {
+				if (x.LEFTSPACE < y.LEFTSPACE) return -1;
+				if (x.LEFTSPACE > y.LEFTSPACE) return 1;
+				return 0;
+			});
+			//左空白削り
+			p = n[0].LEFTSPACE;
+
+			//幅順ソート
+			n.sort(function (x, y) {
+				if (x.WIDTH > y.WIDTH) return -1;
+				if (x.WIDTH < y.WIDTH) return 1;
+				return 0;
+			});
+			//右空白削り
+			q = w - n[0].WIDTH;
+
+			//どちらか。左の方が削れるサイズが大きければ右スペース分を削る
+			if (p > q) {
+				p = q;
+			} else {
+				//右の方が削れるならば幅順に並べて左スペースをすべて消す
+				n.sort(function (x, y) {
+					if (x.LEFTSPACE < y.LEFTSPACE) return -1;
+					if (x.LEFTSPACE > y.LEFTSPACE) return 1;
+					return 0;
+				});
+			}
+			//l==0なら1行改行無しなので右に追加するしかない
+			if (l == 0) {
+				p = 0;
+			}
+
+
+			//すべてに対して左削り
+			if (p != 0) {
+				w -= p * 2;
+				for (var i = 0; i < n.length; i++) {
+					if (n[i] == undefined) { break; }
+					n[i].WIDTH -= p;
+					n[i].LEFTSPACE -= p;
+					for (var m = 0; m < p; m++) {
+						//n[i].WIDTH -= 1;
+						//n[i].LEFTSPACE -= 1;
+						//文字によって処理がことなる
+						switch (n[i].TEXT.slice(0, 1)) {
+							case '\u2003':
+								//12-11
+								//n[i].TEXT = Array(12).join('\uA003') + n[i].TEXT.slice(1);
+								n[i].TEXT = '\u2002' + '\u2005' + '\u2006' + n[i].TEXT.slice(1);
+								break;
+							case '\u2002':
+								//6-5
+								//n[i].TEXT = Array(6).join('\uA003') + n[i].TEXT.slice(1);
+								n[i].TEXT = '\u2005' + '\u2006' + n[i].TEXT.slice(1);
+								break;
+							case '\u2004':
+								//4-3
+								//n[i].TEXT = Array(4).join('\uA003') + n[i].TEXT.slice(1);
+								n[i].TEXT = '\u2005' + n[i].TEXT.slice(1);
+								break;
+							case '\u2005':
+								//3-2
+								//n[i].TEXT = Array(3).join('\uA003') + n[i].TEXT.slice(1);
+								n[i].TEXT = '\u2006' + n[i].TEXT.slice(1);
+								break;
+							case '\u2006':
+								//2-1
+								n[i].TEXT = Array(2).join('\u200A') + n[i].TEXT.slice(1);
+								break;
+							case '\u200A':
+								n[i].TEXT = n[i].TEXT.slice(1);
+								break;
+							default:
+								break;
+						}
+					}
+					//端数処理及び途中の空白含む再変換
+					n[i].TEXT = n[i].TEXT.replace(/[\u2003]/g, Array(12 + 1).join('\u200A'));
+					n[i].TEXT = n[i].TEXT.replace(/[\u2002]/g, Array(6 + 1).join('\u200A'));
+					n[i].TEXT = n[i].TEXT.replace(/[\u2004]/g, Array(4 + 1).join('\u200A'));
+					n[i].TEXT = n[i].TEXT.replace(/[\u2005]/g, Array(3 + 1).join('\u200A'));
+					n[i].TEXT = n[i].TEXT.replace(/[\u2006]/g, Array(2 + 1).join('\u200A'));
+
+					n[i].TEXT = n[i].TEXT.replace(/[\u200A]{12}/g, '\u2003');
+					n[i].TEXT = n[i].TEXT.replace(/[\u200A]{6}/g, '\u2002');
+					n[i].TEXT = n[i].TEXT.replace(/[\u200A]{4}/g, '\u2004');
+					n[i].TEXT = n[i].TEXT.replace(/[\u200A]{3}/g, '\u2005');
+					n[i].TEXT = n[i].TEXT.replace(/[\u200A]{2}/g, '\u2006');
+					//余りの処理
+					n[i].TEXT = n[i].TEXT.replace(/[\u2003][\u200A]/g, '\u2002' + '\u2004' + '\u2005');
+					n[i].TEXT = n[i].TEXT.replace(/[\u2002][\u200A]/g, '\u2004' + '\u2005');
+					n[i].TEXT = n[i].TEXT.replace(/[\u2004][\u200A]/g, '\u2005' + '\u2006');
+					//1pxに泣く　左の1は0にする
+					//n[i].TEXT = n[i].TEXT.replace(/[\uA003]/g,'');
+				}
+			}
+
+			//n[0].WIDTH;は繰り上げの為qが狭くなる
+			//その分リードの右が少なくなり右に寄る
+			//微調整で+1してみるかwidthを繰り下げるか
+			q = w - n[0].WIDTH;
+
+			//リードの処理の右追加　//q = w - n[0].WIDTH;
+			if (q != 0) {
+				n[0].WIDTH += q;
+				n[0].TEXT = n[0].TEXT + Array(q + 1).join('\u200A')
+
+				//端数処理及び途中の空白含む再変換
+				n[0].TEXT = n[0].TEXT.replace(/[\u200A]{12}/g, '\u2003');
+				n[0].TEXT = n[0].TEXT.replace(/[\u200A]{6}/g, '\u2002');
+				n[0].TEXT = n[0].TEXT.replace(/[\u200A]{4}/g, '\u2004');
+				n[0].TEXT = n[0].TEXT.replace(/[\u200A]{3}/g, '\u2005');
+				n[0].TEXT = n[0].TEXT.replace(/[\u200A]{2}/g, '\u2006');
+				//余りの処理
+				n[0].TEXT = n[0].TEXT.replace(/[\u2003][\u200A]/g, '\u2002' + '\u2004' + '\u2005');
+				n[0].TEXT = n[0].TEXT.replace(/[\u2002][\u200A]/g, '\u2004' + '\u2005');
+				n[0].TEXT = n[0].TEXT.replace(/[\u2004][\u200A]/g, '\u2005' + '\u2006');
+				//1pxに泣く　右の1はゼロにする　なんとかしたい
+				//n[0].TEXT = n[0].TEXT.replace(/[\uA003]/g,'');
+			}
+
+			//タブに置換
+			if (myTab === true) {
+				n[0].TEXT = n[0].TEXT.replace(/[\u2003]{2}/g, '\u0009')
+				if (n[0].TEXT.slice(-1).match(/[\u0009]/)) {
+					n[0].TEXT += '\u200C'
+				}
+			}
+			//出力用に入れる l==0なら1コメ改行無しだが
+			if (l == 0) {
+				nd[n[0].LINE] = n[0].TEXT;
+			} else {
+				if (n[0].LINE == l - 1) {
+					nd[n[0].LINE] = n[0].TEXT;
+				} else {
+					nd[n[0].LINE] = n[0].TEXT + '\uA002';
+				}
+			}
+			n.splice(0, 1);
+
+			//出力チェック
+			z = ""
+			for (var i = 0; i < nd.length; i++) {
+				z += nd[i]
+			}
+			zi = z.length;
+
+			// 投コメモード対応
+			var element = document.getElementsByClassName('GridCell OwnerEditMenuContainer-left');
+			if (element.length == 1) {
+				//この時点で突破してたら処理終了
+				if (1024 < zi) {
+					alert('突破しちゃいます。' + z.length);
+					return;
+				}
+			} else {
+				//この時点で突破してたら処理終了
+				if (75 < zi) {
+					alert('突破しちゃいます。' + z.length);
+					return;
+				}
+			}
+
+			//リード決定後追加の処理
+			while (n[0] != undefined) {
+				//左空白が無い、かつ幅が狭い順にソート
+				n.sort(function (x, y) {
+					if (x.WIDTH < y.WIDTH) return -1;
+					if (x.WIDTH > y.WIDTH) return 1;
+					if (x.LEFTSPACE < y.LEFTSPACE) return -1;
+					if (x.LEFTSPACE > y.LEFTSPACE) return 1;
+					return 0;
+				});
+
+				//タブに置換
+				if (myTab === true) {
+					n[0].TEXT = n[0].TEXT.replace(/[\u2003]{2}/g, '\u0009')
+				}
+
+				// 投コメモード対応
+				var element = document.getElementsByClassName('GridCell OwnerEditMenuContainer-left');
+				if (element.length == 1) {
+					//1025超えないなら
+					if (1025 > zi + n[0].TEXT.length) {
+						if (n[0].LINE == l - 1) {
+							nd[n[0].LINE] = n[0].TEXT;
+						} else {
+							nd[n[0].LINE] = n[0].TEXT + '\uA002';
+						}
+						n.splice(0, 1);
+						z = ""
+						for (var i = 0; i < nd.length; i++) {
+							z += nd[i]
+						}
+						zi = z.length;
+					} else {
+						//超えてたらタブを戻す
+						if (myTab === true) {
+							n[0].TEXT = n[0].TEXT.replace(/[\u0009]/g, '\u2003' + '\u2003');
+						}
+						break;
+					}
+				} else {
+					//76超えないなら
+					if (76 > zi + n[0].TEXT.length) {
+						if (n[0].LINE == l - 1) {
+							nd[n[0].LINE] = n[0].TEXT;
+						} else {
+							nd[n[0].LINE] = n[0].TEXT + '\uA002';
+						}
+						n.splice(0, 1);
+						z = ""
+						for (var i = 0; i < nd.length; i++) {
+							z += nd[i]
+						}
+						zi = z.length;
+					} else {
+						//超えてたらタブを戻す
+						if (myTab === true) {
+							n[0].TEXT = n[0].TEXT.replace(/[\u0009]/g, '\u2003' + '\u2003');
+						}
+						break;
+					}
+				}
+			}
+			z = z.replace(/\uA001/g, ' ');
+			z = z.replace(/\uA002/g, '<br>');
+			z = z.replace(/\u0009/g, '[tb]');
+			z = z.replace(/\u200A/g, '[0A]');
+
+			//if (v != ''){
+			z = v + z;
+			//v = '';
+			//}
+			if ($('myTxtIpt').value == '') {
+				$('myTxtIpt').value = z;
+			} else {
+				$('myTxtIpt').value += '\n' + z;
+			}
+			//n配列なくなるまでループ
+		}
+	});
 })
