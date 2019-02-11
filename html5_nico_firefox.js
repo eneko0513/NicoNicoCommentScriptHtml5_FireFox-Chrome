@@ -1023,7 +1023,7 @@
 			//widht = font*w+1px
 			//height = lineheight *L+2px 
 			//t.id = 'myTxt_' + m;
-			t.id = 'myTxt_' + $('#myTrcSel2').children('option').length + 1;
+			t.id = 'myTxt_' + ($('#myTrcSel2').children('option').length + 1);
 			t.className = 'myTxtClass';
 			myinnerTxt = '' +
 				'background-color: rgba(0,0,0,0);' +
