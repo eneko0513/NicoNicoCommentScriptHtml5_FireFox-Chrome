@@ -1857,7 +1857,7 @@ javascript: (function (f, dd) {
 		count = 0;
 		AllClick = true;
 		for (var i = 0; i <= $('#myTrcSel2').length; i++) {
-			$('#myTrcSel2')[i].selected = true;
+			//$('#myTrcSel2')[i].selected = true;
 			$('#layerOutput').click();
 		}
 		// 最後に全出力からを判定するフラグをfalseに戻す
@@ -2351,7 +2351,7 @@ javascript: (function (f, dd) {
 			z = v + z;
 			//v = '';
 			//}
-			if ($('#outputCreateTxtarea').value == '') {
+			if ($('#outputCreateTxtarea').val() == '') {
 				$('#outputCreateTxtarea').val(z);
 			} else {
 				$('#outputCreateTxtarea').val($('#outputCreateTxtarea').val() + '\n' + z);
