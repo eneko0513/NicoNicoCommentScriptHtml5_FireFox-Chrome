@@ -1454,12 +1454,12 @@
 		var a;
 		var layerNo;
 		for (i = 0; i < deleteIdCount; i++) {
-			//layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].id;
+			// layerNo = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")")[0].id;
 			layerNo = $('[name=MyTrcSel] option:selected')[i];
 			layerNo = layerNo.id.split("_")[1];
 
-			deleteId = (String(fruit[i])).split(" ");
-			a = document.getElementById("myTxt_" + deleteId[0]);
+			// deleteId = (String(fruit[i])).split(" ");
+			a = document.getElementById("myTxt_" + layerNo);
 			a.parentNode.removeChild(a);
 		}
 	}
