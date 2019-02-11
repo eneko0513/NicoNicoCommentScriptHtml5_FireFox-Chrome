@@ -1931,11 +1931,11 @@
 		var d;
 		if (All) {
 			//d = $('myTrcSel2')[count - 1].value.split(" ")[1].split("_");
-			d = $('#myTrcSel2').children('option')[count].value;
+			d = $('#myTrcSel2').children('option')[count - 1].value;
 			d = d.split("_");
 		} else {
 			//d = $('myTrcSel2').value.split(" ")[1].split("_");
-			d = $('#myTrcSel2').children('option')[count].value;
+			d = $('#myTrcSel2').children('option')[count - 1].value;
 			d = d.split("_");
 		}
 		var w = 0; //=  //あとでWから取得するように
