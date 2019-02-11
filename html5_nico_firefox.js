@@ -1257,7 +1257,7 @@
 			option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
 			option.id = "option_" + m;
 			// option要素に値をセット
-			option.innerHTML = ($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ';
+			option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ';
 			// 作成したoption要素をselectタグに追加
 			select.appendChild(option);
 			//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
