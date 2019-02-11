@@ -1598,20 +1598,20 @@
 			//dispChange = (String(fruit[i])).split(" ");
 			// optionIDを取得する
 			var layerNo;
-			layerNo = $('[name=MyTrcSel]')[i];
+			layerNo = $('#myTrcSel2').children('option')[i];
 			layerNo = layerNo.id.split("_")[1];
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + (layerNo)).css('zIndex') == '4' || $("#myTxt_" + (layerNo)).css('zIndex') == '3') {
 				$("#myTxt_" + (layerNo)).css('zIndex', '0');
-				$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text().replace('●', '○'));
+				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + (layerNo)).css('zIndex', '4');
-					$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text().replace('○', '●'));
+					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + (layerNo)).css('zIndex', '3');
-					$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").text().replace('○', '●'));
+					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 				}
 			}
 		}
