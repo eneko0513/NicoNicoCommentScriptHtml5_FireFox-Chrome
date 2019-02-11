@@ -1883,7 +1883,7 @@
 			//a = $("#myTxt_" + $('myTrcSel2')[count - 1].value.split(" ")[0]);
 			layerNo = $('#myTrcSel2').children('option')[count];
 			layerNo = layerNo.id.split("_")[1];
-			a = $("#myTxt_" + layerNo);
+			a = $("#myTxt_" + layerNo).val;
 			All = true;
 		} catch (e) {
 			// 個別出力の場合はこちら
