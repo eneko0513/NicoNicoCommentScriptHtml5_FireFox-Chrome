@@ -1023,7 +1023,7 @@
 			//widht = font*w+1px
 			//height = lineheight *L+2px
 			//t.id = 'myTxt_' + m;
-			t.id = 'myTxt_' + ($('#myTrcSel2').children('option').length + 1);
+			t.id = 'myTxt_' + ($('#myTrcSel2').children('option').length + 2);
 			t.className = 'myTxtClass';
 			myinnerTxt = '' +
 				'background-color: rgba(0,0,0,0);' +
@@ -1266,7 +1266,7 @@
 			//$('myTrcSel2')[m-1].style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
 
 		}
-		$('#myTrcSel2').val(($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
+		$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
 
 		t.focus();
 		//$('myFontSize').value = t.style.fontSize
