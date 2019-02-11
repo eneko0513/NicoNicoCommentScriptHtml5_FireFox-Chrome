@@ -1419,17 +1419,17 @@
 			//$("#option_" + temp).id = "option_" + i;
 		}
 
-		var list = [];
-		$(".myTxtClass").each(function () {
-			list.push($(this).attr('id'));
-		});
+		//var list = [];
+		//$(".myTxtClass").each(function () {
+		//	list.push($(this).attr('id'));
+		//});
 
-		var obj;
-		for (var j = 0; j < list.length; j++) {
-			obj = document.getElementById(list[j]);
-			//obj.id = "myTxt_" + (j + 1);
-		}
-		$("#myTxt_" + list.length).css('zIndex', '4');
+		//var obj;
+		//for (var j = 0; j < list.length; j++) {
+		//	obj = document.getElementById(list[j]);
+		//	//obj.id = "myTxt_" + (j + 1);
+		//}
+		//$("#myTxt_" + list.length).css('zIndex', '4');
 		$("#myTrcSel2 option:nth-child(" + list.length + ")").css("font-weight", "bold");
 	});
 
