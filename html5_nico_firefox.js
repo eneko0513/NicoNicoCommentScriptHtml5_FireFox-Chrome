@@ -1546,7 +1546,7 @@ javascript: (function (f, dd) {
 				layerNo = $('#myTrcSel2').children('option')[i];
 				layerNo = layerNo.id.split("_")[1];
 				//alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
-				if ($("#option_"+ layerNo).css("font-weight") == "bold" ||
+				if ($("#option_" + layerNo).css("font-weight") == "bold" ||
 					$("#option_" + layerNo).css("font-weight") == "700") {
 					colorSetLayerNo = layerNo;
 				}
@@ -1556,7 +1556,7 @@ javascript: (function (f, dd) {
 			var u = document.getElementById("option_" + colorSetLayerNo)
 			var tempCommand = u.value.split(" ");
 			tempCommand[4] = "#" + r + "" + g + "" + b;
-			u.value = tempCommand[0] + " " + tempCommand[2] + " " + tempCommand[3] + " " + tempCommand[4];
+			u.value = tempCommand[0] + " " + tempCommand[1] + " " + tempCommand[2] + " " + tempCommand[3] + " " + tempCommand[4];
 			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
 		}
 	}
@@ -1963,17 +1963,19 @@ javascript: (function (f, dd) {
 		var u = "#FFFFFF";
 		if (All) {
 			try {
-				u = "#" + parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
-					+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
-					+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
+				u = $('#myTrcSel2').children('option')[count - 1].value.split(" ")[4];
+				//u = "#" + parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+				//	+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+				//	+ parseInt($("myTxt" + $('myTrcSel2')[count - 1].value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
 			} catch (e) {
 				u = "色未設定です";
 			}
 		} else {
 			try {
-				u = "#" + parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
-					+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
-					+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
+				u = $('#myTrcSel2').children('option')[count - 1].value.split(" ")[4];
+				//u = "#" + parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[0]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+				//	+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[1]).toString(16).replace(/^[0-9A-F]$/, "0$&")
+				//	+ parseInt($("myTxt" + $('myTrcSel2').value.split(" ")[0]).style.color.match(/\d+/g)[2]).toString(16).replace(/^[0-9A-F]$/, "0$&");
 			} catch (e) {
 				u = "色未設定です";
 			}
