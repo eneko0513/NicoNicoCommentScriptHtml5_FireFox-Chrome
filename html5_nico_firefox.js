@@ -1478,7 +1478,7 @@ javascript: (function (f, dd) {
 			//全レイヤーを一番下に(擬似的に非表示にする)
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				temp_zIndex[i] = $("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex');
-				$("#myTxt_" + (i + 1)).css('zIndex', '0');
+				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex', '0');
 			}
 		} else {
 			flags = false;
@@ -1538,12 +1538,17 @@ javascript: (function (f, dd) {
 			if (b < 10) b = "0" + b;
 
 			var colorSetLayerNo = 0;
+			var layerNo;
+			//layerNo = $('#myTrcSel2').children('option')[i];
+			//layerNo = layerNo.id.split("_")[1];
 			// セレクトボックスの中身を全て判定し、押されたレイヤー以外をzIndex3, 太字解除する
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+				layerNo = $('#myTrcSel2').children('option')[i];
+				layerNo = layerNo.id.split("_")[1];
 				//alert($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight"));
-				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
-					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-					colorSetLayerNo = (i + 1);
+				if ($("#option_"+ layerNo).css("font-weight") == "bold" ||
+					$("#option_" + layerNo).css("font-weight") == "700") {
+					colorSetLayerNo = layerNo;
 				}
 			}
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
