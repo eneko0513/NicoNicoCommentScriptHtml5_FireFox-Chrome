@@ -1471,12 +1471,13 @@ javascript: (function (f, dd) {
 	var flags = false;
 	var temp_zIndex = [];
 	$('#textColorChange').click(function () {
+		var layerNo;
 		if (flags == false) {
 			flags = true;
 			$("label[for*='textColorChange']").html("色の反映");
 			//全レイヤーを一番下に(擬似的に非表示にする)
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-				temp_zIndex[i] = $("#myTxt_" + (i + 1)).css('zIndex');
+				temp_zIndex[i] = $("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex');
 				$("#myTxt_" + (i + 1)).css('zIndex', '0');
 			}
 		} else {
@@ -1484,7 +1485,7 @@ javascript: (function (f, dd) {
 			$("label[for*='textColorChange']").html("選択レイヤー色変更");
 			//全レイヤーを表示にする（元から非表示のものは非表示のままに）
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-				$("#myTxt_" + (i + 1)).css('zIndex', temp_zIndex[i]);
+				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex', temp_zIndex[i]);
 				//$("myTxt" + (i+1)).style.zIndex = '4';
 			}
 		}
