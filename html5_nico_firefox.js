@@ -1553,6 +1553,8 @@ javascript: (function (f, dd) {
 			}
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
+			var u = document.getElementById("option_" + colorSetLayerNo)
+			u.value = u.value + " #" + r + "" + g + "" + b;
 			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
 		}
 	}
