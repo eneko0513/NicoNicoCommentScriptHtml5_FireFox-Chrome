@@ -1634,21 +1634,27 @@ javascript: (function (f, dd) {
 		if ($('#myTrcSel2').val() == null) { return; }
 		var nameSetId = 0;
 		var fruit;
-
+		var layerNo;
+		var count;
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
-				$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
-				nameSetId = (i + 1);
-				fruit = $("#myTrcSel2 option:nth-child(" + (i + 1) + ")").val();
+			if ($("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css("font-weight") == "bold" ||
+				$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css("font-weight") == "700") {
+				//nameSetId = $('#myTrcSel2').children('option')[i].id.split("_")[1];
+				count = i + 1;
+				fruit = $("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).val();
 			}
 		}
-		layerName = window.prompt(nameSetId + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
+		layerName = window.prompt(count + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
 		if (layerName.match(/○/) || layerName.match(/●/)) {
 			window.alert('禁止文字が使われています。');
 		} else {
+			var layerTemp = fruit
+			layerNo = (String(fruit)).split(" ");
+			layerNo[3] = layerName;
+			$("#option_" + nameSetId).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
 			// 設定処理
 			dispChange = (String(fruit)).split(" ");
-			$("#myTrcSel2 option:nth-child(" + nameSetId + ")").text(
+			$("#option_" + nameSetId).text(
 				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
 		}
 	});
