@@ -1651,11 +1651,11 @@ javascript: (function (f, dd) {
 			var layerTemp = fruit
 			layerNo = (String(fruit)).split(" ");
 			layerNo[3] = layerName;
-			$("#option_" + nameSetId).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
 			// 設定処理
 			dispChange = (String(fruit)).split(" ");
 			$("#option_" + nameSetId).text(
 				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
+			$("#option_" + nameSetId).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
 		}
 	});
 
