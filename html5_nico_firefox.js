@@ -1646,8 +1646,8 @@ javascript: (function (f, dd) {
 				layerTemps = $('#myTrcSel2').children('option')[i].id.split("_")[1];
 			}
 		}
-		layerName = window.prompt(count + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
-		if (layerName.match(/○/) || layerName.match(/●/)) {
+		layerName = window.prompt(count + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※半角スペースと,と●と○は使えません", "");
+		if (layerName.match(/○/) || layerName.match(/●/)|| layerName.match(/ /)|| layerName.match(/,/)) {
 			window.alert('禁止文字が使われています。');
 		} else {
 			var layerTemp = fruit
@@ -1988,7 +1988,9 @@ javascript: (function (f, dd) {
 				u = "色未設定です";
 			}
 		}
-
+		if(u == null){
+			u = "色情報が未設定です";
+		}
 
 		var v = '';//コマンド
 		r = true;
@@ -2367,17 +2369,19 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u0009/g, '[tb]');
 			z = z.replace(/\u200A/g, '[0A]');
 
-			var tempD;
-			try{
-				tempD = d.split(" ")[6];
-			}catch{
-
-			}
+			var LayerName = d[6].split(" ");
 			
 			v = v.split(" ");
-			v[1] = d[5];
+			//v[1] = d[5];
 			//if (v != ''){
-			z = v + z;
+			v[1] = LayerName[2];
+			var command = "";
+			for(cc = 0;cc < v.length;cc++){
+				command += v[cc] + ",";
+			}
+			command = command.replace(/,/g , " ");
+			command = command.slice(0, -1);
+			z = command + z;
 			//v = '';
 			//}
 			if ($('#outputCreateTxtarea').val() == '') {
