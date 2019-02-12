@@ -1874,7 +1874,7 @@ javascript: (function (f, dd) {
 	$('#layerOutputAll').click(function () {
 		count = 0;
 		AllClick = true;
-		for (var i = 0; i <= $('#myTrcSel2').length; i++) {
+		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			//$('#myTrcSel2')[i].selected = true;
 			$('#layerOutput').click();
 		}
