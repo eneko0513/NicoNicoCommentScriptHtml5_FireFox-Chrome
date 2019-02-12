@@ -1653,9 +1653,9 @@ javascript: (function (f, dd) {
 			layerNo[3] = layerName;
 			// 設定処理
 			dispChange = (String(fruit)).split(" ");
-			$("#option_" + nameSetId).text(
+			$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).text(
 				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
-			$("#option_" + nameSetId).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
+			$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
 		}
 	});
 
