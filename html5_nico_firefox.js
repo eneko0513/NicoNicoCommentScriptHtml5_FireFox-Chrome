@@ -2367,6 +2367,15 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u0009/g, '[tb]');
 			z = z.replace(/\u200A/g, '[0A]');
 
+			var tempD;
+			try{
+				tempD = d.split(" ")[6];
+			}catch{
+
+			}
+			
+			v = v.split(" ");
+			v[1] = d[5];
 			//if (v != ''){
 			z = v + z;
 			//v = '';
