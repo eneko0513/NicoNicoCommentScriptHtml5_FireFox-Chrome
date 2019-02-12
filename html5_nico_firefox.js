@@ -1554,7 +1554,9 @@ javascript: (function (f, dd) {
 			var t = document.getElementById("myTxt_" + colorSetLayerNo)
 			t.style.color = "#" + r + "" + g + "" + b;
 			var u = document.getElementById("option_" + colorSetLayerNo)
-			u.value = u.value + " #" + r + "" + g + "" + b;
+			var tempCommand = u.value.split(" ");
+			tempCommand[4] = "#" + r + "" + g + "" + b;
+			u.value = tempCommand[0] + " " + tempCommand[2] + " " + tempCommand[3] + " " + tempCommand[4];
 			//$("label[for*='textColorChange']").html("色の反映:" + "#" + r + "" + g + "" + b);
 		}
 	}
