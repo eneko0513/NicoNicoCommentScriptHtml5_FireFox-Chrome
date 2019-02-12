@@ -1636,12 +1636,14 @@ javascript: (function (f, dd) {
 		var fruit;
 		var layerNo;
 		var count;
+		var layerTemps;
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css("font-weight") == "bold" ||
 				$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css("font-weight") == "700") {
 				//nameSetId = $('#myTrcSel2').children('option')[i].id.split("_")[1];
 				count = i + 1;
 				fruit = $("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).val();
+				layerTemps = $('#myTrcSel2').children('option')[i].id.split("_")[1];
 			}
 		}
 		layerName = window.prompt(count + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※●と○は使えません", "");
@@ -1653,9 +1655,9 @@ javascript: (function (f, dd) {
 			layerNo[3] = layerName;
 			// 設定処理
 			dispChange = (String(fruit)).split(" ");
-			$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).text(
+			$("#option_" + layerTemps).text(
 				dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerName);
-			$("#option_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
+			$("#option_" + layerTemps).val(dispChange[0] + " " + dispChange[1] + " " + dispChange[2] + " " + layerNo[3]);
 		}
 	});
 
