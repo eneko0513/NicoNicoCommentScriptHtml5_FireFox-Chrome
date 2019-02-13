@@ -242,7 +242,7 @@ javascript: (function (f, dd) {
 		"		<input id='layerDown' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerDown' class='label'>選択レイヤーを下へ</label><br><br><br>" +
 		"		<select name='MyTrcSel' id='myTrcSel2' class='' size='2' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;' multiple='multiple'></select>" +
-		"		<textarea id='outputCreateTxtarea' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea>" +
+		"		<textarea id='outputCreateTxtarea' placeholder='出力レイヤー、レイヤー一時保存・復元に使用します。' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:1% 20px 2px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
 		"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
@@ -270,7 +270,7 @@ javascript: (function (f, dd) {
 		"		<input id='imageVisible' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
 		"		<input id='layerOutputAll' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerOutputAll' class='label3 margins'>全レイヤー出力</label>" +
+		"		<label for='layerOutputAll' class='label3 margins'>表示レイヤー全出力</label>" +
 		"		<input id='layerOutput' style='display: none;' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerOutput' style='display: none;' class='label3'>選択レイヤー出力</label>" +
 		"		<input id='layerSave' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
@@ -1906,7 +1906,7 @@ javascript: (function (f, dd) {
 
 		layerNo = $('#myTrcSel2').children('option')[count];
 		layerNo = layerNo.innerHTML.split(" ")[2];
-		if (layerNo === "○") { return; }
+		if (layerNo === "○") { count++; return; }
 
 		// 全体
 		var a;
@@ -2410,9 +2410,26 @@ javascript: (function (f, dd) {
 	});
 
 	/*----------------------------------------------------------------------------------------------------
-	[レイヤーを]
-	// 下にさげるのでidが大きくなるイメージ。
-	// つまり他のやつが1つ数字が下がる
+	[作成中のレイヤーを保存する処理]
+	// 表示・非表示に関わらず出力する。復元時にその内容を元にレイヤーを作成するようにする
 	----------------------------------------------------------------------------------------------------*/
+	$('#layerSave').click(function () {
+		if ($('#myTrcSel2').val() == null) { return; }
 
+		if (!$('#outputCreateTxtarea').val() == ''){ alert("出力エリアにテキストがあります、削除してから再度押下して下さい。"); return; }
+		var obj = new Object();
+		var jsonString = "[";
+		var layerData;
+		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			layerData = $('#myTrcSel2').children('option')[i];
+			layerData = layerData.innerHTML.split(" ")[2];
+
+			//obj.option
+			//obj.id = "";
+
+			//obj.id = "aa";
+		}
+		
+
+	});
 })
