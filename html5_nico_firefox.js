@@ -1904,6 +1904,10 @@ javascript: (function (f, dd) {
 		//layerNo = $('#myTrcSel2').children('option')[i];
 		//layerNo = layerNo.id.split("_")[1];
 
+		layerNo = $('#myTrcSel2').children('option')[count];
+		layerNo = layerNo.innerHTML.split(" ")[2];
+		if (layerNo === "○") { return; }
+
 		// 全体
 		var a;
 		var All = true;
@@ -1918,10 +1922,10 @@ javascript: (function (f, dd) {
 		} catch (e) {
 			// 個別出力の場合はこちら
 			//a = $("#myTxt_" + $('myTrcSel2').value.split(" ")[0]).value;
-			layerNo = $('#myTrcSel2').children('option')[count];
-			layerNo = layerNo.id.split("_")[1];
-			a = $("#myTxt_" + layerNo).val();
-			All = false;
+			//layerNo = $('#myTrcSel2').children('option')[count];
+			//layerNo = layerNo.id.split("_")[1];
+			//a = $("#myTxt_" + layerNo).val();
+			//All = false;
 		}
 		count++;
 
