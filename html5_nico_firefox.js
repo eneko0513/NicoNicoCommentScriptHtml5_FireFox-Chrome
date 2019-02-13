@@ -1766,12 +1766,12 @@ javascript: (function (f, dd) {
 	// つまり他のやつが1つ数字が下がる
 	----------------------------------------------------------------------------------------------------*/
 	$('#imageVisible').click(function (){
-		if ($('#myImg').style.display === "") {
-			$('#myImg').style.display = "none";
+		if ($('#myImg').css("display") == "") {
+			$('#myImg').css("display", "none");
 			//$('#imageVisible').value = "表示";
 			$("label[for*='imageVisible']").html("表示");
 		} else {
-			$('#myImg').style.display = "";
+			$('#myImg').css("display", "");
 			//$('#imageVisible').value = "非表示";
 			$("label[for*='imageVisible']").html("非表示");
 		}
