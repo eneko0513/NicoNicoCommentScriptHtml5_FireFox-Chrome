@@ -2416,20 +2416,33 @@ javascript: (function (f, dd) {
 	$('#layerSave').click(function () {
 		if ($('#myTrcSel2').val() == null) { return; }
 
-		if (!$('#outputCreateTxtarea').val() == ''){ alert("出力エリアにテキストがあります、削除してから再度押下して下さい。"); return; }
+		if (!$('#outputCreateTxtarea').val() == '') { alert("出力エリアにテキストがあります、削除してから再度押下して下さい。"); return; }
 		var obj = new Object();
 		var jsonString = "[";
-		var layerData;
+		var layerNo;
+		var temp;
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
-			layerData = $('#myTrcSel2').children('option')[i];
-			layerData = layerData.innerHTML.split(" ")[2];
+			layerNo = $('#myTrcSel2').children('option')[i];
+			layerNo = layerNo.id.split("_")[1];
 
+			temp = document.getElementById("option_" + layerNo);
+			obj.layerId = layerNo;	// レイヤーナンバー option_N
+			obj.html = temp.innerHTML;
+			obj.visible = temp.innerHTML.split(" ")[2];
+			obj.value = temp.value;
+			obj.textValue = $("#myTxt_" + layerNo).val();
+			jsonString += JSON.stringify(obj) + ",";
 			//obj.option
 			//obj.id = "";
 
 			//obj.id = "aa";
 		}
-		
+		// 末尾の,を除去
+		jsonString = jsonString.slice(0, -1);
+		// 改行を付与
+		jsonString += "]";
+
+		$('#outputCreateTxtarea').val(jsonString);
 
 	});
 })
