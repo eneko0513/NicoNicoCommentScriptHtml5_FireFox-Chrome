@@ -1647,7 +1647,7 @@ javascript: (function (f, dd) {
 			}
 		}
 		layerName = window.prompt(count + "番目のレイヤー名を設定します。\nレイヤー名を入力してください。\n※半角スペースと,と●と○は使えません", "");
-		if (layerName.match(/○/) || layerName.match(/●/)|| layerName.match(/ /)|| layerName.match(/,/)) {
+		if (layerName.match(/○/) || layerName.match(/●/) || layerName.match(/ /) || layerName.match(/,/)) {
 			window.alert('禁止文字が使われています。');
 		} else {
 			var layerTemp = fruit
@@ -1759,6 +1759,22 @@ javascript: (function (f, dd) {
 		//	obj.id = "myTxt_" + (j + 1);
 		//}
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[選択レイヤーの順番を下にする処理]
+	// 下にさげるのでidが大きくなるイメージ。
+	// つまり他のやつが1つ数字が下がる
+	----------------------------------------------------------------------------------------------------*/
+	$('#imageVisible').click(function (){
+		if ($('#myImg').style.display === "") {
+			$('#myImg').style.display = "none";
+			//$('#imageVisible').value = "表示";
+			$("label[for*='imageVisible']").html("表示");
+		} else {
+			$('#myImg').style.display = "";
+			//$('#imageVisible').value = "非表示";
+			$("label[for*='imageVisible']").html("非表示");
+	}
 
 	/*----------------------------------------------------------------------------------------------------
 	[選択レイヤーの順番を下にする処理]
@@ -1988,7 +2004,7 @@ javascript: (function (f, dd) {
 				u = "色未設定です";
 			}
 		}
-		if(u == null){
+		if (u == null) {
 			u = "色情報が未設定です";
 		}
 
@@ -2370,16 +2386,16 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u200A/g, '[0A]');
 
 			var LayerName = d[6].split(" ");
-			
+
 			v = v.split(" ");
 			//v[1] = d[5];
 			//if (v != ''){
 			v[1] = LayerName[2];
 			var command = "";
-			for(cc = 0;cc < v.length;cc++){
+			for (cc = 0; cc < v.length; cc++) {
 				command += v[cc] + ",";
 			}
-			command = command.replace(/,/g , " ");
+			command = command.replace(/,/g, " ");
 			command = command.slice(0, -1);
 			z = command + z;
 			//v = '';
