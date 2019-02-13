@@ -2414,7 +2414,7 @@ javascript: (function (f, dd) {
 	// 表示・非表示に関わらず出力する。復元時にその内容を元にレイヤーを作成するようにする
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerSave').click(function () {
-		if ($('#myTrcSel2').val() == null) { return; }
+		if (!$('#myTrcSel2').val() == null) { return; }
 
 		if (!$('#outputCreateTxtarea').val() == '') { alert("出力エリアにテキストがあります、削除してから再度押下して下さい。"); return; }
 		var obj = new Object();
@@ -2432,10 +2432,6 @@ javascript: (function (f, dd) {
 			obj.value = temp.value;
 			obj.textValue = $("#myTxt_" + layerNo).val();
 			jsonString += JSON.stringify(obj) + ",";
-			//obj.option
-			//obj.id = "";
-
-			//obj.id = "aa";
 		}
 		// 末尾の,を除去
 		jsonString = jsonString.slice(0, -1);
@@ -2443,6 +2439,296 @@ javascript: (function (f, dd) {
 		jsonString += "]";
 
 		$('#outputCreateTxtarea').val(jsonString);
-
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[json形式のレイヤーを復元する処理]
+	----------------------------------------------------------------------------------------------------*/
+	$('#layerLoad').click(function () {
+		if (!$('#myTrcSel2').val() == null) { alert("レイヤーが存在しています。 削除してから再度押下して下さい。"); return; }
+		if ($('#outputCreateTxtarea').val() == '') { alert("復元テキストがありません。"); return; }
+
+		try{
+
+			var layerData = JSON.parse($('#outputCreateTxtarea').val());
+
+			var a = $('#myTrcSel').val();
+			a = a.split('_');
+			var b = 1;
+			//ループ回数チェック
+			for (var i = 0; i < a.length; i++) {
+				if (a[i].slice(0, 1) == 'C') {
+					b = a[i].slice(1);
+				}
+			}
+			//var m = $('#myTrcSel2').children('option').length;
+			var m = layerCount;
+			var j = 0;
+			var n;
+			for (var i = 0; i < b; i++) {
+				//m = m + 1;
+				m = layerCount + 1;
+				layerCount++;
+				var t = document.createElement('textarea');
+				var myinnerTxt;
+				//widht = font*w+1px
+				//height = lineheight *L+2px
+				//t.id = 'myTxt_' + m;
+				t.id = 'myTxt_' + (layerCount);
+				t.className = 'myTxtClass';
+				myinnerTxt = '' +
+					'background-color: rgba(0,0,0,0);' +
+					'position:absolute;' +
+					'font-weight: 400;' +
+					'width: 1000px;' +
+					'border: none;' +
+					'z-index:4;' +
+					'margin: 0;' +
+					'padding: 0;' +
+					//'text-shadow:' +
+					//'1px 1px 0px rgba(0,0,0,0.2),' +
+					//'-1px 1px 0px rgba(0,0,0,0.2),' +
+					//'1px -1px 0px rgba(0,0,0,0.2),' +
+					//'-1px -1px 0px rgba(0,0,0,0.2),' +
+					//' 1px 0px 0px rgba(0,0,0,0.2),' +
+					//'-1px 0px 0px rgba(0,0,0,0.2),' +
+					//'0px 1px 0px rgba(0,0,0,0.2),' +
+					//'0px -1px 0px rgba(0,0,0,0.2);' +
+					'';
+				switch ($('#myTrcSel').val()) {
+					case 'big_ue_ender_full_gothic_W17_L9':
+						myinnerTxt = myinnerTxt +
+							'height: 380px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 36.55px;' +
+							'line-height: 42px;' +
+							'top:4px;' +
+							'left:9px;' +
+							'width:623px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.000 , 1.010);';
+						break;
+					case 'big_ue_ender_full_gothic_W18_L10_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 34px;' +
+							'line-height: 40px;' +
+							'top:3px;' +
+							'left:1px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.020 , 1.014);';
+						break;
+					case 'big_ue_ender_full_gothic_W20_L11_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 30px;' +
+							'line-height: 36px;' +
+							'top:2px;' +
+							'left:-1px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.030 , 1.000);';
+						break;
+					case 'big_ue_ender_full_gothic_W22_L12_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 28px;' +
+							'line-height: 33px;' +
+							'top:2px;' +
+							'left:0px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.004 , 0.995);';
+						break;
+					case 'big_ue_ender_full_gothic_W25_L13_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 25px;' +
+							'line-height: 30px;' +
+							'top:3px;' +
+							'left:2px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.012 , 0.989);';
+						break;
+					case 'big_ue_ender_full_gothic_W29_L15_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 21px;' +
+							'line-height: 26px;' +
+							'top:1px;' +
+							'left:6px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.026 , 0.985);';
+						break;
+					case 'big_ue_ender_full_gothic_W31_L16_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 20px;' +
+							'line-height: 24px;' +
+							'top:1px;' +
+							'left:-1px;' +
+							'width:640px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.030 , 0.997);';
+						break;
+					case 'big_ue_full_gothic_W34_L16':
+						myinnerTxt = myinnerTxt +
+							'height: 370px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 18.40px;' + //18.40
+							'line-height: 23px;' + //23
+							'top:2px;' + //2
+							'left:0px;' +
+							'width:627px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.019 , 0.973);'; //1.019/0.973
+						break;
+					case 'medium_ue_ender_full_gothic_W24_L14':
+						myinnerTxt = myinnerTxt +
+							'height: 380px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 25.30px;' +
+							'line-height: 27px;' +
+							'top:3px;' +
+							'left:16px;' +
+							'width:609px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.000 , 1.003);';
+						break;
+					case 'medium_ue_ender_full_gothic_W34_L19_臨':
+						myinnerTxt = myinnerTxt +
+							'height: 420px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 17px;' +
+							'line-height: 20px;' +
+							'top:1px;' +
+							'left:10px;' +
+							'width:609px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.046 , 0.991);';
+						break;
+					case 'medium_ue_full_gothic_W40_L26':
+						myinnerTxt = myinnerTxt +
+							'height: 366px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 14px;' +
+							'line-height: 14px;' +
+							'top:1px;' +
+							'left:56px;' +
+							'width:561px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 0.938 , 1.006);';
+						break;
+					case 'small_ue_ender_full_gothic_W37_L21':
+						myinnerTxt = myinnerTxt +
+							'height: 338px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 16px;' +
+							'line-height: 16px;' +
+							'top:3px;' +
+							'left:8px;' +
+							'width:593px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.055 , 1.060);';
+						break;
+					case 'small_ue_gothic_W24_L38':
+						myinnerTxt = myinnerTxt +
+							'height: 382px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 10px;' + //これ以上は小さくならん模様
+							'line-height: 10px;' +
+							'top:2px;' +
+							'left:207px;' +
+							'width:241px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 0.936 , 0.942);';
+						break;
+					case 'medium_shita_full_gothic_W50_C22':
+						n = 345 - (16.2 * (j));
+						myinnerTxt = myinnerTxt +
+							'height: 16px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 12.8px;' +
+							'line-height: 16px;' +
+							'top:' + n + 'px;' +
+							'left:14px;' +
+							'width:641px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 0.952 , 1.000);';
+						j++;
+						break;
+					case 'small_ue_full_gothic_W37_L2_C9':
+						n = 2 + (38.7 * (j));
+						myinnerTxt = myinnerTxt +
+							'height: 37px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 16px;' +
+							'line-height: 17px;' +
+							'top:' + n + 'px;' +
+							'left:7px;' +
+							'width:593px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.055 , 1.040);';
+						j++;
+						break;
+					case 'small_shita_full_gothic_W37_L2_C9':
+						n = 324 - (38.7 * (j));
+						myinnerTxt = myinnerTxt +
+							'height: 37px;' +
+							'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
+							'font-size: 16px;' +
+							'line-height: 17px;' +
+							'top:' + n + 'px;' +
+							'left:7px;' +
+							'width:593px;' +
+							'transform-origin: 0 0;' +
+							'transform: scale( 1.055 , 1.040);';
+						j++;
+						break;
+				}
+				t.style.cssText = myinnerTxt;
+				//t.style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
+				document.getElementsByClassName('CommentRenderer')[0].before(t);
+				t.addEventListener('focus', myTxtSelect, false);
+
+				// selectタグのID取得
+				var select = document.getElementById('myTrcSel2');
+				// option要素の宣言
+				var option = document.createElement('option');
+				// option要素のvalue属性に値をセット
+				option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
+				option.id = "option_" + m;
+				// option要素に値をセット
+				option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ';
+				// 作成したoption要素をselectタグに追加
+				select.appendChild(option);
+				//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
+
+				//$('#myTrcSel2').add( (new Option(m + ' ' + $('#myTrcSel').val() + ' ●')) );
+				//$('myTrcSel2')[m-1].style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
+
+			}
+			$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
+		}catch{ alert("復元に失敗しました"); return; }
+
+
+		t.focus();
+		//$('myFontSize').value = t.style.fontSize
+		//$('myLineHeight').value = parseInt(t.style.lineHeight);
+		//$('myTop').value = parseInt(t.style.top);
+		//$('myLeft').value = parseInt(t.style.left);
+		//$('myTransX').value  = t.style.transform.match(/\d+\.*\d*/g)[0];
+		//$('myTransY').value  = t.style.transform.match(/\d+\.*\d*/g)[1];
+	});
+
+
 })
