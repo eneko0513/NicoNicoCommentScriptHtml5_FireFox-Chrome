@@ -1765,15 +1765,15 @@ javascript: (function (f, dd) {
 	// 下にさげるのでidが大きくなるイメージ。
 	// つまり他のやつが1つ数字が下がる
 	----------------------------------------------------------------------------------------------------*/
-	$('#imageVisible').click(function (){
-		if ($('#myImg').css("display") == "") {
+	$('#imageVisible').click(function () {
+		if ($('#myImg').css("display") === "block") {
 			$('#myImg').css("display", "none");
 			//$('#imageVisible').value = "表示";
-			$("label[for*='imageVisible']").html("表示");
+			$("label[for*='imageVisible']").html("画像表示");
 		} else {
-			$('#myImg').css("display", "");
+			$('#myImg').css("display", "block");
 			//$('#imageVisible').value = "非表示";
-			$("label[for*='imageVisible']").html("非表示");
+			$("label[for*='imageVisible']").html("画像非表示");
 		}
 	});
 
