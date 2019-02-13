@@ -2448,33 +2448,30 @@ javascript: (function (f, dd) {
 		if (!$('#myTrcSel2').val() == null) { alert("レイヤーが存在しています。 削除してから再度押下して下さい。"); return; }
 		if ($('#outputCreateTxtarea').val() == '') { alert("復元テキストがありません。"); return; }
 
-		try{
+		try {
 
 			var layerData = JSON.parse($('#outputCreateTxtarea').val());
+			var b = layerData.length;
+			//
+			for (var yy = 0; yy < layerData.length; yy++) {
 
-			var a = $('#myTrcSel').val();
-			a = a.split('_');
-			var b = 1;
-			//ループ回数チェック
-			for (var i = 0; i < a.length; i++) {
-				if (a[i].slice(0, 1) == 'C') {
-					b = a[i].slice(1);
-				}
-			}
-			//var m = $('#myTrcSel2').children('option').length;
-			var m = layerCount;
-			var j = 0;
-			var n;
-			for (var i = 0; i < b; i++) {
+
+
+				//var m = $('#myTrcSel2').children('option').length;
+				var layerCount_load = layerData[yy].layerId;
+				var m = layerCount_load;
+				var j = 0;
+				var n;
+				//for (var i = 0; i < b; i++) {
 				//m = m + 1;
-				m = layerCount + 1;
-				layerCount++;
+				m = layerCount_load;// + 1;
+				//layerCount_load++;
 				var t = document.createElement('textarea');
 				var myinnerTxt;
 				//widht = font*w+1px
 				//height = lineheight *L+2px
 				//t.id = 'myTxt_' + m;
-				t.id = 'myTxt_' + (layerCount);
+				t.id = 'myTxt_' + (layerCount_load);
 				t.className = 'myTxtClass';
 				myinnerTxt = '' +
 					'background-color: rgba(0,0,0,0);' +
@@ -2495,7 +2492,7 @@ javascript: (function (f, dd) {
 					//'0px 1px 0px rgba(0,0,0,0.2),' +
 					//'0px -1px 0px rgba(0,0,0,0.2);' +
 					'';
-				switch ($('#myTrcSel').val()) {
+				switch (layerData[yy].html.split(" ")[1]) {
 					case 'big_ue_ender_full_gothic_W17_L9':
 						myinnerTxt = myinnerTxt +
 							'height: 380px;' +
@@ -2712,13 +2709,14 @@ javascript: (function (f, dd) {
 				// 作成したoption要素をselectタグに追加
 				select.appendChild(option);
 				//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
-
+				$("#myTxt_" + layerData[yy].layerId).val(layerData[yy].textValue);
 				//$('#myTrcSel2').add( (new Option(m + ' ' + $('#myTrcSel').val() + ' ●')) );
 				//$('myTrcSel2')[m-1].style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
 
 			}
 			$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
-		}catch{ alert("復元に失敗しました"); return; }
+			//}
+		} catch{ alert("復元に失敗しました"); return; }
 
 
 		t.focus();
