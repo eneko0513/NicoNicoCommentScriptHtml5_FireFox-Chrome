@@ -271,8 +271,8 @@ javascript: (function (f, dd) {
 		"		<label for='imageVisible' class='label3'>画像非表示</label>" +
 		"		<input id='layerOutputAll' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerOutputAll' class='label3 margins'>全レイヤー出力</label>" +
-		"		<input id='layerOutput' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
-		"		<label for='layerOutput' class='label3'>選択レイヤー出力</label>" +
+		"		<input id='layerOutput' style='display: 'none';' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='layerOutput' style='display: 'none';' class='label3'>選択レイヤー出力</label>" +
 		"		<input id='layerSave' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerSave' class='label3 margins'>レイヤー保存</label>" +
 		"		<input id='layerLoad' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
@@ -1464,7 +1464,6 @@ javascript: (function (f, dd) {
 		}
 	}
 
-
     /*----------------------------------------------------------------------------------------------------
     [スライダーの代わりの画像から色データを取得する処理]
     ----------------------------------------------------------------------------------------------------*/
@@ -1761,9 +1760,7 @@ javascript: (function (f, dd) {
 	});
 
 	/*----------------------------------------------------------------------------------------------------
-	[選択レイヤーの順番を下にする処理]
-	// 下にさげるのでidが大きくなるイメージ。
-	// つまり他のやつが1つ数字が下がる
+	[画像の表示・非表示切り替え]
 	----------------------------------------------------------------------------------------------------*/
 	$('#imageVisible').click(function () {
 		if ($('#myImg').css("display") === "block") {
@@ -1882,9 +1879,7 @@ javascript: (function (f, dd) {
 	});
 
 	/*----------------------------------------------------------------------------------------------------
-	[選択レイヤーの順番を下にする処理]
-	// 下にさげるのでidが大きくなるイメージ。
-	// つまり他のやつが1つ数字が下がる
+	[レイヤーの出力処理]
 	----------------------------------------------------------------------------------------------------*/
 	var count = 0;
 	var AllClick = false;
@@ -2409,4 +2404,11 @@ javascript: (function (f, dd) {
 			//n配列なくなるまでループ
 		}
 	});
+
+	/*----------------------------------------------------------------------------------------------------
+	[レイヤーを]
+	// 下にさげるのでidが大きくなるイメージ。
+	// つまり他のやつが1つ数字が下がる
+	----------------------------------------------------------------------------------------------------*/
+
 })
