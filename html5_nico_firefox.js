@@ -1328,6 +1328,9 @@ javascript: (function (f, dd) {
 			}
 		}
 
+		// localStrageBackup
+		localStrageBackup();
+
 		if (a.style.zIndex == "0") {
 			$('#myTrcTxtDisp').val("表示");
 		} else {
@@ -2744,5 +2747,31 @@ javascript: (function (f, dd) {
 		}
 	}
 
+	function localStrageBackup(){
+		if (!$('#myTrcSel2').val() == null) { return; }
+		if ($('#myTrcSel2').children('option').length > 0) {  return; }
+		if (!$('#outputCreateTxtarea').val() == '') {  return; }
+		var obj = new Object();
+		var jsonString = "[";
+		var layerNo;
+		var temp;
+		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
+			layerNo = $('#myTrcSel2').children('option')[i];
+			layerNo = layerNo.id.split("_")[1];
+
+			temp = document.getElementById("option_" + layerNo);
+			obj.layerId = layerNo;	// レイヤーナンバー option_N
+			obj.html = temp.innerHTML;
+			obj.visible = temp.innerHTML.split(" ")[2];
+			obj.value = temp.value;
+			obj.textValue = $("#myTxt_" + layerNo).val();
+			jsonString += JSON.stringify(obj) + ",";
+		}
+		// 末尾の,を除去
+		jsonString = jsonString.slice(0, -1);
+		// 改行を付与
+		jsonString += "]";
+		localStorage.setItem('commentDataBackUp', jsonString);
+	}
 
 })
