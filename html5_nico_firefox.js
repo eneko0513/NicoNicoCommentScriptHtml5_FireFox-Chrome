@@ -154,7 +154,7 @@ javascript: (function (f, dd) {
 		"  .label3 {" +
 		"  	display: block;		/* ブロックレベル要素化する */ " +
 		"  	float: left;		/* 要素の左寄せ・回り込を指定する */ " +
-		"  	margin: 5px;		/* ラベル外側の余白を指定する */" +
+		"  	margin: 2px;		/* ラベル外側の余白を指定する */" +
 		//"  	width: 120px;		/* ラベルの横幅を指定する */" +
 		"  	height: 35px;		/* ラベルの高さを指定する */" +
 		"  	text-align: center;	/* テキストのセンタリングを指定する */" +
