@@ -2455,8 +2455,6 @@ javascript: (function (f, dd) {
 			//
 			for (var yy = 0; yy < layerData.length; yy++) {
 
-
-
 				//var m = $('#myTrcSel2').children('option').length;
 				var layerCount_load = layerData[yy].layerId;
 				var m = layerCount_load;
@@ -2702,7 +2700,8 @@ javascript: (function (f, dd) {
 				// option要素の宣言
 				var option = document.createElement('option');
 				// option要素のvalue属性に値をセット
-				option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
+				//option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
+				option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + layerData[yy].value.split(" ")[1] + ' ' + layerData[yy].visible +' ');
 				option.id = "option_" + m;
 				// option要素に値をセット
 				option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ';
