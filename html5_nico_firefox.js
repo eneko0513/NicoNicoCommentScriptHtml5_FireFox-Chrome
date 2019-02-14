@@ -1574,6 +1574,7 @@ javascript: (function (f, dd) {
 
 		// 要素の数だけループ
 		var dispChange;
+		localStrageBackup();
 		for (i = 0; i < fruit.length; i++) {
 			dispChange = fruit[i].innerHTML.split(" ");
 			// optionIDを取得する
@@ -1607,6 +1608,7 @@ javascript: (function (f, dd) {
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerAllVisible').click(function () {
 		if ($('#myTrcSel2').val() == null) { return; }
+		localStrageBackup();
 		// 要素の数だけループ
 		for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			//dispChange = (String(fruit[i])).split(" ");
@@ -1912,7 +1914,7 @@ javascript: (function (f, dd) {
 		layerNo = $('#myTrcSel2').children('option')[count];
 		layerNo = layerNo.innerHTML.split(" ")[2];
 		if (layerNo === "○") { count++; return; }
-
+		localStrageBackup();
 		// 全体
 		var a;
 		var All = true;
