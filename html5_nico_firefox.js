@@ -2445,7 +2445,7 @@ javascript: (function (f, dd) {
 	[json形式のレイヤーを復元する処理]
 	----------------------------------------------------------------------------------------------------*/
 	$('#layerLoad').click(function () {
-		if (!$('#myTrcSel2').val() == null) { alert("レイヤーが存在しています。 削除してから再度押下して下さい。"); return; }
+		if ($('#myTrcSel2').children('option').length > 0) { alert("レイヤーが存在しています。 削除してから再度押下して下さい。"); return; }
 		if ($('#outputCreateTxtarea').val() == '') { alert("復元テキストがありません。"); return; }
 
 		try {
