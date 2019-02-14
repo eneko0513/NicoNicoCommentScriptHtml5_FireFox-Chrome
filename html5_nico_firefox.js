@@ -2749,8 +2749,6 @@ javascript: (function (f, dd) {
 
 	function localStrageBackup(){
 		if (!$('#myTrcSel2').val() == null) { return; }
-		if ($('#myTrcSel2').children('option').length > 0) {  return; }
-		if (!$('#outputCreateTxtarea').val() == '') {  return; }
 		var obj = new Object();
 		var jsonString = "[";
 		var layerNo;
