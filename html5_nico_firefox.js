@@ -2738,7 +2738,7 @@ javascript: (function (f, dd) {
 		tempCommand[4] = colorCode;
 		u.value = tempCommand[0] + " " + tempCommand[1] + " " + tempCommand[2] + " " + tempCommand[3] + " " + tempCommand[4];
 
-		if($("myTxt_" + layerId.val()).match(/○/) == true){
+		if ($("#myTxt_" + layerId).html().match(/○/) == true) {
 			$("#myTxt_" + layerId).css('zIndex', '0');
 			$("#option_" + layerId).text($("#option_" + layerId).text().replace('●', '○'));
 		}
