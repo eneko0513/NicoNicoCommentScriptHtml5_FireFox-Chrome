@@ -2701,10 +2701,11 @@ javascript: (function (f, dd) {
 				var option = document.createElement('option');
 				// option要素のvalue属性に値をセット
 				//option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ');
-				option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + layerData[yy].value.split(" ")[1] + ' ' + layerData[yy].visible +' ');
+				option.setAttribute('value', ($('#myTrcSel2').children('option').length + 1) + ' ' + layerData[yy].value.split(" ")[1] + ' ' + layerData[yy].visible + ' ' + layerData[yy].value.split(" ")[3]+ ' ' + layerData[yy].value.split(" ")[4]);
 				option.id = "option_" + m;
 				// option要素に値をセット
-				option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ';
+				// option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + $('#myTrcSel').val() + ' ● ';
+				option.innerHTML = ($('#myTrcSel2').children('option').length + 1) + ' ' + layerData[yy].html.split(" ")[1] + ' ' + layerData[yy].visible + ' ' + layerData[yy].html.split(" ")[3];
 				// 作成したoption要素をselectタグに追加
 				select.appendChild(option);
 				//$('#myTrcSel2').append($('<option>').html('').val(m + ' ' + $('#myTrcSel').val() + ' ●'));
@@ -2713,7 +2714,7 @@ javascript: (function (f, dd) {
 				//$('myTrcSel2')[m-1].style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
 
 			}
-			$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
+			//$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
 			//}
 		} catch{ alert("復元に失敗しました"); return; }
 
