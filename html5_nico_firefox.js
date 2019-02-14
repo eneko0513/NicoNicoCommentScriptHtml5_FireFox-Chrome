@@ -277,6 +277,8 @@ javascript: (function (f, dd) {
 		"		<label for='layerSave' class='label3 margins'>レイヤー保存</label>" +
 		"		<input id='layerLoad' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
 		"		<label for='layerLoad' class='label3'>レイヤー復元</label>" +
+		"		<input id='loadBackup' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
+		"		<label for='loadBackup' class='label3'>バックアップ復元</label>" +
 		"	  </p>			" +
 		"	</div>			" +
 		"	<div id='panel3' class='tab_panel'>				" +
@@ -2753,6 +2755,9 @@ javascript: (function (f, dd) {
 		var jsonString = "[";
 		var layerNo;
 		var temp;
+
+		// 古いデータの削除
+		localStorage.removeItem('commentDataBackUp');
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			layerNo = $('#myTrcSel2').children('option')[i];
 			layerNo = layerNo.id.split("_")[1];
@@ -2771,5 +2776,11 @@ javascript: (function (f, dd) {
 		jsonString += "]";
 		localStorage.setItem('commentDataBackUp', jsonString);
 	}
+
+	$('#loadBackup').click(function () {
+		if (!$('#outputCreateTxtarea').val() == '') { alert("出力エリアにテキストがあります、削除してから再度押下して下さい。"); return; }
+		var backup = localStorage.getItem('commentDataBackUp');
+		$('#outputCreateTxtarea').val(backup);
+	});
 
 })
