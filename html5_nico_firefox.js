@@ -2730,7 +2730,7 @@ javascript: (function (f, dd) {
 		//$('myTransY').value  = t.style.transform.match(/\d+\.*\d*/g)[1];
 	});
 
-	function setColorAndVisibleStatus(layerId, colorCode){
+	function setColorAndVisibleStatus(layerId, colorCode) {
 		var t = document.getElementById("myTxt_" + layerId)
 		t.style.color = colorCode;
 		var u = document.getElementById("option_" + layerId)
@@ -2738,7 +2738,7 @@ javascript: (function (f, dd) {
 		tempCommand[4] = colorCode;
 		u.value = tempCommand[0] + " " + tempCommand[1] + " " + tempCommand[2] + " " + tempCommand[3] + " " + tempCommand[4];
 
-		if ($("#myTxt_" + layerId).html().match(/○/) == true) {
+		if (tempCommand[2] == "○") {
 			$("#myTxt_" + layerId).css('zIndex', '0');
 			$("#option_" + layerId).text($("#option_" + layerId).text().replace('●', '○'));
 		}
