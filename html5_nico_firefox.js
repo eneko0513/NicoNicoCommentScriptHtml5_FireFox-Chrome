@@ -260,7 +260,7 @@ javascript: (function (f, dd) {
 		"			<option value='medium_shita_full_gothic_W50_C22'>medium shita W50</option>" +
 		"			<option value='small_ue_full_gothic_W37_L2_C9'>small ue W37 L2</option>" +
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
-		"		</select><br><br><br><br><br>" +
+		"		</select><input id='tabModeChange' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/><label for='tabModeChange' class='label3'>タブ出力(今:Off)</label><br><br><br><br><br>" +
 		"		<input id='myTrcAdd' class='ActionButton TagEnterEditingButton TagContainer-editButton' type='button'/>" +
 		"		<br><br><br><br><br><label for='myTrcAdd' class='label3'>レイヤー追加</label>" +
 		"		<input id='myTrcDel' class='ActionButton TagEnterEditingButton TagContainer - editButton' type='button' /'>" +
@@ -2282,8 +2282,7 @@ javascript: (function (f, dd) {
 			}
 
 			//タブに置換
-			myTab = false;
-			if (myTab === true) {
+			if (tabModeOn === true) {
 				n[0].TEXT = n[0].TEXT.replace(/[\u2003]{2}/g, '\u0009')
 				if (n[0].TEXT.slice(-1).match(/[\u0009]/)) {
 					n[0].TEXT += '\u200C'
@@ -2789,4 +2788,14 @@ javascript: (function (f, dd) {
 		return 'ページを移動してもよろしいですか？';
 	});
 
+	var tabModeOn = false;
+	$('#tabModeChange').click(function () {
+		if (tabModeOn == false) {
+			tabModeOn = true;
+			$("label[for*='tabModeChange']").html("TAB出力(今:On)");
+		}else{
+			tabModeOn = false;
+			$("label[for*='tabModeChange']").html("TAB出力(今:Off)");
+		}
+	});
 })
