@@ -2335,7 +2335,7 @@ javascript: (function (f, dd) {
 				});
 
 				//タブに置換
-				if (myTab === true) {
+				if (tabModeOn === true) {
 					n[0].TEXT = n[0].TEXT.replace(/[\u2003]{2}/g, '\u0009')
 				}
 
