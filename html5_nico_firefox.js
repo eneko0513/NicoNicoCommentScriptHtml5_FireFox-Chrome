@@ -2785,4 +2785,8 @@ javascript: (function (f, dd) {
 		$('#outputCreateTxtarea').val(backup);
 	});
 
+	$(window).on('beforeunload', function (e) {
+		return 'ページを移動してもよろしいですか？';
+	});
+
 })
