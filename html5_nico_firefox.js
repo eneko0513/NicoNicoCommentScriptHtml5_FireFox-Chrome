@@ -2391,7 +2391,12 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u0009/g, '[tb]');
 			z = z.replace(/\u200A/g, '[0A]');
 
-			var LayerName = d[6].split(" ");
+			var LayerName;
+			try{
+				LayerName = d[6].split(" ");
+			}catch{
+				LayerName = d[5].split(" ")[2];
+			}
 
 			v = v.split(" ");
 			//v[1] = d[5];
@@ -2750,7 +2755,7 @@ javascript: (function (f, dd) {
 		}
 	}
 
-	function localStrageBackup(){
+	function localStrageBackup() {
 		if (!$('#myTrcSel2').val() == null) { return; }
 		var obj = new Object();
 		var jsonString = "[";
@@ -2793,7 +2798,7 @@ javascript: (function (f, dd) {
 		if (tabModeOn == false) {
 			tabModeOn = true;
 			$("label[for*='tabModeChange']").html("TAB出力(今:On)");
-		}else{
+		} else {
 			tabModeOn = false;
 			$("label[for*='tabModeChange']").html("TAB出力(今:Off)");
 		}
