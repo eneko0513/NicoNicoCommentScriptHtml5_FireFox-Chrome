@@ -2391,7 +2391,7 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u0009/g, '[tb]');
 			z = z.replace(/\u200A/g, '[0A]');
 
-			var LayerName;
+			var LayerName = "";
 			try{
 				LayerName = d[6].split(" ");
 			}catch{
