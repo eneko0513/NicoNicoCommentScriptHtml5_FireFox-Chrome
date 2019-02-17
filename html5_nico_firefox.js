@@ -326,6 +326,7 @@ javascript: (function (f, dd) {
 		$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
 		$('button.OwnerEditButton').css('min-width', '0px');
 		ModeAdmin = true;
+		CommentLimit = CommentMaxLengthAdmin;
 	} else {
 		// 通常コメモードの場合
 		$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
@@ -345,6 +346,7 @@ javascript: (function (f, dd) {
 			//$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
 			//$('button.OwnerEditButton').css('min-width', '0px');
 			ModeAdmin = true;
+			CommentLimit = CommentMaxLengthAdmin;
 		} else {
 			// 通常コメモードの場合
 			$("#mode").html("<font color='#ff0000'>モード： 通常モード</font>");
