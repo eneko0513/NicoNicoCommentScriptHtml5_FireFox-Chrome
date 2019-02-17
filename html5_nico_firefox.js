@@ -800,8 +800,6 @@ javascript: (function (f, dd) {
 				ext_check[2] = ext_check[2].replace(/\[tb\]/gi, '	');
 				ext_check[2] = ext_check[2].replace(/\[A0\]/gi, ' ');
 				ext_check[2] = ext_check[2].replace(/\[a0\]/gi, ' ');
-
-
 			}
 			try {
 				lines[c] = ext_check[2];
