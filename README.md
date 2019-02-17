@@ -3,8 +3,9 @@
 最終更新：2019/02/17  
 
 使い方：<br>
+```html
 javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
-
+```
 
 
 初回の使い方:  
