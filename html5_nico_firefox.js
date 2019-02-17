@@ -340,9 +340,10 @@ javascript: (function (f, dd) {
 	function ModeCheck() {
 		if ($('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			// 投コメモードの場合
-			$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
-			$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
-			$('button.OwnerEditButton').css('min-width', '0px');
+			$("#mode").html("<font color='#ff0000'>モード： 投コメモード</font>");
+			//$('.OwnerCommentEditContainer-inlineEdit').css('width', '500%');
+			//$('div.OwnerEditPanelHeader-right').prepend('<button type="button" id="WidthChange" class="ActionButton OwnerEditButton">幅調整</button>');
+			//$('button.OwnerEditButton').css('min-width', '0px');
 			ModeAdmin = true;
 		} else {
 			// 通常コメモードの場合
