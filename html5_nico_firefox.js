@@ -1423,6 +1423,10 @@ javascript: (function (f, dd) {
 			//op.eq(i)[0].id = "option_" + (i + 1);
 			//temp = temp.split("_")[1];
 
+			if(tex[4] === undefined){
+				tex[4] = "";
+			}
+
 			// valueとtextを変更
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("value", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3] + " " + tex[4]);
 			$("#myTrcSel2 > option:eq(" + i + ")").prop("text", (i + 1) + " " + val[1] + " " + val[2] + " " + tex[3]);
