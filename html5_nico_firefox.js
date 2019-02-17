@@ -517,6 +517,14 @@ javascript: (function (f, dd) {
 		// コメント投下時に投稿者モードか判定する
 		ModeCheck();
 
+		// 75文字突破にチェックが入っているか判定
+		if ($('#PostUnLimited').prop('checked')) {
+			CommentLimit = CommentMaxLengthAdmin;
+			$("#PostType").prop("checked", false);
+		} else {
+			CommentLimit = CommentMaxLengthNormal;
+		}
+
 		if ((AllPostNow)) {
 			// 投下を中断する
 			//alert("TEST 終了");
@@ -549,9 +557,7 @@ javascript: (function (f, dd) {
 					} else {
 						// 先頭行と最終行の文字カウント
 						TextCheckCountFirstLast();
-
 						setCommandMment();
-
 					}
 					//button_disabled_change(false);
 				}, 2250);
@@ -568,7 +574,6 @@ javascript: (function (f, dd) {
 					} else {
 						// 先頭行と最終行の文字カウント
 						TextCheckCountFirstLast();
-
 						setCommandMment();
 					}
 				}, 6000);
