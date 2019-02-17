@@ -498,11 +498,11 @@ javascript: (function (f, dd) {
 		ModeCheck();
 
 		// 75文字突破にチェックが入っているか判定
-		if ($('#PostUnLimited').prop('checked')) {
+		if ($('#PostUnLimited').prop('checked') || $('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			CommentLimit = CommentMaxLengthAdmin;
 			$("#PostType").prop("checked", false);
 		} else {
-			//CommentLimit = CommentMaxLengthNormal;
+			CommentLimit = CommentMaxLengthNormal;
 		}
 		// 先頭行と最終行の文字カウント
 		TextCheckCountFirstLast();
@@ -518,11 +518,11 @@ javascript: (function (f, dd) {
 		ModeCheck();
 
 		// 75文字突破にチェックが入っているか判定
-		if ($('#PostUnLimited').prop('checked')) {
+		if ($('#PostUnLimited').prop('checked') || $('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			CommentLimit = CommentMaxLengthAdmin;
 			$("#PostType").prop("checked", false);
 		} else {
-			//CommentLimit = CommentMaxLengthNormal;
+			CommentLimit = CommentMaxLengthNormal;
 		}
 
 		if ((AllPostNow)) {
@@ -754,10 +754,10 @@ javascript: (function (f, dd) {
 	}
 
 	/*----------------------------------------------------------------------------------------------------
-	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示](未使用)
+	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示]
 	----------------------------------------------------------------------------------------------------*/
 	function TextLengthCountFirstAndLast() {
-		if ($('#PostUnLimited').prop('checked')) {
+		if ($('#PostUnLimited').prop('checked') || $('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			CommentLimit = CommentMaxLengthAdmin;
 		} else {
 			CommentLimit = CommentMaxLengthNormal;
@@ -893,7 +893,7 @@ javascript: (function (f, dd) {
 	----------------------------------------------------------------------------------------------------*/
 	$(function () {
 		$("#ScriptTextArea").bind('keydown keyup keypress change', function () {
-			if ($('#PostUnLimited').prop('checked')) {
+			if ($('#PostUnLimited').prop('checked') || $('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 				CommentLimit = CommentMaxLengthAdmin;
 			} else {
 				CommentLimit = CommentMaxLengthNormal;
@@ -951,7 +951,7 @@ javascript: (function (f, dd) {
 	[コメントの最初の行と最終行の文字数をカウントしてテキストエリアの下部に表示]
 	----------------------------------------------------------------------------------------------------*/
 	function TextCheckCountFirstLast() {
-		if ($('#PostUnLimited').prop('checked')) {
+		if ($('#PostUnLimited').prop('checked') || $('div').hasClass('GridCell OwnerEditMenuContainer-left')) {
 			CommentLimit = CommentMaxLengthAdmin;
 		} else {
 			CommentLimit = CommentMaxLengthNormal;
