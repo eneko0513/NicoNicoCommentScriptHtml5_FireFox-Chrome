@@ -1036,15 +1036,15 @@ javascript: (function (f, dd) {
 				'z-index:4;' +
 				'margin: 0;' +
 				'padding: 0;' +
-				//'text-shadow:' +
-				//'1px 1px 0px rgba(0,0,0,0.2),' +
-				//'-1px 1px 0px rgba(0,0,0,0.2),' +
-				//'1px -1px 0px rgba(0,0,0,0.2),' +
-				//'-1px -1px 0px rgba(0,0,0,0.2),' +
-				//' 1px 0px 0px rgba(0,0,0,0.2),' +
-				//'-1px 0px 0px rgba(0,0,0,0.2),' +
-				//'0px 1px 0px rgba(0,0,0,0.2),' +
-				//'0px -1px 0px rgba(0,0,0,0.2);' +
+				'text-shadow:' +
+				'1px 1px 0px rgba(0,0,0,0.2),' +
+				'-1px 1px 0px rgba(0,0,0,0.2),' +
+				'1px -1px 0px rgba(0,0,0,0.2),' +
+				'-1px -1px 0px rgba(0,0,0,0.2),' +
+				' 1px 0px 0px rgba(0,0,0,0.2),' +
+				'-1px 0px 0px rgba(0,0,0,0.2),' +
+				'0px 1px 0px rgba(0,0,0,0.2),' +
+				'0px -1px 0px rgba(0,0,0,0.2);' +
 				'';
 			switch ($('#myTrcSel').val()) {
 				case 'big_ue_ender_full_gothic_W17_L9':
