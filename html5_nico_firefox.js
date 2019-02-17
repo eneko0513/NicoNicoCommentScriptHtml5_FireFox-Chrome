@@ -492,7 +492,7 @@ javascript: (function (f, dd) {
 	----------------------------------------------------------------------------------------------------*/
 	$("#SinglePost").click(function () {
 		// コメント投下時に投稿者モードか判定する
-		//ModeCheck();
+		ModeCheck();
 
 		// 75文字突破にチェックが入っているか判定
 		if ($('#PostUnLimited').prop('checked')) {
@@ -512,7 +512,7 @@ javascript: (function (f, dd) {
 	$("#AllPost").click(function () {
 
 		// コメント投下時に投稿者モードか判定する
-		//ModeCheck();
+		ModeCheck();
 
 		if ((AllPostNow)) {
 			// 投下を中断する
