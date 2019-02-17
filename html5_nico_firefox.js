@@ -502,7 +502,7 @@ javascript: (function (f, dd) {
 			CommentLimit = CommentMaxLengthAdmin;
 			$("#PostType").prop("checked", false);
 		} else {
-			CommentLimit = CommentMaxLengthNormal;
+			//CommentLimit = CommentMaxLengthNormal;
 		}
 		// 先頭行と最終行の文字カウント
 		TextCheckCountFirstLast();
@@ -522,7 +522,7 @@ javascript: (function (f, dd) {
 			CommentLimit = CommentMaxLengthAdmin;
 			$("#PostType").prop("checked", false);
 		} else {
-			CommentLimit = CommentMaxLengthNormal;
+			//CommentLimit = CommentMaxLengthNormal;
 		}
 
 		if ((AllPostNow)) {
@@ -588,11 +588,11 @@ javascript: (function (f, dd) {
 	[コメントの文字数をカウントする]
 	----------------------------------------------------------------------------------------------------*/
 	function TextCountCheck() {
-		if ($('#PostUnLimited').prop('checked')) {
-			CommentLimit = CommentMaxLengthAdmin;
-		} else {
-			CommentLimit = CommentMaxLengthNormal;
-		}
+		//if ($('#PostUnLimited').prop('checked')) {
+		//	CommentLimit = CommentMaxLengthAdmin;
+		//} else {
+		//	CommentLimit = CommentMaxLengthNormal;
+		//}
 
 		var Text = $("#ScriptTextArea").val().replace(/\r\n|\r/g, "\n");
 		var Lines = Text.split('\n');
