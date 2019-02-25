@@ -2426,6 +2426,9 @@ javascript: (function (f, dd) {
 			v[1] = LayerName[2];
 			var command = "";
 			for (cc = 0; cc < v.length; cc++) {
+				if(v[cc] === undefined){
+					v[cc] = "";
+				}
 				command += v[cc] + ",";
 			}
 			command = command.replace(/,/g, " ");
