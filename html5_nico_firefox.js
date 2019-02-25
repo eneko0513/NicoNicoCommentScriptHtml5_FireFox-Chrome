@@ -1162,6 +1162,18 @@ javascript: (function (f, dd) {
 						'transform-origin: 0 0;' +
 						'transform: scale( 1.000 , 1.003);';
 					break;
+				case 'medium_shita_ender_full_gothic_W24_L14':
+					myinnerTxt = myinnerTxt +
+						'height: 380px;' +
+						'font-family: "游明朝", SimSun, Arial, "ＭＳ Ｐゴシック", "游ゴシック",serif;' +
+						'font-size: 25.30px;' +
+						'line-height: 27px;' +
+						'top:-21px;' +
+						'left:16px;' +
+						'width:609px;' +
+						'transform-origin: 0 0;' +
+						'transform: scale( 1.000 , 1.003);';
+					break;
 				case 'medium_ue_ender_full_gothic_W34_L19_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
