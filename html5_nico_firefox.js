@@ -258,7 +258,7 @@ javascript: (function (f, dd) {
 		"			<option value='medium_ue_full_gothic_W40_L26'>medium 26</option>" +
 		"			<option value='small_ue_ender_full_gothic_W37_L21'>small ender 21</option>" +
 		"			<option value='small_ue_gothic_W24_L38'>small 38</option>" +
-		"			<option value='small_ue_full_gothic_W69_L38'>small 38 full</option>" +
+		"			<option value='small_ue_full_gothic_W70_L38'>small 38 full</option>" +
 		"			<option value='medium_shita_full_gothic_W50_C22'>medium shita W50</option>" +
 		"			<option value='small_ue_full_gothic_W37_L2_C9'>small ue W37 L2</option>" +
 		"			<option value='small_shita_full_gothic_W37_L2_C9'>small shita W37 L2</option>" +
@@ -1227,7 +1227,7 @@ javascript: (function (f, dd) {
 						'transform-origin: 0 0;' +
 						'transform: scale( 0.936 , 0.942);';
 					break;
-				case 'small_ue_full_gothic_W69_L38':
+				case 'small_ue_full_gothic_W70_L38':
 					myinnerTxt = myinnerTxt +
 						'height: 382px;' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
