@@ -2438,11 +2438,16 @@ javascript: (function (f, dd) {
 			z = z.replace(/\u200A/g, '[0A]');
 
 			var LayerName = "";
-			try{
+			try {
 				LayerName = d[6].split(" ");
-			}catch{
-				LayerName = d[5].split(" ")[2];
+			} catch{
+				try {
+					LayerName = d[5].split(" ")[2];
+				} catch{
+					LayerName = d[4].split(" ")[2];
+				}
 			}
+
 			try{
 				v = v.split(" ");
 			}catch{
@@ -2783,6 +2788,7 @@ javascript: (function (f, dd) {
 				setColorAndVisibleStatus(layerData[yy].layerId, layerData[yy].value.split(" ")[4]);
 
 			}
+			layerCount = layerData[yy].layerId;
 			//$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
 			//}
 		} catch{ alert("復元に失敗しました"); return; }
