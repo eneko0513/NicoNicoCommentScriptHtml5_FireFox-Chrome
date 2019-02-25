@@ -2450,7 +2450,11 @@ javascript: (function (f, dd) {
 			}
 			//v[1] = d[5];
 			//if (v != ''){
-			v[1] = LayerName[2];
+			if(LayerName[2] === undefined){
+				v[1] = LayerName;
+			}else{
+				v[1] = LayerName[2];
+			}
 			var command = "";
 			for (cc = 0; cc < v.length; cc++) {
 				if(v[cc] === undefined){
