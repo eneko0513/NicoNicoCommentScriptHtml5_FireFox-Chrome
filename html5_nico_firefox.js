@@ -515,6 +515,8 @@ javascript: (function (f, dd) {
 	----------------------------------------------------------------------------------------------------*/
 	$("#AllPost").click(function () {
 
+
+
 		// コメント投下時に投稿者モードか判定する
 		ModeCheck();
 
@@ -528,10 +530,10 @@ javascript: (function (f, dd) {
 
 		if ((AllPostNow)) {
 			// 投下を中断する
-			//alert("TEST 終了");
 			AllPostNow = false;
 			ButtonEnabledTrue();
 			$("#AllPost2").css("visibility", "visible");
+			return;
 		} else {
 			// 全コメント投下中フラグ(途中終了の処理に用いる)
 			AllPostNow = true;
@@ -561,10 +563,11 @@ javascript: (function (f, dd) {
 						setCommandMment();
 					}
 					//button_disabled_change(false);
-				}, 2250);
+				}, 2500);
 			} else {
 				alert("形式に誤りがあります [コマンド]コメント の形式にして下さい");
 				ButtonEnabledTrue();
+				AllPostNow = false;
 			}
 		} else {
 			if (text.match(/^\[(.+?)\](.*)/) != null) {
@@ -581,9 +584,9 @@ javascript: (function (f, dd) {
 			} else {
 				alert("形式に誤りがあります [コマンド]コメント の形式にして下さい");
 				ButtonEnabledTrue();
+				AllPostNow = false;
 			}
 		}
-		AllPostNow = false;
 	});
 
 	/*----------------------------------------------------------------------------------------------------
