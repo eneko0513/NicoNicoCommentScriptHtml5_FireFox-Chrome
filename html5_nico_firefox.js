@@ -193,7 +193,7 @@ javascript: (function (f, dd) {
 		"	</label>			" +
 		"	<label id='tab3_2' class='tab3_label' for='tab3'>Other" +
 		"	</label>		" +
-		"	<label id='mode' class='tab5_label' for='tab5'><font color='#ff0000'>モード： </font>" +
+		"	<label id='mode' class='tab5_label' for='tab5'>モード： " +
 		"	</label>		" +
 		"	<label id='tab4_2' class='tab4_label' for='tab4'>Version:2.0.0" +
 		"	</label>		" +
@@ -583,6 +583,7 @@ javascript: (function (f, dd) {
 				ButtonEnabledTrue();
 			}
 		}
+		AllPostNow = false;
 	});
 
 	/*----------------------------------------------------------------------------------------------------
@@ -2831,4 +2832,9 @@ javascript: (function (f, dd) {
 			$("label[for*='tabModeChange']").html("TAB出力(今:Off)");
 		}
 	});
+
+	//$('#mode').click(function () {
+	//	if()
+	//	$("#mode").html("モード： 投コメモード");
+	//});
 })
