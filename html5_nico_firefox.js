@@ -2419,8 +2419,11 @@ javascript: (function (f, dd) {
 			}catch{
 				LayerName = d[5].split(" ")[2];
 			}
-
+			try{
 			v = v.split(" ");
+			}catch{
+				// 既にsplitされている状態なので何もしない
+			}
 			//v[1] = d[5];
 			//if (v != ''){
 			v[1] = LayerName[2];
