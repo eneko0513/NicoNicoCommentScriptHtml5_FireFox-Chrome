@@ -2420,7 +2420,7 @@ javascript: (function (f, dd) {
 				LayerName = d[5].split(" ")[2];
 			}
 			try{
-			v = v.split(" ");
+				v = v.split(" ");
 			}catch{
 				// 既にsplitされている状態なので何もしない
 			}
