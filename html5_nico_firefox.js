@@ -2788,7 +2788,7 @@ javascript: (function (f, dd) {
 				setColorAndVisibleStatus(layerData[yy].layerId, layerData[yy].value.split(" ")[4]);
 
 			}
-			layerCount = layerData[yy].layerId;
+			layerCount = layerData[layerData.length - 1].layerId;
 			//$('#myTrcSel2').val(($('#myTrcSel2').children('option').length) + ' ' + $('#myTrcSel').val() + ' ● ');
 			//}
 		} catch{ alert("復元に失敗しました"); return; }
