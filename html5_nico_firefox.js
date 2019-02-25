@@ -1030,7 +1030,7 @@ javascript: (function (f, dd) {
 		var n;
 		for (var i = 0; i < b; i++) {
 			//m = m + 1;
-			m = layerCount + 1;
+			m = Number(layerCount) + 1;
 			layerCount++;
 			var t = document.createElement('textarea');
 			var myinnerTxt;
