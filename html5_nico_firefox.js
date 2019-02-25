@@ -245,15 +245,16 @@ javascript: (function (f, dd) {
 		"		<textarea id='outputCreateTxtarea' placeholder='出力レイヤー、レイヤー一時保存・復元に使用します。' style='height:100px; width:450px; padding:4px 8px; margin:1% 20px 2px 5px; border:none; float:left;'></textarea>" +
 		"		<select id='myTrcSel' class='myCmd' style='float:left; margin:1% 20px 2px 5px;'>" +
 		"			<option value='big_ue_ender_full_gothic_W17_L9'>big ender 9</option>" +
-		"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
-		"			<option value='big_ue_ender_full_gothic_W20_L11_臨'>big ender 11 臨</option>" +
-		"			<option value='big_ue_ender_full_gothic_W22_L12_臨'>big ender 12 臨</option>" +
-		"			<option value='big_ue_ender_full_gothic_W25_L13_臨'>big ender 13 臨</option>" +
-		"			<option value='big_ue_ender_full_gothic_W29_L15_臨'>big ender 15 臨</option>" +
-		"			<option value='big_ue_ender_full_gothic_W31_L16_臨'>big ender 16 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W18_L10_臨'>big ender 10 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W20_L11_臨'>big ender 11 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W22_L12_臨'>big ender 12 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W25_L13_臨'>big ender 13 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W29_L15_臨'>big ender 15 臨</option>" +
+		//"			<option value='big_ue_ender_full_gothic_W31_L16_臨'>big ender 16 臨</option>" +
 		"			<option value='big_ue_full_gothic_W34_L16'>big 16</option>" +
-		"			<option value='medium_ue_ender_full_gothic_W24_L14'>medium ender 14</option>" +
-		"			<option value='medium_ue_ender_full_gothic_W34_L19_臨'>medium ender 19 臨</option>" +
+		"			<option value='medium_ue_ender_full_gothic_W24_L14'>medium ue ender 14</option>" +
+		"			<option value='medium_shita_ender_full_gothic_W24_L14'>medium shita ender 14</option>" +
+		//"			<option value='medium_ue_ender_full_gothic_W34_L19_臨'>medium ender 19 臨</option>" +
 		"			<option value='medium_ue_full_gothic_W40_L26'>medium 26</option>" +
 		"			<option value='small_ue_ender_full_gothic_W37_L21'>small ender 21</option>" +
 		"			<option value='small_ue_gothic_W24_L38'>small 38</option>" +
