@@ -2379,7 +2379,7 @@ javascript: (function (f, dd) {
 						zi = z.length;
 					} else {
 						//超えてたらタブを戻す
-						if (myTab === true) {
+						if (tabModeOn === true) {
 							n[0].TEXT = n[0].TEXT.replace(/[\u0009]/g, '\u2003' + '\u2003');
 						}
 						break;
@@ -2400,7 +2400,7 @@ javascript: (function (f, dd) {
 						zi = z.length;
 					} else {
 						//超えてたらタブを戻す
-						if (myTab === true) {
+						if (tabModeOn === true) {
 							n[0].TEXT = n[0].TEXT.replace(/[\u0009]/g, '\u2003' + '\u2003');
 						}
 						break;
