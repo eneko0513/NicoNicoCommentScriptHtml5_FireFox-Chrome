@@ -1627,15 +1627,18 @@ javascript: (function (f, dd) {
 				$("#myTxt_" + layerNo).css('zIndex', '0');
 				//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('●', '○'));
 				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
+				$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + layerNo).css('zIndex', '4');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + layerNo).css('zIndex', '3');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
 				}
 			}
@@ -1660,14 +1663,17 @@ javascript: (function (f, dd) {
 			if ($("#myTxt_" + (layerNo)).css('zIndex') == '4' || $("#myTxt_" + (layerNo)).css('zIndex') == '3') {
 				$("#myTxt_" + (layerNo)).css('zIndex', '0');
 				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
+				$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + (layerNo)).css('zIndex', '4');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + (layerNo)).css('zIndex', '3');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
+					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 				}
 			}
 		}
