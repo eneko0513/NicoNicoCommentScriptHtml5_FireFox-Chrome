@@ -528,7 +528,7 @@ javascript: (function (f, dd) {
 			CommentLimit = CommentMaxLengthNormal;
 		}
 
-		if ((AllPostNow)) {
+		if ((AllPostNow) && !($("#AllPost2").text() == "全コメント投下")) {
 			// 投下を中断する
 			AllPostNow = false;
 			ButtonEnabledTrue();
