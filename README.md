@@ -4,10 +4,13 @@
 
 ■概要:  
 このスクリプトは、ニコニコ動画のコメントを自動投稿をすることをメインの機能としたスクリプトです。  
-**Firefoxでは投下機能のみサポートしています**
-Chromeでは、コメント作成機能(下記のレイヤー管理機能の項目を参照)が使用できます。
+**Firefoxでは投下機能のみサポートしています**  
+**Chromeでは、コメント作成機能(下記のレイヤー管理機能の項目を参照)が使用できます。**
 
 # 初回の使い方:  
+```html
+javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
+```
 1. 上の文字列をコピーして、FireFoxかChromeのブックマークに追加(URLの部分に上の内容でタイトルは適当に)  
 ※呼び出したのに検索結果に飛んでしまう場合は、URLの先頭の「**javascript:**」が消えていないか確認して下さい。  
 稀にブラウザによっては、先頭のjavascript:が消されてしまう時があるらしいとのことです。    
@@ -84,12 +87,8 @@ Chromeでは、コメント作成機能(下記のレイヤー管理機能の項�
 <h3>■ページ遷移時のアラート表示</h3>
 <img src="https://i.gyazo.com/d6eede8511b9959946a42814d53f90d5.gif" />
 
-スクリプト起動中は、ページ遷移時にアラートを表示します。誤遷移の防止にお使いください。
-ご不明点やバグがございましたらぜひご連絡お願いします。
+スクリプト起動中は、ページ遷移時にアラートを表示します。誤遷移の防止にお使いください。  
 
-使い方：<br>
-```html
-javascript:(function(){var%20s=document.createElement('script');s.src='https://eneko0513.github.io/NicoNicoCommentScriptHtml5_FireFox-Chrome/html5_nico_firefox.js';document.getElementsByTagName('head')[0].appendChild(s);})();
-```
+また、ご不明点やバグがございましたらぜひご連絡お願いします。
 
 連絡先：<a href="https://twitter.com/ene_KoH0513_CA">@ene_KoH0513_CA</a> または <a href="https://twitter.com/ene_KoH0513">@ene_KoH0513</a>
