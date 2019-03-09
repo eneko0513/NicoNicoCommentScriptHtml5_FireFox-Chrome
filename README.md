@@ -17,8 +17,8 @@ javascript:(function(){var%20s=document.createElement('script');s.src='https://e
 [![https://gyazo.com/cf6eaad3811f438b7a1a5bf716897e00](https://i.gyazo.com/cf6eaad3811f438b7a1a5bf716897e00.gif)](https://gyazo.com/cf6eaad3811f438b7a1a5bf716897e00)<br>
 ※Chromeでの登録の例
 
-また、ブックマーク登録時に半角文字が全角になってしまう問題が発生している環境があるようです。  
-起動ができない場合はその点のご確認もお願いいたします。
+　また、ブックマーク登録時に半角文字が全角になってしまう問題が発生している環境があるようです。  
+　起動ができない場合はその点のご確認もお願いいたします。
 
 2. HTML5プレイヤーの動画再生画面上で１で登録したブックマークを選択して下さい
 3. プレイヤー下部に新規でウィンドウが表示されます
