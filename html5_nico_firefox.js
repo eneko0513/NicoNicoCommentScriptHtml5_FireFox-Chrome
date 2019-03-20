@@ -1285,7 +1285,7 @@ javascript: (function (f, dd) {
 			}
 			t.style.cssText = myinnerTxt;
 			//t.style.color = '#' + parseInt($('myTxtR').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtG').value).toString(16).replace(/^[0-9A-F]$/, '0$&') + parseInt($('myTxtB').value).toString(16).replace(/^[0-9A-F]$/, '0$&');
-			document.getElementsByClassName('CommentRenderer')[0].before(t);
+			document.getElementsByClassName('VideoSymbolContainer-canvas')[0].before(t);
 			t.addEventListener('focus', myTxtSelect, false);
 
 			// selectタグのID取得
