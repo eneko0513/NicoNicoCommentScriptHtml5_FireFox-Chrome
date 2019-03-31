@@ -1,4 +1,4 @@
-javascript: (function (f, dd) {
+﻿javascript: (function (f, dd) {
 	dd = document.createElement("script");
 	dd.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
 	dd.onload = function () {
@@ -1336,8 +1336,10 @@ javascript: (function (f, dd) {
 			b = (String(b)).split('_');
 			if (a[2] === '●') {
 				$("#myTxt_" + b[1]).css('z-index', '3');
+				$("#myTxt_" + b[1]).css('display', '');
 			} else {
 				$("#myTxt_" + b[1]).css('z-index', '0');
+				$("#myTxt_" + b[1]).css('display', 'none');
 			}
 			$("#myTrcSel2 option:nth-child(" + a[0] + ")").css("font-weight", "");
 		}
@@ -1350,6 +1352,7 @@ javascript: (function (f, dd) {
 		if ($("#myTrcSel2 option:nth-child(" + texts[0] + ")").text().match(/●/)) {
 			layerNo = (String(layerNo)).split('_')[1];
 			$("#myTxt_" + layerNo).css('z-index', '4');
+			$("#myTxt_" + b[1]).css('display', '');
 		}
 		$("#myTrcSel2 option:nth-child(" + texts[0] + ")").css("font-weight", "bold");
 
@@ -1364,6 +1367,7 @@ javascript: (function (f, dd) {
 		for (var i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 			if ($("#myTxt_" + (i + 1)).css('zIndex') == '4') {
 				$("#myTxt_" + (i + 1)).css('zIndex', '3');
+				$("#myTxt_" + b[1]).css('display', '');
 			}
 		}
 
@@ -1375,6 +1379,7 @@ javascript: (function (f, dd) {
 		} else {
 			$('#myTrcTxtDisp').val("非表示");
 			a.style.zIndex = '4';
+			a.style.display = '';
 		}
 
 		// slice(6)は myTxt_ の文字数(length)
@@ -1523,6 +1528,7 @@ javascript: (function (f, dd) {
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				temp_zIndex[i] = $("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex');
 				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex', '0');
+				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('display', 'none');
 			}
 		} else {
 			flags = false;
@@ -1530,6 +1536,7 @@ javascript: (function (f, dd) {
 			//全レイヤーを表示にする（元から非表示のものは非表示のままに）
 			for (i = 0; i < $('#myTrcSel2').children('option').length; i++) {
 				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('zIndex', temp_zIndex[i]);
+				$("#myTxt_" + $('#myTrcSel2').children('option')[i].id.split("_")[1]).css('display', '');
 				//$("myTxt" + (i+1)).style.zIndex = '4';
 			}
 		}
@@ -1625,6 +1632,7 @@ javascript: (function (f, dd) {
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + layerNo).css('zIndex') == '4' || $("#myTxt_" + layerNo).css('zIndex') == '3') {
 				$("#myTxt_" + layerNo).css('zIndex', '0');
+				$("#myTxt_" + layerNo).css('display', 'none');
 				//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('●', '○'));
 				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
 				$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('●', '○'));
@@ -1632,11 +1640,13 @@ javascript: (function (f, dd) {
 				if ($("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (i + 1) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + layerNo).css('zIndex', '4');
+					$("#myTxt_" + layerNo).css('display', '');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + layerNo).css('zIndex', '3');
+					$("#myTxt_" + layerNo).css('display', '');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 					//$("#myTrcSel2 option:nth-child(" + layerNo + ")").text($("#myTrcSel2 option:nth-child(" + layerNo + ")").text().replace('○', '●'));
@@ -1662,16 +1672,19 @@ javascript: (function (f, dd) {
 			// zIndexが4or3なら0に、0なら4or3に
 			if ($("#myTxt_" + (layerNo)).css('zIndex') == '4' || $("#myTxt_" + (layerNo)).css('zIndex') == '3') {
 				$("#myTxt_" + (layerNo)).css('zIndex', '0');
+				$("#myTxt_" + layerNo).css('display', 'none');
 				$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('●', '○'));
 				$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('●', '○'));
 			} else {
 				if ($("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "bold" ||
 					$("#myTrcSel2 option:nth-child(" + (layerNo) + ")").css("font-weight") == "700") {
 					$("#myTxt_" + (layerNo)).css('zIndex', '4');
+					$("#myTxt_" + layerNo).css('display', '');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 				} else {
 					$("#myTxt_" + (layerNo)).css('zIndex', '3');
+					$("#myTxt_" + layerNo).css('display', '');
 					$("#option_" + layerNo).text($("#option_" + layerNo).text().replace('○', '●'));
 					$("#option_" + layerNo).val($("#option_" + layerNo).text().replace('○', '●'));
 				}
