@@ -367,7 +367,7 @@
 	/*----------------------------------------------------------------------------------------------------
 	[画像表示機能で使用するCanvasのレイヤーの設定]
 	----------------------------------------------------------------------------------------------------*/
-	$("div.MainVideoPlayer").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
+	$("canvas.VideoSymbolContainer-canvas").before("<canvas id='myImg' position='absolute' width=640 height=360 ></canvas>");
 	$('#myImg').css('position', 'absolute');
 	$('#myImg').css('top', '0px');
 	$('#myImg').css('left', '0px');
