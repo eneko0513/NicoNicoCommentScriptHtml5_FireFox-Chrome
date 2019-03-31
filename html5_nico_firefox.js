@@ -1014,6 +1014,7 @@
 	[レイヤー追加処理]
 	----------------------------------------------------------------------------------------------------*/
 	var layerCount = 0;
+	var textDefaultColor = "#ffffff";
 	$("#myTrcAdd").click(function () {
 		var a = $('#myTrcSel').val();
 		a = a.split('_');
@@ -1049,6 +1050,7 @@
 				'margin: 0;' +
 				'padding: 0;' +
 				'text-shadow:' +
+				'color: '+ textDefaultColor + ';' +
 				'1px 1px 0px rgba(0,0,0,0.2),' +
 				'-1px 1px 0px rgba(0,0,0,0.2),' +
 				'1px -1px 0px rgba(0,0,0,0.2),' +
@@ -1062,6 +1064,7 @@
 				case 'big_ue_ender_full_gothic_W17_L9':
 					myinnerTxt = myinnerTxt +
 						'height: 380px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 36.55px;' +
 						'line-height: 42px;' +
@@ -1074,6 +1077,7 @@
 				case 'big_ue_ender_full_gothic_W18_L10_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 34px;' +
 						'line-height: 40px;' +
@@ -1086,6 +1090,7 @@
 				case 'big_ue_ender_full_gothic_W20_L11_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 30px;' +
 						'line-height: 36px;' +
@@ -1098,6 +1103,7 @@
 				case 'big_ue_ender_full_gothic_W22_L12_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 28px;' +
 						'line-height: 33px;' +
@@ -1110,6 +1116,7 @@
 				case 'big_ue_ender_full_gothic_W25_L13_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 25px;' +
 						'line-height: 30px;' +
@@ -1122,6 +1129,7 @@
 				case 'big_ue_ender_full_gothic_W29_L15_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 21px;' +
 						'line-height: 26px;' +
@@ -1134,6 +1142,7 @@
 				case 'big_ue_ender_full_gothic_W31_L16_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 20px;' +
 						'line-height: 24px;' +
@@ -1146,6 +1155,7 @@
 				case 'big_ue_full_gothic_W34_L16':
 					myinnerTxt = myinnerTxt +
 						'height: 370px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 18.40px;' + //18.40
 						'line-height: 23px;' + //23
@@ -1158,6 +1168,7 @@
 				case 'medium_ue_ender_full_gothic_W24_L14':
 					myinnerTxt = myinnerTxt +
 						'height: 380px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 25.30px;' +
 						'line-height: 27px;' +
@@ -1170,6 +1181,7 @@
 				case 'medium_shita_ender_full_gothic_W24_L14':
 					myinnerTxt = myinnerTxt +
 						'height: 380px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: "游明朝", SimSun, Arial, "ＭＳ Ｐゴシック", "游ゴシック",serif;' +
 						'font-size: 25.30px;' +
 						'line-height: 27px;' +
@@ -1182,6 +1194,7 @@
 				case 'medium_ue_ender_full_gothic_W34_L19_臨':
 					myinnerTxt = myinnerTxt +
 						'height: 420px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 17px;' +
 						'line-height: 20px;' +
@@ -1194,6 +1207,7 @@
 				case 'medium_ue_full_gothic_W40_L26':
 					myinnerTxt = myinnerTxt +
 						'height: 366px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 14px;' +
 						'line-height: 14px;' +
@@ -1206,6 +1220,7 @@
 				case 'small_ue_ender_full_gothic_W37_L21':
 					myinnerTxt = myinnerTxt +
 						'height: 338px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 16px;' +
 						'line-height: 16px;' +
@@ -1218,6 +1233,7 @@
 				case 'small_ue_gothic_W24_L38':
 					myinnerTxt = myinnerTxt +
 						'height: 382px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 10px;' + //これ以上は小さくならん模様
 						'line-height: 10px;' +
@@ -1230,6 +1246,7 @@
 				case 'small_ue_full_gothic_W68_L38':
 					myinnerTxt = myinnerTxt +
 						'height: 382px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 11.2px;' +
 						'line-height: 10px;' +
@@ -1244,6 +1261,7 @@
 					n = 345 - (16.2 * (j));
 					myinnerTxt = myinnerTxt +
 						'height: 16px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 12.8px;' +
 						'line-height: 16px;' +
@@ -1258,6 +1276,7 @@
 					n = 2 + (38.7 * (j));
 					myinnerTxt = myinnerTxt +
 						'height: 37px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 16px;' +
 						'line-height: 17px;' +
@@ -1272,6 +1291,7 @@
 					n = 324 - (38.7 * (j));
 					myinnerTxt = myinnerTxt +
 						'height: 37px;' +
+						'color: '+ textDefaultColor + ';' +
 						'font-family: \'游ゴシック\', SimHei, Arial, \'ＭＳ Ｐゴシック\', sans-serif;' +
 						'font-size: 16px;' +
 						'line-height: 17px;' +
