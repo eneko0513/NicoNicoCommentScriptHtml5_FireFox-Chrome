@@ -195,7 +195,7 @@
 		"	</label>		" +
 		"	<label id='mode' class='tab5_label' for='tab5'>モード： " +
 		"	</label>		" +
-		"	<label id='tab4_2' class='tab4_label' for='tab4'>Version:2.0.0" +
+		"	<label id='tab4_2' class='tab4_label' for='tab4'>Version:2.1.0" +
 		"	</label>		" +
 		"  </div>		" +
 		"  <div class='panel_area'>			" +
